@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="it.polito.mobile.jobplacementapp.LoginFromFragment"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/login_username_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ParseLoginUI.EditText"
+        android:hint="@string/username_input_hint" />
+
+    <EditText
+        android:id="@+id/login_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ParseLoginUI.EditText"
+        android:layout_marginTop="@dimen/small_vertical_spacing"
+        android:hint="@string/password_input_hint"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true" />
+
+    <LinearLayout
+        android:id="@+id/parse_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_vertical_spacing">
+
+        <Button
+            android:id="@+id/parse_login_button"
+            style="@style/ParseLoginUI.Button"
+            android:layout_weight="0.5"
+            android:text="@string/login_button_label" />
+
+        <Button
+            android:id="@+id/parse_signup_button"
+            style="@style/ParseLoginUI.Button"
+            android:layout_marginLeft="@dimen/small_horizontal_spacing"
+            android:layout_weight="0.5"
+            android:text="@string/signup_button_label" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/parse_login_help"
+        style="@style/ParseLoginUI.HelpButton"
+        android:layout_marginTop="@dimen/small_vertical_spacing"
+        android:layout_marginBottom="@dimen/small_vertical_spacing"
+        android:text="@string/forgot_password_button_label" />
+
+</LinearLayout>
