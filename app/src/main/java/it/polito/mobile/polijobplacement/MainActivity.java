@@ -1,12 +1,11 @@
 package it.polito.mobile.polijobplacement;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 
-import com.parse.Parse;
+import com.parse.ParseAnonymousUtils;
+import com.parse.ParseUser;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -14,32 +13,38 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Parse.initialize(this, "7UUCWXAEvaHoabQcvBBkTWS3AxuDJdx1KwO7DyeW", "nlKEMOiOxYwrOrmN9rf7r5CNYzPDIM4XTRXOA7GF");
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-    }
+        //Determine whether the current user is anonymous
+        if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
+        //if the user is anonymous send the user to welcome fragment
+            setContentView(R.layout.activity_main);
+            //
+            if(findViewById(R.id.fragment_container) != null){
+                if(savedInstanceState != null){
+                    return;
+                }
+                BlankFragment welcomeFragment = new BlankFragment();
+                getFragmentManager().beginTransaction()
+                        .add(R.id.fragment_container,welcomeFragment).commit();
+            }
 
+        }
+        else{
+            ParseUser currentUser = ParseUser.getCurrentUser();
+           if(currentUser != null){
+               //if the current user is logged in send the user to main page
+               //send the user to student main page
+               if(currentUser.get(JobApplication.TYPE).equals(JobApplication.STUDENT_TYPE))
+                    startActivity(new Intent(this,StudentMainPageActivity.class));
+               //send the user to company page
+               else if(currentUser.get(JobApplication.TYPE).equals(JobApplication.COMPANY_TYPE))
+                   startActivity(new Intent(this,CompanyMainPageActivity.class));
+            }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            else{
+               //if the user not logged in send the user to login activity
+                startActivity(new Intent(this,LoginActivity.class));
+            }
         }
 
-        return super.onOptionsItemSelected(item);
     }
 }
