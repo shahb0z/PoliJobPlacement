@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            style="@style/LoginFormContainer"
+            style="@style/FormContainer"
             android:orientation="vertical" >
             <EditText
                 android:id="@+id/name_edit_text"
@@ -81,13 +81,9 @@
 
             <Button
                 android:id="@+id/signup_confirm_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/button"
                 android:layout_gravity="end"
-                android:layout_marginTop="16dp"
-                android:paddingLeft="32dp"
-                android:paddingRight="32dp"
-                android:text="@string/signup_title" />
+                android:text="@string/signup_title"/>
         </LinearLayout>
     </ScrollView>
 

@@ -27,19 +27,17 @@ tools:context="it.polito.mobile.polijobplacement.BlankFragment">
         android:id="@+id/welcome_footer">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/button"
             android:text="@string/login_title"
             android:id="@+id/welcome_login_button"
             android:layout_weight="1"
-            android:padding="10dp" />
+            />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            style="@style/button"
             android:text="@string/create_user"
             android:id="@+id/welcome_create_user"
             android:layout_weight="1"
-            android:padding="10dp" />
+            />
     </LinearLayout>
 </RelativeLayout>

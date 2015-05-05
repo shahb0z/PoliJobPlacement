@@ -36,9 +36,7 @@ public class SignupActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        getSupportActionBar().setLogo(R.drawable.ic_launcher);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         nameEditText = (EditText)findViewById(R.id.name_edit_text);
         usernameEditText = (EditText)findViewById(R.id.username_edit_text);
         passwordEditText = (EditText)findViewById(R.id.password_edit_text);
