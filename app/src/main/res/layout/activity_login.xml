@@ -6,11 +6,12 @@
 
     <ScrollView
         android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        style="@style/FormContainer" >
 
         <LinearLayout
-            style="@style/LoginFormContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:orientation="vertical" >
 
             <EditText
@@ -38,21 +39,13 @@
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/login_action_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/button"
                     android:layout_weight="1"
-                    android:layout_marginTop="16dp"
-                    android:paddingLeft="32dp"
-                    android:paddingRight="32dp"
                     android:text="@string/login_title" />
                 <Button
                     android:id="@+id/signup_action_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/button"
                     android:layout_weight="1"
-                    android:layout_marginTop="16dp"
-                    android:paddingLeft="32dp"
-                    android:paddingRight="32dp"
                     android:text="@string/signup_title" />
 
             </LinearLayout>
