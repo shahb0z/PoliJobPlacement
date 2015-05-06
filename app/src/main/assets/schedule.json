@@ -1,0 +1,13 @@
+{
+    
+    "Company":[
+    	{"Name": "FIAT",  "Sector": "Computer", "Tittle": "control engineer","Detail": "Show Datail"},
+    	{"Name": "GULF",  "Sector": "Industy", "Tittle": "control engineer","Detail": "Show Datail"},
+    	{"Name": "ABB",  "Sector": "IT", "Tittle": "Computer engineer","Detail": "Show Datail"},
+    	{"Name": "ABB",  "Sector": "Industy", "Tittle": "control engineer","Detail": "Show Datail"},
+    	{"Name": "XX.PLC",  "Sector": "Accounting", "Tittle": "Accountant","Detail": "Show Datail"},
+    	{"Name": "ABB",  "Sector": "Industy", "Tittle": "control engineer","Detail": "Show Datail"},
+        {"Name": "Polito",  "Sector": "IT", "Tittle": "Software engineer","Detail": "Show Datail"}
+    ]
+}
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <!-- Subject Label -->
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dip"
+        android:paddingLeft="15dip"
+        android:paddingTop="8dip"
+        android:textSize="18dip"
+        android:text="@string/Name"
+        android:textStyle="bold"/>
+
+    <!-- To email -->
+
+    <TextView
+        android:id="@+id/Sector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Name"
+        android:paddingLeft="15dip"
+        android:textStyle="bold"
+        android:text="@string/Professor"
+        android:textSize="15dip" />
+
+    <!-- Mail date -->
+
+    <TextView
+        android:id="@+id/Tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:text="@string/Time"
+
+        android:padding="15dip" />
+    <TextView
+        android:id="@+id/AnyDetail"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Tittle"
+        android:textStyle="bold"
+        android:text="@string/Roomno"
+        android:padding="15dip" />
+
+
+
+</RelativeLayout>

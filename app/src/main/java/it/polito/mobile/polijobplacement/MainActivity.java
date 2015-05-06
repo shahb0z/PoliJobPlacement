@@ -16,7 +16,7 @@ public class MainActivity extends ActionBarActivity {
         //Determine whether the current user is anonymous
         if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
         //if the user is anonymous send the user to welcome fragment
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_main1);
             //
             if(findViewById(R.id.fragment_container) != null){
                 if(savedInstanceState != null){
