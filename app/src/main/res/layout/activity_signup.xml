@@ -6,11 +6,11 @@
 
     <ScrollView
         android:id="@+id/signup_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        style="@style/FormContainer">
 
         <LinearLayout
-            style="@style/FormContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical" >
             <EditText
                 android:id="@+id/name_edit_text"
