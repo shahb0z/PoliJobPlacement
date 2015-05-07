@@ -41,6 +41,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mTitle = mDrawerTitle = getTitle();
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
@@ -83,6 +84,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu
             }
         };
+
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 

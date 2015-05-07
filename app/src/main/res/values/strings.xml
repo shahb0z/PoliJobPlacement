@@ -53,6 +53,9 @@
     <string name="Search">Search</string>
     <string name="Course">Course</string>
     <string name="Detail">Detail</string>
+    <string name="View">View</string>
+    <string name="Delete">Delete</string>
+    <string name="Delete1">Delete1</string>
 
     <string name="Professor">Professor</string>
     <string name="Roomno">Room Number</string>

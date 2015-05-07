@@ -98,6 +98,8 @@ public class Compay_List_ViewFragment extends ListFragment {
         setListAdapter(new Company_ListViewAdapter(getActivity(), mItems));
 
     }
+
+
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         // retrieve theListView item
