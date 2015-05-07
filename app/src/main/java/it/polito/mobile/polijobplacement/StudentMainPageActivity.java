@@ -21,6 +21,8 @@ package it.polito.mobile.polijobplacement;
         import android.widget.ListView;
         import android.widget.Toast;
 
+        import com.parse.ParseUser;
+
 public class StudentMainPageActivity extends ActionBarActivity {
 
 
@@ -145,6 +147,10 @@ public class StudentMainPageActivity extends ActionBarActivity {
                         .beginTransaction()
                         .replace(R.id.content_frame, WebViewFragment.newInstance(),
                                 WebViewFragment.TAG).commit();
+                break;
+            case 4:
+                ParseUser.logOut();
+                startActivity(new Intent(StudentMainPageActivity.this,MainActivity.class));
                 break;
         }
         mDrawerLayout.closeDrawer(mDrawerList);
