@@ -41,6 +41,7 @@
         <item>MyProfile</item>
         <item>MyRecord</item>
         <item>Setting</item>
+        <item>Logout</item>
         <item>FAQ</item>
     </string-array>
 

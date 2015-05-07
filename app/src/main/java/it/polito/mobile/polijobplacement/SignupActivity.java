@@ -29,15 +29,12 @@ public class SignupActivity extends ActionBarActivity {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText passwordAgainEditText;
-    private EditText nameEditText;
     private String userType = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
-        nameEditText = (EditText)findViewById(R.id.name_edit_text);
         usernameEditText = (EditText)findViewById(R.id.username_edit_text);
         passwordEditText = (EditText)findViewById(R.id.password_edit_text);
         passwordAgainEditText = (EditText)findViewById(R.id.password_again_edit_text);
@@ -88,7 +85,7 @@ public class SignupActivity extends ActionBarActivity {
      * The method for handling sign up validation and sign up with <a href="http://parse.com">parse.com</a> .
      */
     private void signup() {
-        String name = nameEditText.getText().toString().trim();
+
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String passwordAgain = passwordAgainEditText.getText().toString().trim();
@@ -97,20 +94,11 @@ public class SignupActivity extends ActionBarActivity {
         boolean validationError = false;
         StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
 
-        if(name.length() == 0){
+        if(username.length() == 0){
             validationError = true;
-            validationErrorMessage.append(getString(R.string.error_blank_name));
+            validationErrorMessage.append(getString(R.string.error_blank_username));
         }
-        if (username.length() == 0) {
-            if(validationError){
-                validationErrorMessage.append(getString(R.string.error_blank_username));
-            }else{
-                validationError = true;
-                validationErrorMessage.append(getString(R.string.error_blank_username));
-            }
 
-
-        }
         if(!isEmailValid(username)){
             if(validationError){
                 validationErrorMessage.append(getString(R.string.error_email_not_valid));
@@ -163,7 +151,6 @@ public class SignupActivity extends ActionBarActivity {
         ParseUser user = new ParseUser();
         user.setUsername(username);
         user.setPassword(password);
-        user.put("name",name);
 
         user.put("userType",userType);
         // Call the Parse signup method
