@@ -66,5 +66,17 @@
         <item>Check</item>
 
     </string-array>
-
+    <string name="profileUncomplete">Your profile has not been completed yet,would you like to complete it now?</string>
+    <string name="donotAskAgain">Do not ask me again</string>
+    <string name="studentName">Name:</string>
+    <string name="studentGender">Gender:</string>
+    <string name="studentAge">Age:</string>
+    <string name="studentSpecialty">Specialty:</string>
+    <string name="studentEdu">Educational Background:</string>
+    <string name="eduMajor">Major:</string>
+    <string name="eduDegree">Degree:</string>
+    <string name="eduUniversity">University:</string>
+    <string name="Finish">Finish</string>
+    <string name="UploadCV">Upload CV</string>
+    <string name="title_activity_profile_student">profile_student</string>
 </resources>

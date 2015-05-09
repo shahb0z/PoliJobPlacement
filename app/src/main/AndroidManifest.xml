@@ -40,6 +40,11 @@
             android:name=".CompanyMainPageActivity"
             android:label="@string/title_activity_company_main_page" >
         </activity>
+        <activity
+            android:name=".profile_student"
+            android:windowSoftInputMode="adjustPan"
+            android:label="@string/title_activity_profile_student" >
+        </activity>
     </application>
 
 </manifest>

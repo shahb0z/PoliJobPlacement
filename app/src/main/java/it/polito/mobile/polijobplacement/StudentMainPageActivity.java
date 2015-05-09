@@ -1,5 +1,7 @@
 package it.polito.mobile.polijobplacement;
 
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
         import android.os.Bundle;
         import android.app.SearchManager;
         import android.content.Context;
@@ -12,12 +14,14 @@ package it.polito.mobile.polijobplacement;
         import android.support.v7.app.ActionBar;
         import android.support.v7.app.ActionBarActivity;
         import android.support.v7.widget.SearchView;
+        import android.view.LayoutInflater;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.AdapterView.OnItemClickListener;
         import android.widget.ArrayAdapter;
+        import android.widget.CheckBox;
         import android.widget.ListView;
         import android.widget.Toast;
 
@@ -35,7 +39,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
     private CharSequence mTitle;
     private String[] mDrawerItmes;
     private ActionBar actionBar;
-
+    private CheckBox chk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +97,40 @@ public class StudentMainPageActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             navigateTo(0);
         }
+        if(!(boolean)ParseUser.getCurrentUser().get("isProfileCompleted")&&!(boolean)ParseUser.getCurrentUser().get("isProfileUncompletedAlertNeverShown"))
+        {
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(StudentMainPageActivity.this);
+
+            LayoutInflater inflater=getLayoutInflater();
+            View view=inflater.inflate(R.layout.profile_uncompleted_alert, null);
+            builder.setView(view);
+            chk=(CheckBox)view.findViewById(R.id.chkIsNeverShow);
+            builder.setPositiveButton("Complete it now", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    if(chk.isChecked())
+                    {
+                        ParseUser.getCurrentUser().put("isProfileUncompletedAlertNeverShown",true);
+                    }
+                    startActivity(new Intent(StudentMainPageActivity.this,profile_student.class));
+                }
+            });
+            builder.setNegativeButton("Do it later", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    if(chk.isChecked())
+                    {
+                        ParseUser.getCurrentUser().put("isProfileUncompletedAlertNeverShown",true);
+                    }
+                }
+            });
+            builder.create().show();
+
+
+        }
     }
 
     /*
@@ -145,10 +182,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
                                 TabbedFragment.TAG).commit();
                 break;
             case 1:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.content_frame, WebViewFragment.newInstance(),
-                                WebViewFragment.TAG).commit();
+                startActivity(new Intent(StudentMainPageActivity.this,profile_student.class));
                 break;
             case 4:
                 ParseUser.logOut();

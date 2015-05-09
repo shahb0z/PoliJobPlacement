@@ -153,6 +153,8 @@ public class SignupActivity extends ActionBarActivity {
         user.setPassword(password);
 
         user.put("userType",userType);
+        user.put("isProfileCompleted",false);
+        user.put("isProfileUncompletedAlertNeverShown",false);
         // Call the Parse signup method
         user.signUpInBackground(new SignUpCallback() {
             @Override
