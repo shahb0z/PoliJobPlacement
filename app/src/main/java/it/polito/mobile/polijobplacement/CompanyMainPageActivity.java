@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 
 import com.parse.ParseUser;
 
@@ -35,7 +34,7 @@ public class CompanyMainPageActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 ParseUser.logOut();
-                startActivity(new Intent(CompanyMainPageActivity.this,MainActivity.class));
+                startActivity(new Intent(CompanyMainPageActivity.this,MainActivity1.class));
             }
         });
     }

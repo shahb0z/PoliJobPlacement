@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_translucent"
+    tools:context="it.polito.mobile.polijobplacement.Fragment_Companies">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/theme"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:background="#ff1415ff"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+
+        >
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="#f5fbfde7"
+            android:gravity="center"
+            android:text="Suggestions"
+            android:layout_weight="1"/>
+
+        </LinearLayout>
+    <ListView
+        android:id="@+id/list_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:dividerHeight="2dp"
+        android:divider="@color/black_translucent"
+        android:layout_below="@+id/theme"
+        ></ListView>
+</RelativeLayout>

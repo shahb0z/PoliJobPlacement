@@ -1,50 +1,43 @@
 package it.polito.mobile.polijobplacement;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-
-import com.parse.ParseAnonymousUtils;
-import com.parse.ParseUser;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Determine whether the current user is anonymous
-        if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
-        //if the user is anonymous send the user to welcome fragment
+            Database db = (Database) getApplicationContext();
             setContentView(R.layout.activity_main1);
-            //
-            if(findViewById(R.id.fragment_container) != null){
-                if(savedInstanceState != null){
-                    return;
-                }
-                BlankFragment welcomeFragment = new BlankFragment();
-                getFragmentManager().beginTransaction()
-                        .add(R.id.fragment_container,welcomeFragment).commit();
-            }
+          if(db.getUser() == null) {
+              BlankFragment welcomeFragment = new BlankFragment();
+              getFragmentManager().beginTransaction()
+                      .add(R.id.fragment_container, welcomeFragment).commit();
+          }
+         else{
+              if(db.getUser().TYPE.equalsIgnoreCase("Student")){
+                  startActivity(new Intent(getApplicationContext(), StudentMainPageActivity.class));
+              }
+              else
+                  startActivity(new Intent(getApplicationContext(), Company_Main_Page.class));
+          }
 
-        }
-        else{
-            ParseUser currentUser = ParseUser.getCurrentUser();
-           if(currentUser != null){
-               //if the current user is logged in send the user to main page
-               //send the user to student main page
-               if(currentUser.get(JobApplication.TYPE).equals(JobApplication.STUDENT_TYPE))
-                    startActivity(new Intent(this,StudentMainPageActivity.class));
-               //send the user to company page
-               else if(currentUser.get(JobApplication.TYPE).equals(JobApplication.COMPANY_TYPE))
-                   startActivity(new Intent(this,CompanyMainPageActivity.class));
-            }
 
-            else{
-               //if the user not logged in send the user to login activity
-                startActivity(new Intent(this,LoginActivity.class));
-            }
-        }
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.menu_home, menu);
+        return true;
     }
 }

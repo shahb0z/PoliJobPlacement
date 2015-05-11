@@ -2,8 +2,8 @@ package it.polito.mobile.polijobplacement;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,10 +48,30 @@ public class LoginActivity extends ActionBarActivity {
         // Set up the submit button click handler
         Button actionButton1 = (Button) findViewById(R.id.login_action_button);
         actionButton1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                login();
-            }
-        });
+                                             public void onClick(View view) {
+                                                 Database db = (Database) getApplicationContext();
+
+                                                 if (db.login(usernameEditText.getText().toString(), passwordEditText.getText().toString())) {
+
+                                                     Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                                     if(db.getUser().getType().equalsIgnoreCase("Student")) {
+                                                         Intent intent = new Intent(getApplicationContext(), StudentMainPageActivity.class);
+                                                         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                         startActivity(intent);
+                                                     }
+                                                     else{
+                                                         Intent intent = new Intent(getApplicationContext(), Company_Main_Page.class);
+                                                         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                         startActivity(intent);
+                                                     }
+
+                                                     //login();
+                                                 } else {
+                                                     Toast.makeText(getApplicationContext(), "Login Error!", Toast.LENGTH_LONG).show();
+                                                 }
+                                             }
+                                         });
+
         Button actionButton2 = (Button)findViewById(R.id.signup_action_button);
         actionButton2.setOnClickListener(new View.OnClickListener(){
 

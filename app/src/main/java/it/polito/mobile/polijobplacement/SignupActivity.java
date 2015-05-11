@@ -1,8 +1,8 @@
 package it.polito.mobile.polijobplacement;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -16,25 +16,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 /**
  * @author shahb0z
  * The activity is responsible for sign up flow
  */
 
-public class SignupActivity extends ActionBarActivity {
+public class SignupActivity extends Activity {
 
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText passwordAgainEditText;
+    private EditText nameEditText;
     private String userType = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        //nameEditText = (EditText)findViewById(R.id.name_edit_text);
         usernameEditText = (EditText)findViewById(R.id.username_edit_text);
         passwordEditText = (EditText)findViewById(R.id.password_edit_text);
         passwordAgainEditText = (EditText)findViewById(R.id.password_again_edit_text);
@@ -53,7 +54,32 @@ public class SignupActivity extends ActionBarActivity {
         Button mActionButton = (Button) findViewById(R.id.signup_confirm_button);
         mActionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                signup();
+
+                Database db = (Database) getApplicationContext();
+                App_User user = new App_User();
+                user.setMail(usernameEditText.getText().toString());
+                user.setPassword(passwordEditText.getText().toString());
+                user.setType(userType);
+                //user.setName(nameEditText.getText().toString());
+
+                try {
+
+                    db.registerNewAccount(user);
+
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if( db.getUser().getType().equalsIgnoreCase("Student")) {
+                    Intent intent = new Intent(getApplicationContext(), StudentMainPageActivity.class);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), Company_Main_Page.class);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -85,7 +111,7 @@ public class SignupActivity extends ActionBarActivity {
      * The method for handling sign up validation and sign up with <a href="http://parse.com">parse.com</a> .
      */
     private void signup() {
-
+        String name = nameEditText.getText().toString().trim();
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
         String passwordAgain = passwordAgainEditText.getText().toString().trim();
@@ -94,11 +120,20 @@ public class SignupActivity extends ActionBarActivity {
         boolean validationError = false;
         StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
 
-        if(username.length() == 0){
+        if(name.length() == 0){
             validationError = true;
-            validationErrorMessage.append(getString(R.string.error_blank_username));
+            validationErrorMessage.append(getString(R.string.error_blank_name));
         }
+        if (username.length() == 0) {
+            if(validationError){
+                validationErrorMessage.append(getString(R.string.error_blank_username));
+            }else{
+                validationError = true;
+                validationErrorMessage.append(getString(R.string.error_blank_username));
+            }
 
+
+        }
         if(!isEmailValid(username)){
             if(validationError){
                 validationErrorMessage.append(getString(R.string.error_email_not_valid));
@@ -148,29 +183,20 @@ public class SignupActivity extends ActionBarActivity {
         dialog.show();
 
         // Set up a new Parse user
-        ParseUser user = new ParseUser();
-        user.setUsername(username);
+        App_User user = new App_User();
+        user.setMail(username);
         user.setPassword(password);
+        user.setName(name);
 
-        user.put("userType",userType);
-        user.put("isProfileCompleted",false);
-        user.put("isProfileUncompletedAlertNeverShown",false);
+        user.setType(userType);
         // Call the Parse signup method
-        user.signUpInBackground(new SignUpCallback() {
-            @Override
-            public void done(ParseException e) {
-                dialog.dismiss();
-                if (e != null) {
-                    // Show the error message
-                    Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                } else {
-                    // Start an intent for the dispatch activity
-                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+        user.saveInBackground();
+                    Intent intent = new Intent(SignupActivity.this, Home.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                }
-            }
-        });
+
+
+
     }
     /**
      * method for getting user input for user type
@@ -184,12 +210,12 @@ public class SignupActivity extends ActionBarActivity {
                 case R.id.checkbox_student:
                     student.setChecked(true);
                     company.setChecked(false);
-                    userType = JobApplication.STUDENT_TYPE;
+                    userType = App_User.STUDENT_TYPE;
                     break;
                 case R.id.checkbox_company:
                     company.setChecked(true);
                     student.setChecked(false);
-                    userType = JobApplication.COMPANY_TYPE;
+                    userType = App_User.COMPANY_TYPE;
                     break;
             }
         }else{

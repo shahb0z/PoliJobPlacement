@@ -18,7 +18,7 @@ import java.util.LinkedList;
 
 public class profile_student extends ActionBarActivity {
 
-    private Student student;
+    private Student1 student1;
     Button btnfinish;
     ImageButton btnAdd;
     ImageButton btnDel;
@@ -52,11 +52,11 @@ public class profile_student extends ActionBarActivity {
             {
                 edu.add(new EduBackground(tempD[i],tempU[i],tempM[i]));
             }
-            student=new Student((String)user.get("Name"),(String)user.get("Age"),(String)user.get("Gender"),(String)user.get("Specialty"),edu);
-            txtName.setText(student.name);
-            txtGender.setText(student.gender);
-            txtAge.setText(student.age);
-            txtSpeciality.setText(student.specialty);
+            student1 =new Student1((String)user.get("Name"),(String)user.get("Age"),(String)user.get("Gender"),(String)user.get("Specialty"),edu);
+            txtName.setText(student1.name);
+            txtGender.setText(student1.gender);
+            txtAge.setText(student1.age);
+            txtSpeciality.setText(student1.specialty);
 
         }
 
@@ -77,12 +77,12 @@ public class profile_student extends ActionBarActivity {
                     Toast.makeText(profile_student.this,"there are still blanks need to be filled ", Toast.LENGTH_LONG).show();
                     return;
                 }
-                student=new Student(name,age ,gender,specialty,edu);
+                student1 =new Student1(name,age ,gender,specialty,edu);
 
-                user.put("Name",student.name);
-                user.put("Gender",student.gender);
-                user.put("Age",student.age);
-                user.put("Specialty",student.specialty);
+                user.put("Name", student1.name);
+                user.put("Gender", student1.gender);
+                user.put("Age", student1.age);
+                user.put("Specialty", student1.specialty);
                 user.put("EduSize",edu.size());
                 StringBuilder tempM=new StringBuilder();
                 StringBuilder tempU=new StringBuilder();

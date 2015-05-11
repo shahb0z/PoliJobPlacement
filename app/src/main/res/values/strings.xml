@@ -41,9 +41,18 @@
         <item>MyProfile</item>
         <item>MyRecord</item>
         <item>Setting</item>
+        <item>Search</item>
         <item>Logout</item>
-        <item>FAQ</item>
+
     </string-array>
+    <string-array name="drawer_title_company">
+        <item>Home</item>
+        <item>Profile Management</item>
+        <item>Search</item>
+        <item>Job Offer</item>
+        <item>Logout</item>
+    </string-array>
+
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
@@ -79,4 +88,6 @@
     <string name="Finish">Finish</string>
     <string name="UploadCV">Upload CV</string>
     <string name="title_activity_profile_student">profile_student</string>
+    <string name="title_activity_search__specific">Search_Specific</string>
+    <string name="title_activity_company__main__page">Company Main Page</string>
 </resources>

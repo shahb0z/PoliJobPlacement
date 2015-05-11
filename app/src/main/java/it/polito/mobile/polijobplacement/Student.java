@@ -1,23 +1,34 @@
 package it.polito.mobile.polijobplacement;
 
-import java.util.LinkedList;
+import com.parse.ParseClassName;
+
+import java.util.Date;
 
 /**
- * Created by LeWQ on 2015/5/9 0009.
+ * Created by user on 5/7/2015.
  */
-public class Student {
-    String name;
-    String age;
-    String gender;
-    String specialty;
-    LinkedList<EduBackground> eduBackGround;
+@ParseClassName("Student")
+public class Student extends App_User {
+    private static final String NAME = "name";
+    private static final String SURNAME = "surname";
+    private static final String GENDER = "gender";
+    private static  Date BIRTHDATE;
+    //degrees, languages;
 
-    public Student(String name,String age,String gender,String specialty,LinkedList eduBackGround)
-    {
-        this.name=name;
-        this.age=age;
-        this.gender=gender;
-        this.specialty=specialty;
-        this.eduBackGround=eduBackGround;
+    public Student(){
+        super();
     }
+    public  String getName() {
+        return getString(NAME);
+    }
+
+    public  String getSurname() {
+        return getString(SURNAME);
+    }
+
+    public  String getGender() {
+        return getString(GENDER);
+    }
+
+
 }
