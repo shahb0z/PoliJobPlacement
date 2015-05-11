@@ -31,14 +31,14 @@ public class BlankFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),LoginActivity.class));
+                startActivity(new Intent(getActivity(),LoginActivity1.class));
             }
         });
         Button createAccountButton = (Button)rootView.findViewById(R.id.welcome_create_user);
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),SignupActivity.class));
+                startActivity(new Intent(getActivity(),SignupActivity1.class));
             }
         });
         return rootView;

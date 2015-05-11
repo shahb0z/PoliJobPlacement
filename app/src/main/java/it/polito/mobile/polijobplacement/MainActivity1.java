@@ -1,5 +1,6 @@
 package it.polito.mobile.polijobplacement;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,7 +9,7 @@ import com.parse.ParseAnonymousUtils;
 import com.parse.ParseUser;
 
 
-public class MainActivity1 extends ActionBarActivity {
+public class MainActivity1 extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

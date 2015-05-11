@@ -177,7 +177,7 @@ public class Company_Main_Page extends ActionBarActivity {
             //case 3:
 
             case 4:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity1.class));
                 break;
         }
         //mDrawerLayout.closeDrawer(mDrawerList);

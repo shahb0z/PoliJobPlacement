@@ -32,7 +32,7 @@ public class Fragment_Search_Company extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_fragment__home, container, false);
-        Database db = (Database) getActivity().getApplicationContext();
+        JobApplication db = (JobApplication) getActivity().getApplicationContext();
         final List<App_User> list_students = db.Student_List();
         if(list_students != null) {
             ListView lt = (ListView) v.findViewById(R.id.list_company);
