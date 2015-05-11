@@ -2,8 +2,7 @@ package it.polito.mobile.polijobplacement.Data;
 
 import java.util.Date;
 import java.util.LinkedList;
-
-import it.polito.mobile.polijobplacement.EduBackground;
+import java.util.List;
 
 /**
  * Created by LeWQ on 2015/5/9 0009.
@@ -16,6 +15,8 @@ public class Student {
     public String gender;
    public String specialty;
     LinkedList<EduBackground> eduBackGround;
+    List<Languages> LanguageSkills;
+    public String PhoneNumber;
 
     public Student(String name, String age, String gender, String specialty, LinkedList eduBackGround)
     {
