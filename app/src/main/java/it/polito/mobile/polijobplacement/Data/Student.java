@@ -9,12 +9,12 @@ import it.polito.mobile.polijobplacement.EduBackground;
  * Created by LeWQ on 2015/5/9 0009.
  */
 public class Student {
-    String name;
-    String Surname;
-    Date BirthDate;
-    String age;
-    String gender;
-    String specialty;
+    public String name;
+    public String Surname;
+    public Date BirthDate;
+    public String age;
+    public String gender;
+   public String specialty;
     LinkedList<EduBackground> eduBackGround;
 
     public Student(String name, String age, String gender, String specialty, LinkedList eduBackGround)
