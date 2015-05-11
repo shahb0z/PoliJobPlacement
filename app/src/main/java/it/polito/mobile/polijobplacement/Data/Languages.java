@@ -1,13 +1,15 @@
 package it.polito.mobile.polijobplacement.Data;
 
+import com.parse.ParseClassName;
+
 /**
  * Created by user on 5/12/2015.
  */
-public class Languages {
+@ParseClassName("Languages")
+public class Languages extends  {
     private String name;
-   public Languages(){
+    private String level;
 
-   }
     public String getName() {
         return name;
     }
@@ -24,6 +26,6 @@ public class Languages {
         this.level = level;
     }
 
-    private String level;
+
 
 }

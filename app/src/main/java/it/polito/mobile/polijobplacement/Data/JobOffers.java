@@ -11,9 +11,7 @@ public class JobOffers extends ParseObject {
     private String Title;
     private String Field;
     private String Description;
-    public JobOffers(){
 
-    }
 
     public String getTitle() {
         return Title;
