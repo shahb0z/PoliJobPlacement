@@ -1,4 +1,4 @@
-package it.polito.mobile.polijobplacement;
+package it.polito.mobile.polijobplacement.Data;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

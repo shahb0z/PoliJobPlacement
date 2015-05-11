@@ -1,4 +1,4 @@
-package it.polito.mobile.polijobplacement;
+package it.polito.mobile.polijobplacement.Data;
 
 /**
  * Created by Admin on 5/6/2015.
