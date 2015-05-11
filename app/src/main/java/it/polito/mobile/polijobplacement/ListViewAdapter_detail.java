@@ -7,27 +7,22 @@ package it.polito.mobile.polijobplacement;
 
 import java.util.List;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v4.app.FragmentManager.OnBackStackChangedListener;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class ListViewAdapter_detail extends ArrayAdapter<Company>  {
+import it.polito.mobile.polijobplacement.Data.Company_2;
+
+public class ListViewAdapter_detail extends ArrayAdapter<Company_2>  {
 
     Button cancel;
 
 
-    public ListViewAdapter_detail(Context context, List<Company> items) {
+    public ListViewAdapter_detail(Context context, List<Company_2> items) {
         super(context, R.layout.mylistitem_detail, items);
 		/*cancel.setOnClickListener(new View.OnClickListener() {
 
@@ -68,7 +63,7 @@ public class ListViewAdapter_detail extends ArrayAdapter<Company>  {
         }
 
         // update the item view
-        Company item = getItem(position);
+        Company_2 item = getItem(position);
         viewHolder.Tittle.setText(item.Tittle);
         viewHolder.Sector.setText(item.Sector);
         viewHolder.companyname.setText(item.Name);

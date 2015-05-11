@@ -9,17 +9,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.view.View.OnClickListener;
+
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import it.polito.mobile.polijobplacement.Data.Company_2;
+
 public class Compay_List_ViewFragment extends ListFragment {
 
-    private List<Company> mItems;
-    private List<Company> mItems1;
+    private List<Company_2> mItems;
+    private List<Company_2> mItems1;
     // ListView items list
     private String filename = "schedule.json";
     public String compname;
@@ -55,8 +57,8 @@ public class Compay_List_ViewFragment extends ListFragment {
         }
         compname = getArguments().getString("compname");
 
-        mItems = new ArrayList<Company>();
-        mItems1 = new ArrayList<Company>();
+        mItems = new ArrayList<Company_2>();
+        mItems1 = new ArrayList<Company_2>();
 
         JSONParser jParser = new JSONParser();
         JSONObject json;
@@ -80,7 +82,7 @@ public class Compay_List_ViewFragment extends ListFragment {
                     for (int i = 0; i < schedules.length(); i++) {
                         JSONObject c = schedules.getJSONObject(i);
 
-                        mItems.add(new Company(c.getString("Name"), c
+                        mItems.add(new Company_2(c.getString("Name"), c
                                 .getString("Sector"), c.getString("Tittle"), c
                                 .getString("Detail")));
 
@@ -103,7 +105,7 @@ public class Compay_List_ViewFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         // retrieve theListView item
-        Company item = mItems.get(position);
+        Company_2 item = mItems.get(position);
 
         mItems1.add(item);
 

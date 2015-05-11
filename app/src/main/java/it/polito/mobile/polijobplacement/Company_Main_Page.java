@@ -20,6 +20,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import it.polito.mobile.polijobplacement.Search.Company_Home;
+import it.polito.mobile.polijobplacement.Search.Search_Specific;
+import it.polito.mobile.polijobplacement.Search.Search_student;
+
 public class Company_Main_Page extends ActionBarActivity {
 
 

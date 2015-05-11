@@ -1,4 +1,4 @@
-package it.polito.mobile.polijobplacement;
+package it.polito.mobile.polijobplacement.Search;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,16 +13,16 @@ import java.util.Locale;
 /**
  * Created by user on 5/9/2015.
  */
-public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
+public class FragmentPageAdapter_Search_Student extends FragmentPagerAdapter {
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
 
     final int PAGE_COUNT = 2;
-    private String  ku[]= {"Companies","Job Offers"};
+    private String  ku[]= {"STUDENT LIST","STUDENT IN SPECIFIC FILED"};
     private List<Fragment> fragments;
 
     private Bundle searchResults=null;
-    public FragmentPageAdapter_Search(FragmentManager fm) {
+    public FragmentPageAdapter_Search_Student(FragmentManager fm) {
         super(fm);
         this.mFragmentManager = fm;
     }
@@ -76,11 +76,11 @@ public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:{
-                f =  new Fragment_Companies();
+                f =  new Fragment_Search_Company();
                 return  f;
             }
             case 1:{
-                f = new Fragment_Job_Offers();
+                f = new Fragment_Search_Company_Specific();
                 return  f;
             }
 

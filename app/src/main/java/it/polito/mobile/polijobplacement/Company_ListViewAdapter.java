@@ -11,14 +11,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.os.Bundle;
 
-public class Company_ListViewAdapter extends ArrayAdapter<Company>  {
+import it.polito.mobile.polijobplacement.Data.Company_2;
 
-    public Company_ListViewAdapter(Context context, List<Company> items) {
+public class Company_ListViewAdapter extends ArrayAdapter<Company_2>  {
+
+    public Company_ListViewAdapter(Context context, List<Company_2> items) {
 
         super(context, R.layout.companylistitem, items);
     }
@@ -45,7 +45,7 @@ public class Company_ListViewAdapter extends ArrayAdapter<Company>  {
         }
 
         // update the item view
-        Company item = getItem(position);
+        Company_2 item = getItem(position);
         viewHolder.companyname.setText(item.Name);
         viewHolder.Sector.setText(item.Sector);
         viewHolder.Tittle.setText(item.Tittle);

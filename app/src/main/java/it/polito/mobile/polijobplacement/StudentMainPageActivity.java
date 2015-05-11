@@ -19,10 +19,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import it.polito.mobile.polijobplacement.Data.JobApplication;
+import it.polito.mobile.polijobplacement.Search.Search;
 
 public class StudentMainPageActivity extends ActionBarActivity {
 
@@ -180,6 +182,11 @@ public class StudentMainPageActivity extends ActionBarActivity {
                 break;*/
             case 4:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, Search.newInstance()).commit();
+                break;
+            case 5:
+                JobApplication db = (JobApplication)getApplication().getApplicationContext();
+
+                startActivity(new Intent(getApplicationContext(), MainActivity1.class));
 
         }
         //mDrawerLayout.closeDrawer(mDrawerList);

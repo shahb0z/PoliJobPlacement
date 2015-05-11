@@ -18,6 +18,8 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import it.polito.mobile.polijobplacement.Data.App_User;
+
 
 public class LoginActivity1 extends ActionBarActivity {
 
@@ -94,7 +96,8 @@ public class LoginActivity1 extends ActionBarActivity {
         dialog.setMessage(getString(R.string.progress_login));
         dialog.show();
         // Call the Parse login method
-        ParseUser.logInInBackground(username, password, new LogInCallback() {
+        App_User user = new App_User();
+        user.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
                 dialog.dismiss();

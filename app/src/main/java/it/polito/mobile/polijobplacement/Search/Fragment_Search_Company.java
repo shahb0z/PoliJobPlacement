@@ -1,10 +1,7 @@
-package it.polito.mobile.polijobplacement;
+package it.polito.mobile.polijobplacement.Search;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
-import android.provider.ContactsContract;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +10,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import it.polito.mobile.polijobplacement.Data.App_User;
+import it.polito.mobile.polijobplacement.Data.JobApplication;
+import it.polito.mobile.polijobplacement.R;
 
 
 /**
@@ -45,7 +46,7 @@ public class Fragment_Search_Company extends android.support.v4.app.Fragment {
 
                 @Override
                 public Object getItem(int position) {
-                    return list_students.get(position).getMail();
+                    return list_students.get(position).getUsername();
                 }
 
                 @Override

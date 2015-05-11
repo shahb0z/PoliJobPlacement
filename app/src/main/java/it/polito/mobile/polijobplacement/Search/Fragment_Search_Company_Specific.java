@@ -1,4 +1,4 @@
-package it.polito.mobile.polijobplacement;
+package it.polito.mobile.polijobplacement.Search;
 
 
 import android.os.Bundle;
@@ -14,14 +14,16 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import it.polito.mobile.polijobplacement.R;
+
 
 /**
  * A simple {@link android.app.Fragment} subclass.
  */
-public class Fragment_Companies extends android.support.v4.app.Fragment {
+public class Fragment_Search_Company_Specific extends android.support.v4.app.Fragment {
 
 
-    public Fragment_Companies() {
+    public Fragment_Search_Company_Specific() {
         // Required empty public constructor
     }
 
@@ -32,10 +34,10 @@ public class Fragment_Companies extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_fragment__home, container, false);
-        ListView lt = (ListView) v.findViewById(R.id.list_company);
+        /*ListView lt = (ListView) v.findViewById(R.id.list_company);
         lt.setAdapter( new BaseAdapter() {
-            JobApplication db = (JobApplication) getActivity().getApplicationContext();
-            List<App_User> list_company = db.Company_List();
+            Database db = (Database) getActivity().getApplicationContext();
+            List<App_User> list_company = db.Student_List();
             @Override
             public int getCount() {
                 return list_company.size();
@@ -55,10 +57,10 @@ public class Fragment_Companies extends android.support.v4.app.Fragment {
             public View getView(int position, View convertView, ViewGroup parent) {
                 convertView = getActivity().getLayoutInflater().inflate(R.layout.list_company, parent, false);
                 TextView tv = (TextView)convertView.findViewById(R.id.company_name);
-                tv.setText(getItem(position).toString());
+              //  tv.setText(getItem(position).toString());
                 return convertView;
             }
-        });
+        });*/
         return v;
     }
 

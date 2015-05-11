@@ -15,10 +15,13 @@ import com.parse.ParseUser;
 
 import java.util.LinkedList;
 
+import it.polito.mobile.polijobplacement.Data.EduBackground;
+import it.polito.mobile.polijobplacement.Data.Student_2;
+
 
 public class profile_student extends ActionBarActivity {
 
-    private Student1 student1;
+    private Student_2 student1;
     Button btnfinish;
     ImageButton btnAdd;
     ImageButton btnDel;
@@ -52,7 +55,7 @@ public class profile_student extends ActionBarActivity {
             {
                 edu.add(new EduBackground(tempD[i],tempU[i],tempM[i]));
             }
-            student1 =new Student1((String)user.get("Name"),(String)user.get("Age"),(String)user.get("Gender"),(String)user.get("Specialty"),edu);
+            student1 =new Student_2((String)user.get("Name"),(String)user.get("Age"),(String)user.get("Gender"),(String)user.get("Specialty"),edu);
             txtName.setText(student1.name);
             txtGender.setText(student1.gender);
             txtAge.setText(student1.age);
@@ -77,7 +80,7 @@ public class profile_student extends ActionBarActivity {
                     Toast.makeText(profile_student.this,"there are still blanks need to be filled ", Toast.LENGTH_LONG).show();
                     return;
                 }
-                student1 =new Student1(name,age ,gender,specialty,edu);
+                student1 =new Student_2(name,age ,gender,specialty,edu);
 
                 user.put("Name", student1.name);
                 user.put("Gender", student1.gender);

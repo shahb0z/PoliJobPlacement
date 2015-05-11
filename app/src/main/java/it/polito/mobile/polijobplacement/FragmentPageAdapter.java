@@ -87,7 +87,7 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:{
-                Fragment f=Compay_List_ViewFragment.newInstance("Company" ,"" ,"", searchResults);
+                Fragment f=Compay_List_ViewFragment.newInstance("Company_2" ,"" ,"", searchResults);
                 return  f;
             }
             case 1:{
@@ -95,7 +95,7 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
                 return  f;
             }
             case 2:
-                Fragment f=Compay_List_ViewFragment.newInstance("Company" ,"" ,"", searchResults);
+                Fragment f=Compay_List_ViewFragment.newInstance("Company_2" ,"" ,"", searchResults);
                 return f;
 
             default:

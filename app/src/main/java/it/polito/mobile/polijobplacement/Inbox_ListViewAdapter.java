@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import it.polito.mobile.polijobplacement.Data.Inbox;
+
 /**
  * Created by Admin on 5/7/2015.
  */

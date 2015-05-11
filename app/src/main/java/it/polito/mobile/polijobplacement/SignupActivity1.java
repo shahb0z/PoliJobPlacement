@@ -16,8 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
-import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+
+import it.polito.mobile.polijobplacement.Data.App_User;
+import it.polito.mobile.polijobplacement.Data.JobApplication;
 
 /**
  * @author shahb0z
@@ -148,7 +150,7 @@ public class SignupActivity1 extends ActionBarActivity {
         dialog.show();
 
         // Set up a new Parse user
-        ParseUser user = new ParseUser();
+        App_User user = new App_User();
         user.setUsername(username);
         user.setPassword(password);
 

@@ -1,9 +1,11 @@
-package it.polito.mobile.polijobplacement;
+package it.polito.mobile.polijobplacement.Search;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import it.polito.mobile.polijobplacement.R;
 
 
 public class Search_Specific extends ActionBarActivity {
