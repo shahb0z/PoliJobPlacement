@@ -23,6 +23,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+
 import it.polito.mobile.polijobplacement.Data.JobApplication;
 import it.polito.mobile.polijobplacement.Search.Search;
 
@@ -184,8 +186,8 @@ public class StudentMainPageActivity extends ActionBarActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, Search.newInstance()).commit();
                 break;
             case 5:
+                ParseUser.logOutInBackground();
                 JobApplication db = (JobApplication)getApplication().getApplicationContext();
-
                 startActivity(new Intent(getApplicationContext(), MainActivity1.class));
 
         }

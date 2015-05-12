@@ -14,10 +14,10 @@ public class App_User extends ParseUser {
     private static final String NAME ="name" ;
     public static final String STUDENT_TYPE = "student";
     public static final String COMPANY_TYPE ="company" ;
+    private boolean profileCompleted;
 
 
-
-
+    public boolean isProfileCompleted(){return profileCompleted;}
 
     public String getType() {
         return getString(TYPE);

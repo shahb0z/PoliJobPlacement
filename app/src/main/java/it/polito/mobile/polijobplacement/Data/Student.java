@@ -16,10 +16,15 @@ public class Student extends App_User {
     private String gender;
     private Date birth_date;
     private File profile_photo;
-    private List<Degree> edu_skills;
+    private List<Degree> education;
+    private List<String> skills;
     private List<Languages> language_skills;
     private String phoneNumber;
     private String address;
+    private String country;
+    private String region;
+    private File cv;
+
 
 
     @Override
@@ -30,6 +35,13 @@ public class Student extends App_User {
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+    public File getCv() {
+        return cv;
+    }
+
+    public void setCv(File cv) {
+        this.cv = cv;
     }
 
     public String getGender() {
@@ -72,12 +84,12 @@ public class Student extends App_User {
         this.language_skills = language_skills;
     }
 
-    public List<Degree> getEdu_skills() {
-        return edu_skills;
+    public List<Degree> getEducation() {
+        return education;
     }
 
-    public void setEdu_skills(List<Degree> edu_skills) {
-        this.edu_skills = edu_skills;
+    public void setEducation(List<Degree> education) {
+        this.education = education;
     }
 
     public String getPhoneNumber() {
@@ -94,5 +106,12 @@ public class Student extends App_User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
     }
 }

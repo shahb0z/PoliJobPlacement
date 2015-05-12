@@ -10,17 +10,38 @@ import java.util.Date;
  */
 @ParseClassName("Degree")
 public class Degree extends ParseObject {
-    private String field;
+    private String major;
     private String type;
-    private Date year;
+    private String university;
+    private Date startYear;
 
-
-    public String getField() {
-        return field;
+    public String getUniversity() {
+        return university;
     }
 
-    public void setField(String field) {
-        this.field = field;
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+
+
+    public Date getEndyear() {
+        return endyear;
+    }
+
+    public void setEndyear(Date endyear) {
+        this.endyear = endyear;
+    }
+
+    private Date endyear;
+
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public String getType() {
@@ -31,11 +52,12 @@ public class Degree extends ParseObject {
         this.type = type;
     }
 
-    public Date getYear() {
-        return year;
+    public Date getStartYear() {
+        return startYear;
     }
 
-    public void setYear(Date year) {
-        this.year = year;
+    public void setStartYear(Date startYear) {
+        this.startYear = startYear;
     }
+
 }

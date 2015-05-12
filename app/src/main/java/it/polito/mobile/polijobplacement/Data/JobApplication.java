@@ -31,7 +31,6 @@ public class JobApplication extends android.app.Application{
         ParseObject.registerSubclass(Student.class);
         ParseObject.registerSubclass(Company.class);
         Parse.initialize(this, "7UUCWXAEvaHoabQcvBBkTWS3AxuDJdx1KwO7DyeW", "nlKEMOiOxYwrOrmN9rf7r5CNYzPDIM4XTRXOA7GF");
-
         ParseUser.enableAutomaticUser();
         ParseUser.getCurrentUser().saveInBackground();
 

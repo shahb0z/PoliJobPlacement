@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PoliJobPlacement.iml" filepath="$PROJECT_DIR$/PoliJobPlacement.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PoliJobPlacementClean.iml" filepath="$PROJECT_DIR$/PoliJobPlacementClean.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
-
