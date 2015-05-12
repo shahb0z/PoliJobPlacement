@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_translucent"
-    tools:context="it.polito.mobile.polijobplacement.Fragment_Companies">
+    tools:context="it.polito.mobile.polijobplacement.Search.Fragment_Companies">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout

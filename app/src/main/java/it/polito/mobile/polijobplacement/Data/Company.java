@@ -34,4 +34,8 @@ public class Company extends App_User {
     public void setDetail(String detail) {
         this.put(JobApplication.DETAIL,detail);
     }
+
+    public List<Messages> getMessages(){ return getList(JobApplication.MESSAGES);}
+
+    public void setMessages(List<Messages> message){ this.put(JobApplication.MESSAGES, message);}
 }

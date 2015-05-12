@@ -85,4 +85,15 @@ public class Student extends App_User {
     public void setSkills(List<String> skills) {
         this.put(JobApplication.SKILLS,skills);
     }
+
+    public List<Messages> getMessages(){ return getList(JobApplication.MESSAGES);}
+
+    public void setMessages(List<Messages> message){ this.put(JobApplication.MESSAGES, message);}
+
+    public List<JobOffers> getJobApplied(){ return getList(JobApplication.JOB_APPLIED);}
+
+    public void setJobApplied(List<JobOffers> list_jobs){ this.put(JobApplication.JOB_APPLIED, list_jobs);}
+
+    public String getAddress(){ return getString(JobApplication.ADDRESS);}
+    public void setAddress(String address){ this.put(JobApplication.ADDRESS, address);}
 }

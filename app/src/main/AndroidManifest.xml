@@ -42,7 +42,7 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".Search_Specific"
+            android:name=".Search.Search_Specific"
             android:label="@string/title_activity_search__specific" >
         </activity>
 
