@@ -52,7 +52,10 @@ public class JobApplication extends android.app.Application{
     public static final String LANGUAGE_SKILLS = "lanuageSkills";
     //job offer list
     public static final String JOB_OFFERS = "jobOffers";
-
+    //message list for both class
+    public static final String MESSAGES = "message";
+    //list of jobs for student class
+    public static final String JOB_APPLIED ="jobApplied" ;
 
 
     private App_User currentUser = null;
