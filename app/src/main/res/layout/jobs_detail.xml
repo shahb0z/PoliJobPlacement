@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="121dp"
+            android:background="#20c6271c">
+
+            <!-- Subject Label -->
+
+            <TextView
+                android:id="@+id/Company_d"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dip"
+                android:paddingLeft="15dip"
+                android:paddingTop="8dip"
+                android:textSize="18dip"
+                android:text="@string/Name"
+                android:textStyle="bold"
+                android:layout_alignBottom="@+id/sector_d" />
+
+            <!-- To email -->
+
+            <TextView
+                android:id="@+id/Tittle_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Company_d"
+                android:paddingLeft="15dip"
+                android:textStyle="bold"
+                android:text="@string/Sector"
+                android:textSize="15dip" />
+
+            <!-- Mail date -->
+
+            <TextView
+                android:id="@+id/sector_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:text="@string/Time"
+                android:padding="15dip" />
+           <!-- <TextView
+                android:id="@+id/AnyDetail"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tittle_d"
+                android:textStyle="bold"
+                android:text="@string/Detail"
+                android:padding="15dip" />-->
+
+
+
+
+
+
+        </RelativeLayout>
+        <!--Put form controls here-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Requirments"
+            android:textSize="10pt">
+        </TextView>
+        <TextView
+            android:id="@+id/EditTextRequirments"
+            android:layout_height="88dp"
+            android:hint="@string/Requirments"
+            android:inputType="textPersonName"
+            android:editable="false"
+            android:layout_width="fill_parent">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Skill"
+            android:textSize="10pt">
+        </TextView>
+        <TextView
+            android:id="@+id/EditTextSkill"
+            android:layout_height="88dp"
+            android:hint="@string/Skill"
+            android:inputType="textPersonName"
+            android:editable="false"
+            android:layout_width="fill_parent">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Language"
+            android:textSize="10pt">
+        </TextView>
+        <TextView
+            android:id="@+id/EditTextLanguage"
+            android:layout_height="48dp"
+            android:hint="@string/Language"
+            android:inputType="textPersonName"
+            android:editable="false"
+            android:layout_width="fill_parent">
+        </TextView>
+
+
+
+        <CheckBox
+            android:id="@+id/CheckBoxResponse"
+            android:layout_height="wrap_content"
+            android:text="@string/response"
+            android:layout_width="fill_parent">
+        </CheckBox>
+
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/Applyjob"
+            android:onClick="sendResponse"
+            android:layout_width="match_parent">
+        </Button>
+
+
+    </LinearLayout>
+</ScrollView>

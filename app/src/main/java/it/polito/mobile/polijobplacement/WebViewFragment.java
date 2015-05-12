@@ -37,6 +37,7 @@ public class WebViewFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         WebView webView = (WebView) view.findViewById(R.id.webView);
         webView.loadUrl("http://www.facebook.com");
     }

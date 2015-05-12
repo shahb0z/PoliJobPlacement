@@ -60,14 +60,47 @@
 
 
     <string name="Search">Search</string>
-    <string name="Course">Course</string>
+    <string name="company">Course</string>
     <string name="Detail">Detail</string>
     <string name="View">View</string>
     <string name="Delete">Delete</string>
     <string name="Delete1">Delete1</string>
+    <string name="Sector">Sector</string>
+    <string name="upload_picture">upload_picture</string>
+    <string name="list_degrees">list_degrees</string>
+    <string name="list_experiences">list_experiences</string>
+    <string name="list_languages">list_languages</string>
+    <string name="list_skills">Technical skills:</string>
+   <!-- for Message-->
+    <string name="email">email</string>
+    <string name="name">name</string>
+    <string name="title">title</string>
+    <string name="Applyjob">Applyjob</string>
+    <string name="Savejob">Savejob</string>
 
-    <string name="Professor">Professor</string>
-    <string name="Roomno">Room Number</string>
+    <string name="type1">Accepte The job</string>
+    <string name="type2">Reject The job</string>
+    <string name="type3"> not Sure</string>
+
+    <string name="sendResponse">sendResponse</string>
+    <string name="RecivedMessage"> RecivedMessage</string>
+    <string name="Responsetype">Responsetype</string>
+    <string name="YourMessage">Your Message</string>
+    <string name="response">response</string>
+    <string name="responsebutton"> responsebutton</string>
+
+    <string-array name="Responsetypelist">
+        <item>@string/type1</item>
+        <item>@string/type2</item>
+        <item>@string/type3</item>
+    </string-array>
+    <!-- End for Message-->
+   <!-- for JOB Detail-->
+    <string name="Requirments">Requirments</string>
+    <string name="Skill">Skil</string>
+    <string name="Language">Language</string>
+
+
     <string name="Time">Time</string>
     <string-array name="Tab_array">
         <item>Main</item>

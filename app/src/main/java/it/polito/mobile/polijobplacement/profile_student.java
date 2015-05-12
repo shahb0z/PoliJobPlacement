@@ -1,3 +1,4 @@
+
 package it.polito.mobile.polijobplacement;
 
 import android.os.Bundle;
@@ -207,3 +208,4 @@ public class profile_student extends ActionBarActivity {
 
 
 }
+

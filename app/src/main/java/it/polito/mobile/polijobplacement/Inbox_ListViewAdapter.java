@@ -17,7 +17,7 @@ import it.polito.mobile.polijobplacement.Data.Inbox;
 public class Inbox_ListViewAdapter extends ArrayAdapter<Inbox>
 { public  Inbox_ListViewAdapter(Context context, List<Inbox> items) {
 
-    super(context, R.layout.inbox_list, items);
+    super(context, R.layout.inbox_list_item, items);
 }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -26,7 +26,8 @@ public class Inbox_ListViewAdapter extends ArrayAdapter<Inbox>
         if (convertView == null) {
             // inflate the GridView item layout
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.inbox_list_item, parent, false);
+           convertView = inflater.inflate(R.layout.inbox_list_item, parent, false);
+            //convertView = inflater.inflate(R.layout.job_detail, parent, false);
 
             // initialize the view holder
             viewHolder = new ViewHolder();
@@ -48,6 +49,7 @@ public class Inbox_ListViewAdapter extends ArrayAdapter<Inbox>
         viewHolder.date.setText(item.date);
 
         return convertView;
+
     }
     private static class ViewHolder {
         public TextView From = null;

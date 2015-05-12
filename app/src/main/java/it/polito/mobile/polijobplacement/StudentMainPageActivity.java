@@ -1,32 +1,31 @@
 package it.polito.mobile.polijobplacement;
 
-import android.app.SearchManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
+        import android.os.Bundle;
+        import android.app.SearchManager;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.content.res.Configuration;
+        import android.support.v4.app.ActionBarDrawerToggle;
+        import android.support.v4.app.FragmentActivity;
+        import android.support.v4.view.GravityCompat;
+        import android.support.v4.widget.DrawerLayout;
+        import android.support.v7.app.ActionBar;
+        import android.support.v7.app.ActionBarActivity;
+        import android.support.v7.widget.SearchView;
+        import android.view.LayoutInflater;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.AdapterView.OnItemClickListener;
+        import android.widget.ArrayAdapter;
+        import android.widget.CheckBox;
+        import android.widget.ListView;
+        import android.widget.Toast;
 
-import com.parse.ParseUser;
-
-import it.polito.mobile.polijobplacement.Data.JobApplication;
-import it.polito.mobile.polijobplacement.Search.Search;
+        import com.parse.ParseUser;
 
 public class StudentMainPageActivity extends ActionBarActivity {
 
@@ -40,13 +39,12 @@ public class StudentMainPageActivity extends ActionBarActivity {
     private CharSequence mTitle;
     private String[] mDrawerItmes;
     private ActionBar actionBar;
-
+    private CheckBox chk;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //FragmentPageAdapter f = new FragmentPageAdapter();
-        getSupportFragmentManager().beginTransaction().add(R.id.content_frame, TabbedFragment.newInstance()).commit();
+
 
         mTitle = mDrawerTitle = getTitle();
         ActionBar actionBar = getSupportActionBar();
@@ -64,36 +62,11 @@ public class StudentMainPageActivity extends ActionBarActivity {
         mDrawerLayout.setDrawerShadow(R.drawable.plus, GravityCompat.START);
 
         // Add items to the ListView
-        mDrawerList.setAdapter(new BaseAdapter() {
-                                   @Override
-                                   public int getCount() {
-                                       return mDrawerItmes.length;
-                                   }
-
-                                   @Override
-                                   public Object getItem(int position) {
-                                       return mDrawerItmes[position];
-                                   }
-
-                                   @Override
-                                   public long getItemId(int position) {
-                                       return 0;
-                                   }
-
-                                   @Override
-                                   public View getView(int position, View convertView, ViewGroup parent) {
-                                      convertView = getLayoutInflater().inflate(R.layout.drawer_listitem, parent, false);
-                                      // ImageView i = (ImageView)convertView.findViewById(R.id.image);
-                                       TextView tv = (TextView) convertView.findViewById(R.id.text1);
-                                       tv.setText(getItem(position).toString());
-
-                                       return convertView;
-                                   }
-                               });
-                //Adapter <String>(this,
-                //R.layout.drawer_list_item, mDrawerItmes));
+        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.drawer_list_item, mDrawerItmes));
         // Set the OnItemClickListener so something happens when a
         // user clicks on an item.
+
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
@@ -117,6 +90,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
             }
         };
 
+
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         // Set the default content area to item 0
@@ -124,7 +98,40 @@ public class StudentMainPageActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             navigateTo(0);
         }
+       // if(!(boolean)ParseUser.getCurrentUser().get("isProfileCompleted")&&!(boolean)ParseUser.getCurrentUser().get("isProfileUncompletedAlertNeverShown"))
+        /*{
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(StudentMainPageActivity.this);
+
+            LayoutInflater inflater=getLayoutInflater();
+            View view=inflater.inflate(R.layout.profile_uncompleted_alert, null);
+            builder.setView(view);
+            chk=(CheckBox)view.findViewById(R.id.chkIsNeverShow);
+            builder.setPositiveButton("Complete it now", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    if(chk.isChecked())
+                    {
+                        ParseUser.getCurrentUser().put("isProfileUncompletedAlertNeverShown",true);
+                    }
+                    startActivity(new Intent(StudentMainPageActivity.this,profile_student.class));
+                }
+            });
+            builder.setNegativeButton("Do it later", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    if(chk.isChecked())
+                    {
+                        ParseUser.getCurrentUser().put("isProfileUncompletedAlertNeverShown",true);
+                    }
+                }
+            });
+            builder.create().show();
+
+
+        }*/
     }
 
     /*
@@ -163,7 +170,6 @@ public class StudentMainPageActivity extends ActionBarActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
             navigateTo(position);
-
         }
     }
 
@@ -176,22 +182,16 @@ public class StudentMainPageActivity extends ActionBarActivity {
                         .replace(R.id.content_frame, TabbedFragment.newInstance(),
                                 TabbedFragment.TAG).commit();
                 break;
-          /* case 1:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.content_frame, ProfileManagement.newInstance(),
-                               ProfileManagement.TAG).commit();
-                break;*/
-            case 4:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, Search.newInstance()).commit();
-                break;
-            case 5:
-                ParseUser.logOutInBackground();
-                JobApplication db = (JobApplication)getApplication().getApplicationContext();
-                startActivity(new Intent(getApplicationContext(), MainActivity1.class));
+            case 1:
+                startActivity(new Intent(StudentMainPageActivity.this,profile_student.class));
 
+                break;
+            case 4:
+                ParseUser.logOut();
+                startActivity(new Intent(StudentMainPageActivity.this,MainActivity1.class));
+                break;
         }
-        //mDrawerLayout.closeDrawer(mDrawerList);
+        mDrawerLayout.closeDrawer(mDrawerList);
     }
 
     @Override
@@ -203,8 +203,8 @@ public class StudentMainPageActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater mi = getMenuInflater();
-        mi.inflate(R.menu.menu_home, menu);
+        super.onCreateOptionsMenu(menu);
+        CreateMenu(menu);
         return true;
 
     }
@@ -287,6 +287,15 @@ public class StudentMainPageActivity extends ActionBarActivity {
         return super.onSearchRequested();
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "YES", Toast.LENGTH_SHORT)
+                .show();
+        Intent intent = new Intent(this, MainActivity1.class);
+        startActivity(intent);
+        finish();
+
+    }
 
     // /////////////////////////////////////////////search////////////////
     // test//////////////////

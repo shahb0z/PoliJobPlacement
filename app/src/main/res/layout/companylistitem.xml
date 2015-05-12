@@ -1,30 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="@drawable/abc_spinner_mtrl_am_alpha"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/abc_btn_check_material"
+        android:layout_marginRight="5dip">
+
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/abc_ratingbar_full_material"/>
+
+    </LinearLayout>
 
     <!-- Subject Label -->
 
     <TextView
         android:id="@+id/Name"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="4dip"
-        android:paddingLeft="8dip"
-        android:paddingTop="8dip"
-        android:textSize="18dip"
-        android:textStyle="bold" />
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Name of Company "
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="15dip"
+        android:textStyle="bold"/>
 
     <!-- To email -->
 
     <TextView
         android:id="@+id/Sector"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Name"
-        android:paddingBottom="6dip"
-        android:paddingLeft="8dip"
-        android:textSize="15dip" />
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Sector." />
 
     <!-- Mail date -->
 
@@ -33,15 +56,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:clickable="false"
+        android:focusable="false"
         android:padding="8dip" />
-    <Button
-        android:id="@+id/detail"
-        android:layout_below="@id/Tittle"
-        android:text="@string/Detail"
-        android:textColor="@color/ripple_red"
-        android:layout_width="wrap_content"
+
+    <ImageView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/abc_btn_check_to_on_mtrl_015"
         android:layout_alignParentRight="true"
-        android:clickable="true" />
+        android:layout_below="@id/Tittle"
+        android:layout_centerVertical="true"/>
+
 
 </RelativeLayout>

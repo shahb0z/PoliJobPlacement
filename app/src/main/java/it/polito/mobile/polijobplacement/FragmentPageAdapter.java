@@ -21,12 +21,10 @@ import android.view.ViewGroup;
 
 
 public class FragmentPageAdapter extends FragmentPagerAdapter {
-    final static String profname1 = "";
-    final static String Coursename1 = "";
+
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
-    String profname ;
-    String Coursename ;
+
     final int PAGE_COUNT = 3;
     private String  ku[]= {"Home","Inbox","My Application"};
     private List<Fragment> fragments;

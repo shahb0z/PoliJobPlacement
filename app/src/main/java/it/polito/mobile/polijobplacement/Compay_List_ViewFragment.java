@@ -5,7 +5,7 @@ package it.polito.mobile.polijobplacement;
  */
 import java.util.ArrayList;
 import java.util.List;
-
+import it.polito.mobile.polijobplacement.Data.Company_2;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,8 +15,6 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import it.polito.mobile.polijobplacement.Data.Company_2;
 
 public class Compay_List_ViewFragment extends ListFragment {
 
@@ -48,7 +46,6 @@ public class Compay_List_ViewFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Bundle args = getArguments();
         if (args != null) {
             compname =getArguments().getString("compname");
@@ -99,8 +96,14 @@ public class Compay_List_ViewFragment extends ListFragment {
 
         setListAdapter(new Company_ListViewAdapter(getActivity(), mItems));
 
-    }
 
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        //updateView(Course,PName);
+        super.onViewCreated(view, savedInstanceState);
+
+    }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {

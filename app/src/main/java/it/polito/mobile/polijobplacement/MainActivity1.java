@@ -39,7 +39,7 @@ public class MainActivity1 extends Activity {
                     startActivity(new Intent(this,StudentMainPageActivity.class));
                //send the user to company page
                else if(currentUser.get(JobApplication.TYPE).equals(JobApplication.COMPANY_TYPE))
-                   startActivity(new Intent(this,CompanyMainPageActivity.class));
+                   startActivity(new Intent(this,Company_Main_Page.class));
             }
 
             else{

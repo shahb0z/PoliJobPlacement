@@ -17,7 +17,7 @@ public class CompanyMainPageActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_main_page);
-       Button  viewdetail = (Button)findViewById(R.id.detail);
+       /*Button  viewdetail = (Button)findViewById(R.id.detail);
         viewdetail.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -28,7 +28,7 @@ public class CompanyMainPageActivity extends ActionBarActivity {
                         .add(R.id.fragment_container,welcomeFragment).commit();
 
             }
-        });
+        });*/
         Button logoutButton = (Button)findViewById(R.id.company_logout_button);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

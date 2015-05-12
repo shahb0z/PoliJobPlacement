@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:clickable="false"
+    android:focusable="false"
     android:orientation="vertical" >
 
     <!-- From Label -->
@@ -12,6 +14,8 @@
         android:paddingTop="8dip"
         android:paddingLeft="8dip"
         android:paddingBottom="4dip"
+        android:clickable="false"
+        android:focusable="false"
         android:textSize="20dip"
         android:textStyle="bold" />
 
@@ -22,6 +26,8 @@
         android:paddingLeft="8dip"
         android:paddingBottom="6dip"
         android:textSize="15dip"
+        android:clickable="false"
+        android:focusable="false"
         android:layout_below="@id/from"/>
 
     <!-- Mail date -->
@@ -29,9 +35,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:clickable="false"
+        android:focusable="false"
         android:padding="8dip"/>
 
-    <Button
+   <!-- <Button
         android:id="@+id/View"
         android:layout_below="@id/subject"
         android:text="@string/View"
@@ -39,9 +47,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true" />-->
 
-    <Button
+    <!--<Button
     android:id="@+id/Delete"
     android:layout_below="@+id/subject"
     android:text="@string/Delete"
@@ -50,5 +58,5 @@
     android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
          />
-
+-->
 </RelativeLayout>

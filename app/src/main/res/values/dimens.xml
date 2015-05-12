@@ -9,4 +9,8 @@
     <dimen name="large_vertical_spacing">24dp</dimen>
     <dimen name="xlarge_vertical_spacing">36dp</dimen>
     <dimen name="small_horizontal_spacing">8dp</dimen>
+
+    <dimen name="text_title">22sp</dimen>
+    <dimen name="text_list">15sp</dimen>
+
 </resources>

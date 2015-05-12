@@ -4,17 +4,27 @@ package it.polito.mobile.polijobplacement;
  * Created by Admin on 5/7/2015.
  */
         import java.util.ArrayList;
+        import java.util.HashMap;
         import java.util.List;
 
+        import org.apache.http.NameValuePair;
         import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
 
+        import android.app.ListActivity;
+        import android.app.ProgressDialog;
+        import android.content.Intent;
+        import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v4.app.ListFragment;
-
-        import it.polito.mobile.polijobplacement.Data.Inbox;
-
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.ListAdapter;
+        import android.widget.ListView;
+        import android.widget.SimpleAdapter;
+        import android.widget.Toast;
+        import  it.polito.mobile.polijobplacement.Data.Inbox;
 public class InboxActivity extends ListFragment {
         private List<Inbox> mItems;
         private List<Inbox> mItems1;
@@ -96,6 +106,25 @@ public class InboxActivity extends ListFragment {
               setListAdapter(new Inbox_ListViewAdapter(getActivity(), mItems));
 
 
+        }
+        @Override
+        public void onListItemClick(ListView l, View v, int position, long id) {
+                // retrieve theListView item
+               Inbox item = mItems.get(position);
+
+                mItems1.add(item);
+
+
+                setListAdapter(new Inbox_ListViewAdapte_detail(getActivity(), mItems1));
+
+
+
+                //Schedule item = mItems.get(position);
+                //mItems1.add(item);
+                //setListAdapter(new ListViewAdapter_detail(getActivity(), mItems1));
+                // do something
+                Toast.makeText(getActivity(), item.From, Toast.LENGTH_SHORT)
+                        .show();
         }
 
 

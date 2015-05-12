@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="fill_parent" >
 
     <!-- Subject Label -->
 
@@ -25,7 +25,7 @@
         android:layout_below="@id/Name"
         android:paddingLeft="15dip"
         android:textStyle="bold"
-        android:text="@string/Professor"
+        android:text="@string/Sector"
         android:textSize="15dip" />
 
     <!-- Mail date -->
@@ -34,7 +34,7 @@
         android:id="@+id/Tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:textStyle="bold"
         android:text="@string/Time"
 
@@ -46,9 +46,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Tittle"
         android:textStyle="bold"
-        android:text="@string/Roomno"
+        android:text="@string/Detail"
         android:padding="15dip" />
 
+    <Button
+        android:id="@+id/btnApply"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/Delete1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
 
 
 </RelativeLayout>

@@ -1,7 +1,7 @@
 {
     
-    "Company":[
-    	{"Name": "FIAT",  "Sector": "Computer", "Tittle": "control engineer","Detail": "Show Datail"},
+    "Company_2":[
+    	{"Name": "FIAT",  "Sector": "Computer", "Tittle": "control engineer","Detail": "Show Datail Show DatailShow DatailShow DatailShow DatailShow DatailShow Datail"},
     	{"Name": "GULF",  "Sector": "Industy", "Tittle": "control engineer","Detail": "Show Datail"},
     	{"Name": "ABB",  "Sector": "IT", "Tittle": "Computer engineer","Detail": "Show Datail"},
     	{"Name": "ABB",  "Sector": "Industy", "Tittle": "control engineer","Detail": "Show Datail"},
