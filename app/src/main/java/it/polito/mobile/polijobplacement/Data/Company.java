@@ -10,61 +10,28 @@ import java.util.List;
  */
 @ParseClassName("Company")
 public class Company extends App_User {
-    private String name;
-    private String field;
-    private List<JobOffers> list_offers;
-    private String detail;
-    private File photo;
-    private String PhoneNumber;
-
-
-    public String getPhoneNumber() {
-        return PhoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getField() {
-        return field;
+        return getString(JobApplication.FIELD);
     }
 
     public void setField(String field) {
-        this.field = field;
+        this.put(JobApplication.FIELD,field);
     }
 
     public List<JobOffers> getList_offers() {
-        return list_offers;
+        return getList(JobApplication.JOB_OFFERS);
     }
 
     public void setList_offers(List<JobOffers> list_offers) {
-        this.list_offers = list_offers;
+        this.put(JobApplication.JOB_OFFERS,list_offers);
     }
 
     public String getDetail() {
-        return detail;
+        return getString(JobApplication.DETAIL);
     }
 
     public void setDetail(String detail) {
-        this.detail = detail;
-    }
-
-    public File getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(File photo) {
-        this.photo = photo;
+        this.put(JobApplication.DETAIL,detail);
     }
 }

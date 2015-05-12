@@ -1,6 +1,9 @@
 package it.polito.mobile.polijobplacement.Data;
 
+import com.parse.GetDataCallback;
 import com.parse.ParseClassName;
+import com.parse.ParseException;
+import com.parse.ParseFile;
 
 import java.io.File;
 import java.util.Date;
@@ -11,107 +14,75 @@ import java.util.List;
  */
 @ParseClassName("Student")
 public class Student extends App_User {
-    private String name;
-    private String surname;
-    private String gender;
-    private Date birth_date;
-    private File profile_photo;
-    private List<Degree> education;
-    private List<String> skills;
-    private List<Languages> language_skills;
-    private String phoneNumber;
-    private String address;
-    private String country;
-    private String region;
-    private File cv;
-
-
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-    public File getCv() {
+    //TODO: think about how to retrieve cv data
+    public byte[] getCv() {
+        final byte[] cv = "".getBytes();
+        ParseFile parseFile= (ParseFile)this.get(JobApplication.CV);
+        parseFile.getDataInBackground(new GetDataCallback() {
+            @Override
+            public void done(byte[] bytes, ParseException e) {
+                if (e == null) {
+                    // data has the bytes for the resume
+                } else {
+                    // something went wrong
+                }
+            }
+        });
         return cv;
     }
 
-    public void setCv(File cv) {
-        this.cv = cv;
+    public void setCv(byte[] cv) {
+        ParseFile parseFile = new ParseFile(JobApplication.CV,cv);
+        parseFile.saveInBackground();
+        this.put(JobApplication.CV,parseFile);
     }
 
     public String getGender() {
-        return gender;
+        return getString(JobApplication.GENDER);
     }
 
     public void setGender(String gender) {
-        this.gender = gender;
+        this.put(JobApplication.GENDER,gender);
     }
 
     public String getSurname() {
-        return surname;
+        return getString(JobApplication.SURNAME);
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        this.put(JobApplication.SURNAME,surname);
     }
 
-    public File getProfile_photo() {
-        return profile_photo;
-    }
-
-    public void setProfile_photo(File profile_photo) {
-        this.profile_photo = profile_photo;
-    }
 
     public Date getBirth_date() {
-        return birth_date;
+        return getDate(JobApplication.BIRTH_DATE);
     }
 
     public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
+        this.put(JobApplication.BIRTH_DATE,birth_date);
     }
 
     public List<Languages> getLanguage_skills() {
-        return language_skills;
+        return getList(JobApplication.LANGUAGE_SKILLS);
     }
 
     public void setLanguage_skills(List<Languages> language_skills) {
-        this.language_skills = language_skills;
+        this.put(JobApplication.LANGUAGE_SKILLS,language_skills);
     }
 
     public List<Degree> getEducation() {
-        return education;
+        return getList(JobApplication.EDUCATION);
     }
 
     public void setEducation(List<Degree> education) {
-        this.education = education;
+        this.put(JobApplication.EDUCATION,education);
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
     public List<String> getSkills() {
-        return skills;
+        return getList(JobApplication.SKILLS);
     }
 
     public void setSkills(List<String> skills) {
-        this.skills = skills;
+        this.put(JobApplication.SKILLS,skills);
     }
 }
