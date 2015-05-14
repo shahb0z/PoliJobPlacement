@@ -10,54 +10,50 @@ import java.util.Date;
  */
 @ParseClassName("Degree")
 public class Degree extends ParseObject {
-    private String major;
-    private String type;
-    private String university;
-    private Date startYear;
-
+    public Degree(){}
     public String getUniversity() {
-        return university;
+        return getString(JobApplication.UNIVERSITY);
     }
 
     public void setUniversity(String university) {
-        this.university = university;
+        put(JobApplication.UNIVERSITY,university);
     }
 
 
 
     public Date getEndyear() {
-        return endyear;
+        return getDate(JobApplication.DEGREE_END_YEAR);
     }
 
     public void setEndyear(Date endyear) {
-        this.endyear = endyear;
+        put(JobApplication.DEGREE_END_YEAR,endyear);
     }
 
-    private Date endyear;
+
 
 
     public String getMajor() {
-        return major;
+        return getString(JobApplication.DEGREE_MAJOR);
     }
 
     public void setMajor(String major) {
-        this.major = major;
+        put(JobApplication.DEGREE_MAJOR,major);
     }
 
     public String getType() {
-        return type;
+        return getString(JobApplication.DEGREE_TYPE);
     }
 
     public void setType(String type) {
-        this.type = type;
+        put(JobApplication.DEGREE_TYPE,type);
     }
 
     public Date getStartYear() {
-        return startYear;
+        return getDate(JobApplication.DEGREE_START_YEAR);
     }
 
     public void setStartYear(Date startYear) {
-        this.startYear = startYear;
+        put(JobApplication.DEGREE_START_YEAR,startYear);
     }
 
 }

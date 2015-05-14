@@ -12,19 +12,19 @@ public class Languages extends ParseObject{
     private String level;
 
     public String getName() {
-        return name;
+        return getString(JobApplication.LANGUAGE_NAME);
     }
 
     public void setName(String name) {
-        this.name = name;
+        put(JobApplication.LANGUAGE_NAME,name);
     }
 
     public String getLevel() {
-        return level;
+        return getString(JobApplication.LANGUAGE_LEVEL);
     }
 
     public void setLevel(String level) {
-        this.level = level;
+        put(JobApplication.LANGUAGE_LEVEL,level);
     }
 
 

@@ -8,41 +8,37 @@ import com.parse.ParseObject;
  */
 @ParseClassName("Messages")
 public class Messages extends ParseObject {
-    private Company from_forStudent;
-    private Student from_forCompany;
-    private String title;
-    private String content;
-
-    public Company getFrom_forStudent() {
-        return from_forStudent;
+   public Messages(){}
+       public App_User getFromUser() {
+        return (App_User)get(JobApplication.MESSAGE_FROM);
     }
 
-    public void setFrom_forStudent(Company from_forStudent) {
-        this.from_forStudent = from_forStudent;
+    public void setFromUser(App_User user) {
+        put(JobApplication.MESSAGE_FROM,user);
     }
 
-    public Student getFrom_forCompany() {
-        return from_forCompany;
+    public App_User getToUser() {
+        return (App_User)get(JobApplication.MESSAGE_FROM);
     }
 
-    public void setFrom_forCompany(Student from_forCompany) {
-        this.from_forCompany = from_forCompany;
+    public void setToUser(App_User user) {
+        put(JobApplication.MESSAGE_TO,user);
     }
 
     public String getTitle() {
-        return title;
+        return getString(JobApplication.MESSAGE_TITLE);
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        put(JobApplication.MESSAGE_TITLE,title);
     }
 
     public String getContent() {
-        return content;
+        return getString(JobApplication.MESSAGE_CONTENT);
     }
 
     public void setContent(String content) {
-        this.content = content;
+        put(JobApplication.MESSAGE_CONTENT,content);
     }
 }
 

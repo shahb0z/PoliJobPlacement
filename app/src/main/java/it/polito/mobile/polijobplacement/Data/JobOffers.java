@@ -3,59 +3,80 @@ package it.polito.mobile.polijobplacement.Data;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by user on 5/10/2015.
  */
 @ParseClassName("JobOffers")
 public class JobOffers extends ParseObject {
-
-    private String Title;
-    private String Description;
-    private Date publishDate;
-    private String Category; // health, engineering, education...
-    private String EmploymentType; // fulltime, parttime...
-
+    public JobOffers(){}
     public String getEmploymentType() {
-        return EmploymentType;
+        return getString(JobApplication.EMPLOYMENT_TYPE);
     }
 
     public void setEmploymentType(String employmentType) {
-        EmploymentType = employmentType;
+        put(JobApplication.EMPLOYMENT_TYPE,employmentType);
     }
 
     public String getCategory() {
 
-        return Category;
+        return getString(JobApplication.CATEGORY);
     }
 
     public void setCategory(String category) {
-        Category = category;
+        put(JobApplication.CATEGORY,category);
     }
 
     public Date getPublishDate() {
-        return publishDate;
+        return getDate(JobApplication.PUBLISH_DATE);
     }
 
     public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+        put(JobApplication.PUBLISH_DATE,publishDate);
     }
 
     public String getTitle() {
-        return Title;
+        return getString(JobApplication.JOB_TITLE);
     }
 
     public void setTitle(String title) {
-        Title = title;
+        put(JobApplication.JOB_TITLE,title);
     }
 
 
     public String getDescription() {
-        return Description;
+        return getString(JobApplication.JOB_DESCRIPTION);
     }
 
     public void setDescription(String description) {
-        Description = description;
+        put(JobApplication.JOB_DESCRIPTION,description);
+    }
+
+    public List<Student> getListOfApplicants(){
+        return getList(JobApplication.JOB_OFFERS_APPLICANT_LIST);
+    }
+    public void setListOfApplicants(List<Student> list){
+        put(JobApplication.JOB_OFFERS_APPLICANT_LIST,list);
+    }
+
+    public void addStudentToListOfApplicants(Student s){
+        add(JobApplication.JOB_OFFERS_APPLICANT_LIST, s);
+    }
+
+    public void removeStudentFromListOfApplicants(Student s){
+        List <Student> list = new ArrayList<Student>();
+        list.add(s);
+        removeAll(JobApplication.JOB_OFFERS_APPLICANT_LIST, list);
+    }
+
+    public Company getOfferedBy(){
+        return (Company)get(JobApplication.JOB_OFFERS_OFFERED_BY);
+    }
+
+    public void setOfferedBy(Company c){
+        put(JobApplication.JOB_OFFERS_OFFERED_BY,c);
     }
 }

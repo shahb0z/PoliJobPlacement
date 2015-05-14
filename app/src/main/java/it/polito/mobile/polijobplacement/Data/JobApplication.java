@@ -57,6 +57,33 @@ public class JobApplication extends android.app.Application{
     //list of jobs for student class
     public static final String JOB_APPLIED ="jobApplied" ;
 
+    //list of liked or saved jobs for student class
+    public static final String JOB_SAVED = "jobSaved";
+    public static final String COUNTRY = "country";
+    public static final String CITY = "city";
+    public static final String KEYWORD_TYPE = "keywordType";
+    public static final String KEYWORD_SKILL_TYPE = "skillType";
+    public static final String KEYWORD_JOB_NAME_TYPE = "jobName";
+    public static final String KEYWORD_JOB_CATEGORY_TYPE = "jobCategory";
+    public static final String EMPLOYMENT_TYPE = "employmentType";
+    public static final String CATEGORY = "category";
+    public static final String PUBLISH_DATE = "publishDate";
+    public static final String JOB_TITLE = "jobTitle";
+    public static final String JOB_DESCRIPTION = "jobDescription";
+    public static final String LANGUAGE_NAME = "languageName";
+    public static final String LANGUAGE_LEVEL = "languageLevel";
+    public static final String UNIVERSITY = "university";
+    public static final String DEGREE_END_YEAR = "endYear";
+    public static final String DEGREE_START_YEAR = "startYear";
+    public static final String DEGREE_MAJOR = "major";
+    public static final String DEGREE_TYPE = "type";
+    public static final String MESSAGE_FROM = "from";
+    public static final String MESSAGE_TO = "to";
+    public static final String MESSAGE_TITLE = "title";
+    public static final String MESSAGE_CONTENT = "content";
+    public static final String JOB_OFFERS_APPLICANT_LIST = "applicantList";
+    public static final String JOB_OFFERS_OFFERED_BY = "offeredBy";
+
 
     private App_User currentUser = null;
     public JobApplication(){
