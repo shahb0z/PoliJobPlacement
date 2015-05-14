@@ -150,11 +150,22 @@ public class SignupActivity1 extends ActionBarActivity {
         final ProgressDialog dialog = new ProgressDialog(SignupActivity1.this);
         dialog.setMessage(getString(R.string.progress_signup));
         dialog.show();
-        App_User user = new App_User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(username);
-        user.setType(userType);
+        App_User user;
+        if(userType.equals(JobApplication.STUDENT_TYPE)){
+            user = new Student();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(username);
+            user.setType(userType);
+        }
+        else{
+            user = new Company();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(username);
+            user.setType(userType);
+        }
+
         // Set up a new Parse user
 
         // Call the Parse signup method

@@ -11,10 +11,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity1"
-            android:label="@string/app_name">
+        <activity
+            android:name=".MainActivity1"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,20 +39,17 @@
             android:label="@string/title_activity_company_main_page" >
         </activity>
         <activity
-            android:name=".profile_student"
-            android:label="@string/title_activity_profile_student"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity
             android:name=".Search.Search_Specific"
             android:label="@string/title_activity_search__specific" >
         </activity>
-
         <activity
             android:name=".Company_Main_Page"
             android:label="@string/title_activity_company__main__page" >
         </activity>
+        <activity
+            android:name=".Search.StudentProfile"
+            android:label="@string/title_activity_student_profile" >
+        </activity>
     </application>
-
 
 </manifest>

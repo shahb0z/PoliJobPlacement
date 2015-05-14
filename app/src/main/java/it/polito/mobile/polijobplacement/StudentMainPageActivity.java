@@ -27,6 +27,8 @@ package it.polito.mobile.polijobplacement;
 
         import com.parse.ParseUser;
 
+        import it.polito.mobile.polijobplacement.Search.StudentProfile;
+
 public class StudentMainPageActivity extends ActionBarActivity {
 
 
@@ -183,10 +185,10 @@ public class StudentMainPageActivity extends ActionBarActivity {
                                 TabbedFragment.TAG).commit();
                 break;
             case 1:
-                startActivity(new Intent(StudentMainPageActivity.this,profile_student.class));
+                startActivity(new Intent(StudentMainPageActivity.this,StudentProfile.class));
 
                 break;
-            case 4:
+            case 5:
                 ParseUser.logOut();
                 startActivity(new Intent(StudentMainPageActivity.this,MainActivity1.class));
                 break;

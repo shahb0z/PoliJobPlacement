@@ -123,4 +123,5 @@
     <string name="title_activity_profile_student">profile_student</string>
     <string name="title_activity_search__specific">Search_Specific</string>
     <string name="title_activity_company__main__page">Company Main Page</string>
+    <string name="title_activity_student_profile">StudentProfile</string>
 </resources>
