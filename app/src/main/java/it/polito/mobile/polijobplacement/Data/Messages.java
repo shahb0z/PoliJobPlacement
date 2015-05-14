@@ -40,5 +40,13 @@ public class Messages extends ParseObject {
     public void setContent(String content) {
         put(JobApplication.MESSAGE_CONTENT,content);
     }
+
+    public boolean isRead(){
+        return getBoolean(JobApplication.MESSAGE_READ);
+    }
+
+    public void setRead(){
+        put(JobApplication.MESSAGE_READ,"true");
+    }
 }
 

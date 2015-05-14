@@ -62,9 +62,19 @@ public class JobApplication extends android.app.Application{
     public static final String COUNTRY = "country";
     public static final String CITY = "city";
     public static final String KEYWORD_TYPE = "keywordType";
+    //keyword types us them along application
     public static final String KEYWORD_SKILL_TYPE = "skillType";
     public static final String KEYWORD_JOB_NAME_TYPE = "jobName";
     public static final String KEYWORD_JOB_CATEGORY_TYPE = "jobCategory";
+
+    //employment types us them along application
+    /************************************************************/
+    public static final String EMPLOYMENT_FULL_TIME = "Full Time";
+    public static final String EMPLOYMENT_PART_TIME = "Part Time";
+    public static final String EMPLOYMENT_CONTRACTOR = "Contractor";
+    public static final String EMPLOYMENT_INTERN = "Intern";
+    public static final String EMPLOYMENT_SEASONAL = "Seasonal";
+    /***********************************************************/
     public static final String EMPLOYMENT_TYPE = "employmentType";
     public static final String CATEGORY = "category";
     public static final String PUBLISH_DATE = "publishDate";
@@ -85,6 +95,7 @@ public class JobApplication extends android.app.Application{
     public static final String JOB_OFFERS_OFFERED_BY = "offeredBy";
     public static final String JOB_OFFERS_SALARY = "salary";
     public static final String JOB_OFFERS_DUE_DATE = "dueDate";
+    public static final String MESSAGE_READ = "isRead";
 
 
     private App_User currentUser = null;
