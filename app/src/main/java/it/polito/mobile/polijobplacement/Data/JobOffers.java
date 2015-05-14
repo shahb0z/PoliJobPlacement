@@ -79,4 +79,20 @@ public class JobOffers extends ParseObject {
     public void setOfferedBy(Company c){
         put(JobApplication.JOB_OFFERS_OFFERED_BY,c);
     }
+
+    public String getSalary(){
+        return getString(JobApplication.JOB_OFFERS_SALARY);
+    }
+
+    public void setSalary(String salary){
+        put(JobApplication.JOB_OFFERS_SALARY,salary);
+    }
+
+    public Date getDueDate(){
+        return getDate(JobApplication.JOB_OFFERS_DUE_DATE);
+    }
+
+    public void setDueDate(Date d){
+        put(JobApplication.JOB_OFFERS_DUE_DATE,d);
+    }
 }

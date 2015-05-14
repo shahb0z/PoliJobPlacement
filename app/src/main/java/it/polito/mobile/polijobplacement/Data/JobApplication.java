@@ -83,6 +83,8 @@ public class JobApplication extends android.app.Application{
     public static final String MESSAGE_CONTENT = "content";
     public static final String JOB_OFFERS_APPLICANT_LIST = "applicantList";
     public static final String JOB_OFFERS_OFFERED_BY = "offeredBy";
+    public static final String JOB_OFFERS_SALARY = "salary";
+    public static final String JOB_OFFERS_DUE_DATE = "dueDate";
 
 
     private App_User currentUser = null;
