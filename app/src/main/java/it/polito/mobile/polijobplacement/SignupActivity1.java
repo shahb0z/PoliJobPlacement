@@ -19,7 +19,9 @@ import com.parse.ParseException;
 import com.parse.SignUpCallback;
 
 import it.polito.mobile.polijobplacement.Data.App_User;
+import it.polito.mobile.polijobplacement.Data.Company;
 import it.polito.mobile.polijobplacement.Data.JobApplication;
+import it.polito.mobile.polijobplacement.Data.Student;
 
 /**
  * @author shahb0z
@@ -148,15 +150,13 @@ public class SignupActivity1 extends ActionBarActivity {
         final ProgressDialog dialog = new ProgressDialog(SignupActivity1.this);
         dialog.setMessage(getString(R.string.progress_signup));
         dialog.show();
-
-        // Set up a new Parse user
         App_User user = new App_User();
         user.setUsername(username);
         user.setPassword(password);
+        user.setEmail(username);
+        user.setType(userType);
+        // Set up a new Parse user
 
-        user.put("userType",userType);
-        user.put("isProfileCompleted",false);
-        user.put("isProfileUncompletedAlertNeverShown",false);
         // Call the Parse signup method
         user.signUpInBackground(new SignUpCallback() {
             @Override

@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by user on 5/7/2015.
  */
-@ParseClassName("App_User")
+@ParseClassName("_User")
 public class App_User extends ParseUser {
 
     public App_User(){

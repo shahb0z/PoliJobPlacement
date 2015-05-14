@@ -8,9 +8,7 @@ import com.parse.ParseObject;
  */
 @ParseClassName("Languages")
 public class Languages extends ParseObject{
-    private String name;
-    private String level;
-
+    
     public String getName() {
         return getString(JobApplication.LANGUAGE_NAME);
     }

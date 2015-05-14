@@ -1,5 +1,6 @@
 package it.polito.mobile.polijobplacement.Data;
 
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
 /**
@@ -10,6 +11,7 @@ import com.parse.ParseObject;
  * --type, e.g. skillType, jobType
  * --name, e.g. Software Engineering
  */
+@ParseClassName("Keyword")
 public class Keyword extends ParseObject {
     public Keyword(){
 

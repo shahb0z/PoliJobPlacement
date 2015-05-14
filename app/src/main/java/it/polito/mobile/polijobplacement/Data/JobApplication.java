@@ -105,9 +105,14 @@ public class JobApplication extends android.app.Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        ParseObject.registerSubclass(App_User.class);
-        ParseObject.registerSubclass(Student.class);
-        ParseObject.registerSubclass(Company.class);
+        ParseUser.registerSubclass(App_User.class);
+        ParseUser.registerSubclass(Student.class);
+        ParseUser.registerSubclass(Company.class);
+        ParseObject.registerSubclass(JobOffers.class);
+        ParseObject.registerSubclass(Messages.class);
+        ParseObject.registerSubclass(Languages.class);
+        ParseObject.registerSubclass(Degree.class);
+        ParseObject.registerSubclass(Keyword.class);
         Parse.initialize(this, "7UUCWXAEvaHoabQcvBBkTWS3AxuDJdx1KwO7DyeW", "nlKEMOiOxYwrOrmN9rf7r5CNYzPDIM4XTRXOA7GF");
         ParseUser.enableAutomaticUser();
         ParseUser.getCurrentUser().saveInBackground();
