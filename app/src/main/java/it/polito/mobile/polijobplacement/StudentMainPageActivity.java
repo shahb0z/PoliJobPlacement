@@ -248,6 +248,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
 	 */
 
     private void CreateMenu(Menu menu) {
+       /*
         MenuItem mnu1 = menu.add(0, 0, 0, "Setting");
         {
 
@@ -262,6 +263,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
                     | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 
         }
+        */
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity_actions, menu);
 
