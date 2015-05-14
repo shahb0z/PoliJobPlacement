@@ -13,4 +13,7 @@
     <dimen name="text_title">22sp</dimen>
     <dimen name="text_list">15sp</dimen>
 
+    <dimen name="step_pager_tab_width">32dp</dimen>
+    <dimen name="step_pager_tab_height">3dp</dimen>
+    <dimen name="step_pager_tab_spacing">4dp</dimen>
 </resources>

@@ -43,12 +43,12 @@
             android:label="@string/title_activity_search__specific" >
         </activity>
         <activity
-            android:name=".Company_Main_Page"
-            android:label="@string/title_activity_company__main__page" >
+            android:name=".Profile.StudentProfile"
+            android:label="@string/title_activity_student_profile" >
         </activity>
         <activity
-            android:name=".Search.StudentProfile"
-            android:label="@string/title_activity_student_profile" >
+            android:name=".Profile.CompanyProfile"
+            android:label="@string/title_activity_company_profile" >
         </activity>
     </application>
 

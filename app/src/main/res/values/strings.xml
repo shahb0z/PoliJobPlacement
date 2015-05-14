@@ -124,4 +124,12 @@
     <string name="title_activity_search__specific">Search_Specific</string>
     <string name="title_activity_company__main__page">Company Main Page</string>
     <string name="title_activity_student_profile">StudentProfile</string>
+    <string name="action_finish">Save</string>
+    <string name="action_next">Next</string>
+    <string name="action_previous">Previous</string>
+    <string name="surname_hint">Surname</string>
+    <string name="data_birthdate_text">Birthdate</string>
+    <string name="data_gender_text">Gender</string>
+    <string name="title_activity_company_profile">CompanyProfile</string>
+    <string name="no_photo">No photo</string>
 </resources>

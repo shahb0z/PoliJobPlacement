@@ -1,20 +1,16 @@
 package it.polito.mobile.polijobplacement;
 
-        import android.app.AlertDialog;
-        import android.content.DialogInterface;
         import android.os.Bundle;
         import android.app.SearchManager;
         import android.content.Context;
         import android.content.Intent;
         import android.content.res.Configuration;
         import android.support.v4.app.ActionBarDrawerToggle;
-        import android.support.v4.app.FragmentActivity;
         import android.support.v4.view.GravityCompat;
         import android.support.v4.widget.DrawerLayout;
         import android.support.v7.app.ActionBar;
         import android.support.v7.app.ActionBarActivity;
         import android.support.v7.widget.SearchView;
-        import android.view.LayoutInflater;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
@@ -27,7 +23,7 @@ package it.polito.mobile.polijobplacement;
 
         import com.parse.ParseUser;
 
-        import it.polito.mobile.polijobplacement.Search.StudentProfile;
+        import it.polito.mobile.polijobplacement.Profile.StudentProfile;
 
 public class StudentMainPageActivity extends ActionBarActivity {
 
@@ -100,40 +96,7 @@ public class StudentMainPageActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             navigateTo(0);
         }
-       // if(!(boolean)ParseUser.getCurrentUser().get("isProfileCompleted")&&!(boolean)ParseUser.getCurrentUser().get("isProfileUncompletedAlertNeverShown"))
-        /*{
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(StudentMainPageActivity.this);
-
-            LayoutInflater inflater=getLayoutInflater();
-            View view=inflater.inflate(R.layout.profile_uncompleted_alert, null);
-            builder.setView(view);
-            chk=(CheckBox)view.findViewById(R.id.chkIsNeverShow);
-            builder.setPositiveButton("Complete it now", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                    if(chk.isChecked())
-                    {
-                        ParseUser.getCurrentUser().put("isProfileUncompletedAlertNeverShown",true);
-                    }
-                    startActivity(new Intent(StudentMainPageActivity.this,profile_student.class));
-                }
-            });
-            builder.setNegativeButton("Do it later", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                    if(chk.isChecked())
-                    {
-                        ParseUser.getCurrentUser().put("isProfileUncompletedAlertNeverShown",true);
-                    }
-                }
-            });
-            builder.create().show();
-
-
-        }*/
     }
 
     /*

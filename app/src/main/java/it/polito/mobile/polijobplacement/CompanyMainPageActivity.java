@@ -21,6 +21,7 @@ import android.widget.Toast;
 import android.widget.RelativeLayout;
 import com.parse.ParseUser;
 
+import it.polito.mobile.polijobplacement.Profile.CompanyProfile;
 
 
 public class CompanyMainPageActivity extends ActionBarActivity {
@@ -182,8 +183,13 @@ public class CompanyMainPageActivity extends ActionBarActivity {
                                 C_TabbedFragment.TAG).commit();
                 break;
             case 1:
-                startActivity(new Intent(CompanyMainPageActivity.this,MainActivity1.class));
+                startActivity(new Intent(CompanyMainPageActivity.this,CompanyProfile.class));
 
+                break;
+            case 3:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, JobOfferFragment.newInstance("arg1", "arg2")).commit();
                 break;
             case 4:
                 ParseUser.logOut();

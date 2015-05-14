@@ -1,4 +1,4 @@
-package it.polito.mobile.polijobplacement.Search;
+package it.polito.mobile.polijobplacement.Profile;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,18 +7,18 @@ import android.view.MenuItem;
 
 import it.polito.mobile.polijobplacement.R;
 
-public class StudentProfile extends ActionBarActivity {
+public class CompanyProfile extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_profile);
+        setContentView(R.layout.activity_company_profile);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_student_profile, menu);
+        getMenuInflater().inflate(R.menu.menu_company_profile, menu);
         return true;
     }
 
