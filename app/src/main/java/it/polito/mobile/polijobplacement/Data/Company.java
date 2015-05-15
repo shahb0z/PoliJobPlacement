@@ -43,6 +43,4 @@ public class Company extends App_User {
     public void setDetail(String detail) {
         this.put(JobApplication.DETAIL,detail);
     }
-
-
 }
