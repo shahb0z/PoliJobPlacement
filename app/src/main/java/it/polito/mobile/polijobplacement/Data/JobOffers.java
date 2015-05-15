@@ -95,4 +95,19 @@ public class JobOffers extends ParseObject {
     public void setDueDate(Date d){
         put(JobApplication.JOB_OFFERS_DUE_DATE,d);
     }
+
+    public List<String> getSkillsList(){
+        return getList(JobApplication.JOB_OFFERS_SKILLS_LIST);
+    }
+    public void setSkillsList(List<String> list){
+        put(JobApplication.JOB_OFFERS_SKILLS_LIST,list);
+    }
+
+    public Languages getLanguage(){
+        return (Languages)get(JobApplication.JOB_OFFERS_LANGUAGE);
+    }
+
+    public void setLanguage(Languages l){
+        put(JobApplication.JOB_OFFERS_LANGUAGE,l);
+    }
 }

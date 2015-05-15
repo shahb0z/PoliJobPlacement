@@ -96,6 +96,8 @@ public class JobApplication extends android.app.Application{
     public static final String JOB_OFFERS_SALARY = "salary";
     public static final String JOB_OFFERS_DUE_DATE = "dueDate";
     public static final String MESSAGE_READ = "isRead";
+    public static final String JOB_OFFERS_SKILLS_LIST = "skillsList";
+    public static final String JOB_OFFERS_LANGUAGE = "language";
 
 
     private App_User currentUser = null;
