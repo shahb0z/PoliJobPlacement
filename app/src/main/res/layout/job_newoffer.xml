@@ -298,14 +298,7 @@ android:orientation="vertical">
     android:layout_height="100dp">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/rowIcon51"
-        android:paddingLeft="16dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_ab_drawer"/>
-    <ImageView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rowIcon5"
