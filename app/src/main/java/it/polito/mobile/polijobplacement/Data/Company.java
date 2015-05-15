@@ -34,18 +34,6 @@ public class Company extends App_User {
         add(JobApplication.JOB_OFFERS, item);
     }
 
-    //TODo   add by kukush set Company name
-    public String getName() {
-        return getString(JobApplication.NAME);
-    }
-
-    public void setName(String name) {
-        this.put(JobApplication.NAME, name);
-    }
-
-
-
-
     public String getDetail() {
         return getString(JobApplication.DETAIL);
     }
