@@ -13,7 +13,7 @@ import android.view.View;
 import android.content.Context;
 import android.view.ViewGroup;
 
-public class Job_NewOffer  extends Fragment {
+public class job_newoffer  extends Fragment {
 
    /* public static Fragment  newInstance(Context context) {
         Job_NewOffer f = new Job_NewOffer();
