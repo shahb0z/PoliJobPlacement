@@ -15,8 +15,8 @@ public class C_TabbedFragment  extends  Fragment{
     ViewPager mViewPager;
     SlidingTabLayout slidingTabLayout;
 
-    public static TabbedFragment newInstance() {
-        return new TabbedFragment();
+    public static  C_TabbedFragment newInstance() {
+        return new  C_TabbedFragment();
     }
 
     @Override
@@ -26,11 +26,11 @@ public class C_TabbedFragment  extends  Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_tabbed, container, false);
+        View v = inflater.inflate(R.layout.fragemnt_tabbed_company, container, false);
         frpage=  new Company_FragmentPageAdapter(getChildFragmentManager()) ;
 
 
-        mViewPager = (ViewPager) v.findViewById(R.id.pager);
+        mViewPager = (ViewPager) v.findViewById(R.id.pager_company);
         mViewPager.setAdapter(frpage);
 
         /*slidingTabLayout = (SlidingTabLayout) inflater.inflate(R.id.sliding_tabs, container , false);

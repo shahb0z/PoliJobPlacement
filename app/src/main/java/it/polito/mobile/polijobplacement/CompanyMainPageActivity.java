@@ -187,9 +187,10 @@ public class CompanyMainPageActivity extends ActionBarActivity {
 
                 break;
             case 3:
-                getSupportFragmentManager()
+               getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.content_frame, JobOfferFragment.newInstance("arg1", "arg2")).commit();
+              //  startActivity(new Intent(CompanyMainPageActivity.this, MainActivity1.class));
                 break;
             case 4:
                 ParseUser.logOut();

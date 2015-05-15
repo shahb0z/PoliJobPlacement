@@ -8,28 +8,21 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import  it.polito.mobile.polijobplacement.Data.Inbox;
 import java.util.List;
-
+import com.parse.ParseUser;
 /**
  * Created by Admin on 5/9/2015.
  */
 public class Inbox_ListViewAdapte_detail  extends ArrayAdapter<Inbox> {
+    ParseUser user= ParseUser.getCurrentUser();
     public  Inbox_ListViewAdapte_detail(Context context, List<Inbox> items) {
-
         super(context, R.layout.message, items);
 
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-       /* viewHolder = new ViewHolder();
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        convertView = inflater.inflate(R.layout.message, parent, false);
-        Inbox item = getItem(position);
-        viewHolder = new ViewHolder();
-        viewHolder.EditTextEmail = (TextView) convertView
-                .findViewById(R.id.EditTextEmail);
-        viewHolder.EditTextEmail.setText(item.From);
-        convertView.setTag(viewHolder);*/
+
+
 
         if (convertView == null) {
             // inflate the GridView item layout
@@ -56,7 +49,7 @@ public class Inbox_ListViewAdapte_detail  extends ArrayAdapter<Inbox> {
         Inbox item = getItem(position);
 
         viewHolder.EditTextEmail.setText(item.From);
-       viewHolder.EditTextName.setText("Current user");
+       viewHolder.EditTextName.setText(user.getUsername());
        viewHolder.TextViewTitle.setText(item.subject);
         viewHolder.EditTextRecivedMessage.setText(item.message);
 
