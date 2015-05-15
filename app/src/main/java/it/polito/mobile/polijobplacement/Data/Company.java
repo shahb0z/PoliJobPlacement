@@ -34,6 +34,8 @@ public class Company extends App_User {
         add(JobApplication.JOB_OFFERS, item);
     }
 
+
+
     public String getDetail() {
         return getString(JobApplication.DETAIL);
     }
