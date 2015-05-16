@@ -205,6 +205,12 @@ android:orientation="vertical">
             android:gravity="bottom"
             android:textSize="10sp" />
 
+        <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+             android:theme="@style/AlertDialog.AppCompat"
+            android:id="@+id/Expied_datePicker" />
 
 
         <LinearLayout
@@ -298,7 +304,7 @@ android:orientation="vertical">
     android:layout_height="100dp">
 
 
-
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rowIcon5"
