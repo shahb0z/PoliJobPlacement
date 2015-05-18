@@ -1,6 +1,8 @@
 package it.polito.mobile.polijobplacement;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import it.polito.mobile.polijobplacement.Data.*;
+import it.polito.mobile.polijobplacement.Profile.CompanyProfile;
+
 import java.util.Iterator;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +23,7 @@ import android.widget.BaseAdapter;
 import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import java.io.FileReader;
 import java.io.IOException;
@@ -30,7 +35,8 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
-
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -69,10 +75,12 @@ public class JobOfferFragment extends Fragment {
     protected  JobOffers  newJobOffers;
     protected JobOffers offer;
     protected App_User userData;
-    protected  Company company;
+    protected  Company comp;
+    protected  Company comp1;
     protected  JobApplication GolabalData;
     protected String title,description,salary,publishdate,category,employmenttype,applicantList,offeredBy,dueDate;
   protected  Spinner SpinnerJob_Sector;
+    protected  Spinner SpinnerSkill;
    /* protected String publishdate;
     protected String category;
     protected String employmenttype;
@@ -120,7 +128,10 @@ public class JobOfferFragment extends Fragment {
             GolabalData = new JobApplication();
             userData = new App_User();
             offer = new JobOffers();
-            userData = GolabalData.getUser();
+            comp  = new Company();
+           //userData = GolabalData.getUser();
+           // TestData();
+
             if (userData == null) {
                 //getFragmentManager().popBackStackImmediate();
             }
@@ -136,7 +147,7 @@ public class JobOfferFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.job_newoffer, container, false);
@@ -145,10 +156,12 @@ public class JobOfferFragment extends Fragment {
         Spinner spinnerDuration =(Spinner)root.findViewById(R.id.spinnerDuration );
         //  to read from xml list for spinner
         SpinnerJob_Sector = (Spinner)root.findViewById(R.id.Job_Sector);
+        SpinnerSkill = (Spinner)root.findViewById(R.id.Skill);
         getResources().getTextArray(R.array.new_offer_fragment_termContracts);
 
 
 
+        SpinnerSkill.setAdapter(new StringAdapter(readSkils()));
         SpinnerJob_Sector.setAdapter(new StringAdapter(readCatagory()));
         spinnerDuration.setAdapter(new StringAdapter(TermContract));
         typeContractList.setAdapter(new StringAdapter(EmpType));
@@ -165,16 +178,25 @@ public class JobOfferFragment extends Fragment {
         btnPostjob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           if(!offer.equals(null))
-                      {  final App_User temp = new App_User();
-                          offer =retrieveJobOfferInfo();
-                           offer.saveInBackground(new SaveCallback() {
+           if(!comp.equals(null))
+                      {
+
+                         //final App_User temp = new App_User();
+
+                        //comp = AddJobToCompany();
+                            offer  = retrieveJobOfferInfo();
+                           //offer.saveInBackground();
+                          offer.saveInBackground(new SaveCallback() {
                                @Override
                                public void done(ParseException e) {
 
                                    if (e == null) {
                                        // Saved successfully.
+                                       btnPostjob.setBackgroundColor(Color.RED);
+                                       Toast.makeText(getActivity(), "Data Saved Suceesfully", Toast.LENGTH_LONG).show();
+
                                        Log.d(TAG, "JobOffer update saved!");
+
 
 
                                        Log.d(TAG, "The object id (from User) is: " );
@@ -201,7 +223,6 @@ public class JobOfferFragment extends Fragment {
 
     }
 
-
     @Override
     public void onDetach() {
         super.onDetach();
@@ -222,7 +243,81 @@ public class JobOfferFragment extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+    public  void TestData()
+    {  App_User user = new App_User();
+        user=(App_User)ParseUser.getCurrentUser();
+        user.getObjectId();
+        String usertype = user.getType();
+
+        String Username =  user.getUsername();
+        Company testComp = new Company();
+       // testComp.setUser_test(user);
+        testComp.setName(user.getUsername());
+        testComp.setDetail("Detail");
+        testComp.setCity("ROMA");
+        testComp.setField("Computer");
+        testComp.setCountry("Italy ");
+        if(!testComp.equals(null))
+        {
+             testComp.saveInBackground(new SaveCallback() {
+                 @Override
+                 public void done(ParseException e) {
+
+                     if (e == null) {
+                         // Saved successfully.
+                         Log.d(TAG, "Company   saved!");
+
+
+                         Log.d(TAG, "The object id (from User) is: " );
+                     }
+                     else
+                     {
+                         // The save failed.
+                         Log.d(TAG, "Company  update error: " + e);
+                     }
+                 }
+             });
+
+
+        }
+
+
+    }
  // read CatagorylistNames from local
+ public String[] readSkils() {
+
+     String[] stringArray = new String[50];
+     JSONParser jParser = new JSONParser();
+     JSONObject json;
+     json = jParser.loadJSONFromAsset(filename, getActivity()
+             .getApplicationContext());
+     int datesLength = json.length();
+
+     try {
+
+         for (int j = 0; j < datesLength; j++) {
+             String dateName = json.names().get(datesLength - (j + 1))
+                     .toString();
+             if (dateName.equals("Job_Catagory")) {
+                 List<String> list = new ArrayList<String>();
+                 JSONArray schedules = json.getJSONArray(json.names()
+                         .get(datesLength - (j + 1)).toString());
+                 for (int i = 0; i < schedules.length(); i++) {
+                     JSONObject c = schedules.getJSONObject(i);
+                     String msg = c.getString("Sector");
+                     list.add(msg);
+                 }
+                 stringArray = list.toArray(new String[list.size()]);
+
+             }
+
+
+         }
+     } catch (JSONException e) {
+         e.printStackTrace();
+     }
+     return  stringArray;
+ }
     public String[] readCatagory() {
 
         String[] stringArray = new String[50];
@@ -293,11 +388,26 @@ public class JobOfferFragment extends Fragment {
             return convertView;
         }
     }
+    public Company AddJobToCompany(){
 
+        comp1  = new Company();
+        comp1.setDetail("detail");
+         comp1 .setField("Filed");;
+
+
+       // comp1.addItemToList_offers(retrieveJobOfferInfo());
+        return   comp1;
+
+    }
     //TODO
     public JobOffers retrieveJobOfferInfo() {
+      List<String> skilllist = null;
 
        newJobOffers = new JobOffers();
+        comp = new Company();
+        App_User user = new App_User();
+        user=(App_User)ParseUser.getCurrentUser();
+
 
         //EditText offerObject =(EditText)root.findViewById(R.id.offerObject);
         EditText Job_Tittle =(EditText)root.findViewById(R.id.Job_Tittle);
@@ -321,22 +431,28 @@ public class JobOfferFragment extends Fragment {
         String JobCatagory  = (String)SpinnerJob_Sector.getSelectedItem();
         Spinner typeContractList = (Spinner) root.findViewById(R.id.typeContract);
         Spinner SalaryList = (Spinner)root.findViewById(R.id.spinnerSalary);
-        Spinner spinnerDuration =(Spinner)root.findViewById(R.id.spinnerDuration );
+        Spinner spinnerDuration =(Spinner)root.findViewById(R.id.spinnerDuration);
 
         String  ContractType  = (String)typeContractList.getSelectedItem();
-
+        String Skil   = (String) SpinnerSkill.getSelectedItem();
+        skilllist.add(Skil);
         String ContratYr =   (String)spinnerDuration.getSelectedItem();
         // One of the Two value of salary
        salary = (String)SalaryList.getSelectedItem();
         EditText Salaryoffer=(EditText)root.findViewById(R.id.offerSalary);
-        int val = Integer.parseInt( Salaryoffer.getText().toString() );
+        int val = Integer.parseInt(Salaryoffer.getText().toString());
         /// ToDo ??? Validation
-        //  inser to the objest job
 
+
+           
           newJobOffers.setSalary(val);
+         newJobOffers.setfor_test(user);
         // TODO Update later??????????????  Type of emp
          newJobOffers.setEmploymentType(EMPLOYMENT_FULL_TIME);
          newJobOffers.setCategory(JobCatagory);
+        // TODO  one or more skill list
+       // newJobOffers.setSkillsList(skilllist);
+      //  newJobOffers.setOfferedBy(comp);
         //  TODO  change to System.Today Date
         newJobOffers.setPublishDate(ExpDate);
         newJobOffers.setDueDate(ExpDate);
