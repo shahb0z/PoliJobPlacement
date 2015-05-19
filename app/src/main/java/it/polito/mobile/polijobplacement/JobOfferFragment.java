@@ -22,7 +22,10 @@ import android.widget.DatePicker;
 import android.widget.BaseAdapter;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import java.io.FileReader;
@@ -70,6 +73,7 @@ public class JobOfferFragment extends Fragment {
     private String SALARY_RANGE[] = {"up to 1000$", "1000- 2000$", "2000-4000&", "4000-6000$", "6000-8000$", "8000-10,000$", "above 10,000$"};
     String CurrentUser;
     // String  offeredBy;
+
     DatePicker expdatePicker;
     View root;
     protected  JobOffers  newJobOffers;
@@ -128,9 +132,10 @@ public class JobOfferFragment extends Fragment {
             GolabalData = new JobApplication();
             userData = new App_User();
             offer = new JobOffers();
-            comp  = new Company();
+           // comp  = JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
            //userData = GolabalData.getUser();
-           // TestData();
+          TestData();
+           //ReadParseOffer();
 
             if (userData == null) {
                 //getFragmentManager().popBackStackImmediate();
@@ -245,21 +250,25 @@ public class JobOfferFragment extends Fragment {
     }
     public  void TestData()
     {  App_User user = new App_User();
-        user=(App_User)ParseUser.getCurrentUser();
-        user.getObjectId();
-        String usertype = user.getType();
+       // user=(App_User)ParseUser.getCurrentUser();
+        // App_User.getCurrentUser()
+        //user =getCurentuser();
+       // user.getObjectId();
+        //String usertype = user.getType();
 
-        String Username =  user.getUsername();
-        Company testComp = new Company();
-       // testComp.setUser_test(user);
-        testComp.setName(user.getUsername());
-        testComp.setDetail("Detail");
-        testComp.setCity("ROMA");
-        testComp.setField("Computer");
-        testComp.setCountry("Italy ");
-        if(!testComp.equals(null))
+      //  String Username =  user.getUsername();
+       // Company testComp = new Company();
+      // testComp.setUser_test(user);
+      // testComp.setName(comp.getUsername());
+        comp  = JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
+        // comp.setName(comp.getUsername());
+        comp.setDetail("Detail");
+        comp.setCity("ROMA");
+        comp.setField("Computer");
+        comp.setCountry("Italy ");
+        if(!comp.equals(null))
         {
-             testComp.saveInBackground(new SaveCallback() {
+            comp.saveInBackground(new SaveCallback() {
                  @Override
                  public void done(ParseException e) {
 
@@ -283,6 +292,20 @@ public class JobOfferFragment extends Fragment {
 
 
     }
+
+
+    public  static  App_User getCurentuser()
+    {
+          ParseQuery<App_User>usercur = ParseQuery.getQuery(App_User.class);
+        try {
+              return  usercur.get(ParseUser.getCurrentUser().getObjectId());
+        }
+        catch (ParseException e)
+        {
+
+        } return  null;
+    }
+
  // read CatagorylistNames from local
  public String[] readSkils() {
 
@@ -298,13 +321,13 @@ public class JobOfferFragment extends Fragment {
          for (int j = 0; j < datesLength; j++) {
              String dateName = json.names().get(datesLength - (j + 1))
                      .toString();
-             if (dateName.equals("Job_Catagory")) {
+             if (dateName.equals("Skill")) {
                  List<String> list = new ArrayList<String>();
                  JSONArray schedules = json.getJSONArray(json.names()
                          .get(datesLength - (j + 1)).toString());
                  for (int i = 0; i < schedules.length(); i++) {
                      JSONObject c = schedules.getJSONObject(i);
-                     String msg = c.getString("Sector");
+                     String msg = c.getString("Name");
                      list.add(msg);
                  }
                  stringArray = list.toArray(new String[list.size()]);
@@ -388,17 +411,7 @@ public class JobOfferFragment extends Fragment {
             return convertView;
         }
     }
-    public Company AddJobToCompany(){
 
-        comp1  = new Company();
-        comp1.setDetail("detail");
-         comp1 .setField("Filed");;
-
-
-       // comp1.addItemToList_offers(retrieveJobOfferInfo());
-        return   comp1;
-
-    }
     //TODO
     public JobOffers retrieveJobOfferInfo() {
       List<String> skilllist = null;
@@ -426,6 +439,7 @@ public class JobOfferFragment extends Fragment {
 
 
 
+
         //Spinner jobCatagoryList = (Spinner)root.findViewById(R.id.Catagory);
        // String jobCatagory = (String)jobCatagoryList.getSelectedItem();
         String JobCatagory  = (String)SpinnerJob_Sector.getSelectedItem();
@@ -435,7 +449,7 @@ public class JobOfferFragment extends Fragment {
 
         String  ContractType  = (String)typeContractList.getSelectedItem();
         String Skil   = (String) SpinnerSkill.getSelectedItem();
-        skilllist.add(Skil);
+
         String ContratYr =   (String)spinnerDuration.getSelectedItem();
         // One of the Two value of salary
        salary = (String)SalaryList.getSelectedItem();
@@ -443,15 +457,15 @@ public class JobOfferFragment extends Fragment {
         int val = Integer.parseInt(Salaryoffer.getText().toString());
         /// ToDo ??? Validation
 
-
-           
           newJobOffers.setSalary(val);
          newJobOffers.setfor_test(user);
+        newJobOffers.setSkill(Skil);
         // TODO Update later??????????????  Type of emp
-         newJobOffers.setEmploymentType(EMPLOYMENT_FULL_TIME);
+
+         newJobOffers.setEmploymentType(ContractType);
          newJobOffers.setCategory(JobCatagory);
         // TODO  one or more skill list
-       // newJobOffers.setSkillsList(skilllist);
+        newJobOffers.setSkillsList(skilllist);
       //  newJobOffers.setOfferedBy(comp);
         //  TODO  change to System.Today Date
         newJobOffers.setPublishDate(ExpDate);
@@ -467,6 +481,61 @@ public class JobOfferFragment extends Fragment {
 
 
         return newJobOffers;
+    }
+
+    public JobOffers  ReadParseOffer()
+    {  final JobOffers offerRead = new JobOffers();
+        App_User user = new App_User();
+       /* App_User user = new App_User();
+        user=(App_User)ParseUser.getCurrentUser();
+
+
+        ParseQuery Query1= new ParseQuery("JobOffer");
+        Query1.whereEqualTo("objectId", "eWT4KRkNK2");
+
+      try {
+        ParseObject JOBOFFER = Query1.getFirst();
+          Log.d(TAG, "Company   saved!");
+          String  objId =   JOBOFFER.getObjectId();
+
+
+          }
+         catch (ParseException e)
+              {
+                  Log.d(TAG, e.getMessage());
+               }*/
+/////////////////////////////////
+        ParseQuery<JobOffers> query = ParseQuery.getQuery("JobOffers");
+        query.getInBackground("eWT4KRkNK2", new GetCallback<JobOffers>() {
+            public void done(JobOffers JOBOFFER, ParseException e) {
+                if (e == null) {
+                    // object will be your game score
+                    Log.d(TAG, "Company   saved!");
+                    String  objId =   JOBOFFER.getObjectId();
+                    String Cat= JOBOFFER.getCategory();
+                    String Type=JOBOFFER.getEmploymentType();
+
+
+                    //  String email=  JOBOFFER.getFor_test().getUsername().toString();
+                } else {
+                    // something went wrong
+                    Log.d(TAG, e.getMessage());
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+        return  offerRead;
+
+
+
+
     }
 
     }
