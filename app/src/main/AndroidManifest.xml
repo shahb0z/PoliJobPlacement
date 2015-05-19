@@ -50,6 +50,11 @@
             android:name=".Profile.CompanyProfile"
             android:label="@string/title_activity_company_profile" >
         </activity>
+        <activity
+            android:name=".sendNewMessage"
+            android:label="@string/title_activity_send_new_message"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
     </application>
 
 </manifest>

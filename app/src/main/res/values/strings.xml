@@ -51,6 +51,7 @@
         <item>Search</item>
         <item>Job Offer</item>
         <item>Logout</item>
+        <item>Send message</item>
     </string-array>
 
 
@@ -134,6 +135,7 @@
     <string name="no_photo">No photo</string>
 
     <!--new_offer_fragment_hint_object-->
+<<<<<<< HEAD
     <string name="new_offer_fragment_hint_spinnerField">Please choose a field</string>
     <string name="new_offer_fragment_hint_spinnercontract">Please choose a type of contract</string>
     <string name="new_offer_fragment_hint_number_of_place">Available places</string>
@@ -162,4 +164,19 @@
 
 
 
+=======
+    <string name="new_offer_fragment_hint_spinnercontract">new_offer_fragment_hint_spinnercontract</string>
+    <string name= "new_offer_fragment_hint_location"> new_offer_fragment_hint_location</string>
+    <string name="new_offer_fragment_hint_salary">new_offer_fragment_hint_salary</string>
+    <string name="new_offer_fragment_Description">new_offer_fragment_Description</string>
+
+    <string name="new_offer_fragment_date"> new_offer_fragment_date</string>
+    <string name="new_offer_fragment_hint_validity"> new_offer_fragment_hint_validity</string>
+    <string name="new_offer_fragment_hint_number_of_place">new_offer_fragment_hint_number_of_place</string>
+
+    <string name="new_offer_fragment_button">new_offer_fragment_button</string>
+    <string name="new_offer_fragment_hint_tags">new_offer_fragment_hint_tags</string>
+    <string name="new_offer_fragment_hint_object">new_offer_fragment_hint_object</string>
+    <string name="title_activity_send_new_message">sendNewMessage</string>
+>>>>>>> d0bd2a6fda343dddc7be9a4b9629d89238758445
 </resources>
