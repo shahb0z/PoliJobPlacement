@@ -51,6 +51,7 @@
         <item>Search</item>
         <item>Job Offer</item>
         <item>Logout</item>
+        <item>Send message</item>
     </string-array>
 
 
@@ -146,4 +147,5 @@
     <string name="new_offer_fragment_button">new_offer_fragment_button</string>
     <string name="new_offer_fragment_hint_tags">new_offer_fragment_hint_tags</string>
     <string name="new_offer_fragment_hint_object">new_offer_fragment_hint_object</string>
+    <string name="title_activity_send_new_message">sendNewMessage</string>
 </resources>
