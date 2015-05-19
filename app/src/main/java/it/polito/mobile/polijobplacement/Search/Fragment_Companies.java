@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import it.polito.mobile.polijobplacement.Data.App_User;
+import it.polito.mobile.polijobplacement.Data.Company;
 import it.polito.mobile.polijobplacement.Data.JobApplication;
 import it.polito.mobile.polijobplacement.R;
 
@@ -36,7 +37,7 @@ public class Fragment_Companies extends android.support.v4.app.Fragment {
         ListView lt = (ListView) v.findViewById(R.id.list_company);
         lt.setAdapter( new BaseAdapter() {
             JobApplication db = (JobApplication) getActivity().getApplicationContext();
-            List<App_User> list_company = db.Company_List();
+            List<Company> list_company = db.Company_List();
             @Override
             public int getCount() {
                 return list_company.size();

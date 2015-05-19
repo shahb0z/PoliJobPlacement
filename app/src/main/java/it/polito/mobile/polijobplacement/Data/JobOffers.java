@@ -12,13 +12,15 @@ import java.util.List;
  */
 @ParseClassName("JobOffers")
 public class JobOffers extends ParseObject {
-    public JobOffers(){}
+    public JobOffers() {
+    }
+
     public String getEmploymentType() {
         return getString(JobApplication.EMPLOYMENT_TYPE);
     }
 
     public void setEmploymentType(String employmentType) {
-        put(JobApplication.EMPLOYMENT_TYPE,employmentType);
+        put(JobApplication.EMPLOYMENT_TYPE, employmentType);
     }
 
     public String getCategory() {
@@ -27,7 +29,7 @@ public class JobOffers extends ParseObject {
     }
 
     public void setCategory(String category) {
-        put(JobApplication.CATEGORY,category);
+        put(JobApplication.CATEGORY, category);
     }
 
     public Date getPublishDate() {
@@ -35,7 +37,7 @@ public class JobOffers extends ParseObject {
     }
 
     public void setPublishDate(Date publishDate) {
-        put(JobApplication.PUBLISH_DATE,publishDate);
+        put(JobApplication.PUBLISH_DATE, publishDate);
     }
 
     public String getTitle() {
@@ -43,7 +45,7 @@ public class JobOffers extends ParseObject {
     }
 
     public void setTitle(String title) {
-        put(JobApplication.JOB_TITLE,title);
+        put(JobApplication.JOB_TITLE, title);
     }
 
 
@@ -52,33 +54,43 @@ public class JobOffers extends ParseObject {
     }
 
     public void setDescription(String description) {
-        put(JobApplication.JOB_DESCRIPTION,description);
+        put(JobApplication.JOB_DESCRIPTION, description);
     }
 
-    public List<Student> getListOfApplicants(){
+    public List<Student> getListOfApplicants() {
         return getList(JobApplication.JOB_OFFERS_APPLICANT_LIST);
     }
-    public void setListOfApplicants(List<Student> list){
-        put(JobApplication.JOB_OFFERS_APPLICANT_LIST,list);
+
+    public void setListOfApplicants(List<Student> list) {
+        put(JobApplication.JOB_OFFERS_APPLICANT_LIST, list);
     }
 
-    public void addStudentToListOfApplicants(Student s){
+    public void addStudentToListOfApplicants(Student s) {
         add(JobApplication.JOB_OFFERS_APPLICANT_LIST, s);
     }
 
-    public void removeStudentFromListOfApplicants(Student s){
-        List <Student> list = new ArrayList<Student>();
+    public void removeStudentFromListOfApplicants(Student s) {
+        List<Student> list = new ArrayList<Student>();
         list.add(s);
         removeAll(JobApplication.JOB_OFFERS_APPLICANT_LIST, list);
     }
 
-    public Company getOfferedBy(){
-        return (Company)get(JobApplication.JOB_OFFERS_OFFERED_BY);
+    public Company getOfferedBy() {
+        return (Company) get(JobApplication.JOB_OFFERS_OFFERED_BY);
     }
 
-    public void setOfferedBy(Company c){
-        put(JobApplication.JOB_OFFERS_OFFERED_BY,c);
+    public void setOfferedBy(Company c) {
+        put(JobApplication.JOB_OFFERS_OFFERED_BY, c);
     }
+
+    //TODO Delete after
+    public void   setfor_test(App_User s) {
+        put(JobApplication.NAME, s);
+    }
+
+    public App_User getFor_test() {
+       return (App_User)get(JobApplication.NAME);}
+    /////Delete after  End
 
     public String getSalary(){
         return getString(JobApplication.JOB_OFFERS_SALARY);
@@ -87,6 +99,11 @@ public class JobOffers extends ParseObject {
     public void setSalary(String salary){
         put(JobApplication.JOB_OFFERS_SALARY,salary);
     }
+    ////   TODO  ku
+    public void setSalary(int salary){
+        put(JobApplication.JOB_OFFERS_SALARY,salary);
+    }
+
 
     public Date getDueDate(){
         return getDate(JobApplication.JOB_OFFERS_DUE_DATE);
@@ -103,6 +120,9 @@ public class JobOffers extends ParseObject {
         put(JobApplication.JOB_OFFERS_SKILLS_LIST,list);
     }
 
+    public void setSkill(String list){
+        put(JobApplication.JOB_OFFERS_SKILLS_LIST,list);
+    }
     public Languages getLanguage(){
         return (Languages)get(JobApplication.JOB_OFFERS_LANGUAGE);
     }

@@ -13,6 +13,7 @@ import java.util.List;
 
 import it.polito.mobile.polijobplacement.Data.App_User;
 import it.polito.mobile.polijobplacement.Data.JobApplication;
+import it.polito.mobile.polijobplacement.Data.Student;
 import it.polito.mobile.polijobplacement.R;
 
 
@@ -34,7 +35,7 @@ public class Fragment_Search_Company extends android.support.v4.app.Fragment {
 
         View v = inflater.inflate(R.layout.fragment_fragment__home, container, false);
         JobApplication db = (JobApplication) getActivity().getApplicationContext();
-        final List<App_User> list_students = db.Student_List();
+        final List<Student> list_students = db.Student_List();
         if(list_students != null) {
             ListView lt = (ListView) v.findViewById(R.id.list_company);
             lt.setAdapter(new BaseAdapter() {
@@ -45,8 +46,8 @@ public class Fragment_Search_Company extends android.support.v4.app.Fragment {
                 }
 
                 @Override
-                public Object getItem(int position) {
-                    return list_students.get(position).getUsername();
+                   public Object getItem(int position) {
+                    return list_students.get(position).getUserName();
                 }
 
                 @Override

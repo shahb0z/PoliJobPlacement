@@ -1,5 +1,24 @@
 {
-    
+    "Job_Catagory":[{"Sector":"Accountancy"},{"Sector":"Administrative"},{"Sector":"Agriculture"},{"Sector":"Architectural Services"},
+	  {"Sector":"Arts & Entertainment"} , {"Sector":"Automotive"} , {"Sector":"Banking"} , {"Sector":"Biotec/Pharm"} , {"Sector":"Construction"} ,
+	  {"Sector":"Consulting"},{"Sector":"Customer Service"},{"Sector":"Design"},{"Sector":"Education"},{"Sector":"Energy"},{"Sector":"Engineering"},
+	  {"Sector":"	Finance"},{"Sector":"Government/Non-Profit"},{"Sector":"Healthcare"},{"Sector":"Hospitality"},{"Sector":"Information Technology"},
+	  {"Sector":"Internet"}, {"Sector":"Legal Services"}, {"Sector":"Leisure"},  {"Sector":"Logistics"},{"Sector":"Manufacturing"},
+	  {"Sector":"Marketing & PR"}, {"Sector":"Procurement"}, {"Sector":"Property"}, {"Sector":"	Recruitment/HR"},{"Sector":"Retail"},
+	  {"Sector":"Other"} ,{"Sector":"Transition Services"},{"Sector":"Tourism"},{"Sector":"Telecommunication"},
+	  {"Sector":"Technical"},{"Sector":"Science"},{"Sector":"Sales"}
+
+
+],
+  "Skill":[
+	{"Name": "Java "  },
+	{"Name": "ModelBased"},
+	{"Name": "C#"},
+	{"Name": "C++"},
+	{"Name": "Web Design"},
+	{"Name": "Control Programing"  },
+	{"Name": "Testing " }
+  ],
     "Company_2":[
     	{"Name": "FIAT",  "Sector": "Computer", "Tittle": "control engineer","Detail": "Show Datail Show DatailShow DatailShow DatailShow DatailShow DatailShow Datail"},
     	{"Name": "GULF",  "Sector": "Industy", "Tittle": "control engineer","Detail": "Show Datail"},
