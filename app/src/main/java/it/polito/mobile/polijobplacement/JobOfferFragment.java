@@ -134,7 +134,7 @@ public class JobOfferFragment extends Fragment {
             offer = new JobOffers();
            // comp  = JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
            //userData = GolabalData.getUser();
-          TestData();
+         // TestData();
            //ReadParseOffer();
 
             if (userData == null) {
