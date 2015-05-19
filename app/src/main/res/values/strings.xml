@@ -135,36 +135,30 @@
     <string name="no_photo">No photo</string>
 
     <!--new_offer_fragment_hint_object-->
-<<<<<<< HEAD
-    <string name="new_offer_fragment_hint_spinnerField">Please choose a field</string>
-    <string name="new_offer_fragment_hint_spinnercontract">Please choose a type of contract</string>
-    <string name="new_offer_fragment_hint_number_of_place">Available places</string>
-    <string name="new_offer_fragment_hint_validity">Validity</string>
-    <string name="new_offer_fragment_hint_tags">Add Tags...</string>
 
+
+    <string name="new_offer_fragment_hint_spinnerField">Please choose a field</string>
     <string name="new_offer_fragment_publish">Publish offer</string>
     <string name="new_offer_fragment_spinner_title">Field of offer</string>
     <string name="new_offer_fragment_intro">Basic informations:</string>
-    <string name="new_offer_fragment_Description">Description:</string>
 
-    <string name="new_offer_fragment_hint_object">Sector of the Job</string>
+
+
 
     <string name="new_offer_fragment_job_type">Tittle of the Job</string>
     <string name="new_offer_fragment_hint_duration">Term of contract</string>
-    <string name="new_offer_fragment_hint_salary">Salary</string>
-    <string name="new_offer_fragment_hint_location">Location</string>
+
     <string name="new_offer_fragment_hint_description">Description up to 500 chracters</string>
 
-    <string name="new_offer_fragment_date">Set</string>
+
     <string name="skill_required">Skill required</string>
     <string name="Language_requierd"> Languagerequierd</string>
 
-    <string name="new_offer_fragment_button">Publish</string>
 
 
 
 
-=======
+
     <string name="new_offer_fragment_hint_spinnercontract">new_offer_fragment_hint_spinnercontract</string>
     <string name= "new_offer_fragment_hint_location"> new_offer_fragment_hint_location</string>
     <string name="new_offer_fragment_hint_salary">new_offer_fragment_hint_salary</string>
@@ -178,5 +172,5 @@
     <string name="new_offer_fragment_hint_tags">new_offer_fragment_hint_tags</string>
     <string name="new_offer_fragment_hint_object">new_offer_fragment_hint_object</string>
     <string name="title_activity_send_new_message">sendNewMessage</string>
->>>>>>> d0bd2a6fda343dddc7be9a4b9629d89238758445
+
 </resources>
