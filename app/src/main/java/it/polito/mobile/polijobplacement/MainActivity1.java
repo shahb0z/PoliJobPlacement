@@ -10,6 +10,7 @@ import com.parse.ParseUser;
 
 import it.polito.mobile.polijobplacement.Data.App_User;
 import it.polito.mobile.polijobplacement.Data.JobApplication;
+import it.polito.mobile.polijobplacement.Data.Student;
 
 
 public class MainActivity1 extends Activity {
@@ -38,8 +39,12 @@ public class MainActivity1 extends Activity {
            if(currentUser != null){
                //if the current user is logged in send the user to main page
                //send the user to student main page
-               if(((App_User)currentUser).getType().equals(JobApplication.STUDENT_TYPE))
-                    startActivity(new Intent(this,StudentMainPageActivity.class));
+               if(((App_User)currentUser).getType().equals(JobApplication.STUDENT_TYPE)){
+
+                   startActivity(new Intent(this,StudentMainPageActivity.class));
+
+               }
+
                //send the user to company page
                else if(((App_User)currentUser).getType().equals(JobApplication.COMPANY_TYPE))
                    startActivity(new Intent(this,CompanyMainPageActivity.class));

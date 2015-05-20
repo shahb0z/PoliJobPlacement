@@ -3,7 +3,9 @@ package it.polito.mobile.polijobplacement.Data;
 
 
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.List;
@@ -127,5 +129,22 @@ public class JobApplication extends android.app.Application{
 
     public List<App_User> Student_List() {
         return null;
+    }
+
+    public static Student getStudent(String username) {
+
+        ParseQuery<Student> query = ParseQuery.getQuery(Student.class);
+        query.whereEqualTo("username", username);
+        List<Student> result = null;
+        Student s = null;
+        try {
+            result = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if(result.size() == 0){
+            return s;
+        }
+        return result.get(0);
     }
 }

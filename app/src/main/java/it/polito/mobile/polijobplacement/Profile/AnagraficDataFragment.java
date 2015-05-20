@@ -1,6 +1,8 @@
 package it.polito.mobile.polijobplacement.Profile;
 
-import android.app.Fragment;
+import android.app.DatePickerDialog;
+import android.content.res.Resources;
+import android.support.v4.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import it.polito.mobile.polijobplacement.R;
 
@@ -24,7 +30,7 @@ import it.polito.mobile.polijobplacement.R;
 public class AnagraficDataFragment extends Fragment {
 
     private TextView mBirthDateTextView;
-
+    private static SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("dd-M-yyyy");
 
     /**
      * Use this factory method to create a new instance of
@@ -60,7 +66,7 @@ public class AnagraficDataFragment extends Fragment {
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(new NothingSelectedSpinnerAdapter(adapter,R.layout.contact_spinner_row_nothing_selected,getActivity()));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -75,9 +81,33 @@ public class AnagraficDataFragment extends Fragment {
         });
         mBirthDateTextView = (TextView)rootView.findViewById(R.id.data_birthdate);
         mBirthDateTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
+            // @Override
             public void onClick(View v) {
-                ((StudentProfile)getActivity()).showDatePickerDialog();
+                final Calendar c = Calendar.getInstance();
+
+                int y = c.get(Calendar.YEAR)-4;
+                int m = 0;
+                int d = 0;
+
+                DatePickerDialog dp = new DatePickerDialog(getActivity(),
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                c.set(year, monthOfYear, dayOfMonth);
+                                mBirthDateTextView.setText(DATE_FORMATTER.format(c.getTime()));
+
+                            }
+
+                        }, y, m, d);
+                dp.setTitle("Calender");
+                dp.setMessage("Select Your Graduation date Please?");
+                dp.getDatePicker().findViewById(Resources.getSystem().getIdentifier("day", "id", "android")).setVisibility(View.GONE);
+                dp.show();
+
+
+
             }
         });
         return rootView;
@@ -112,4 +142,6 @@ public class AnagraficDataFragment extends Fragment {
     public TextView getMBirthDateTextView(){
         return mBirthDateTextView;
     }
+
+
 }

@@ -97,6 +97,7 @@ public class LoginActivity1 extends ActionBarActivity {
         dialog.show();
         // Call the Parse login method
         App_User user = new App_User();
+
         user.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {

@@ -24,6 +24,7 @@ package it.polito.mobile.polijobplacement;
         import com.parse.ParseUser;
 
         import it.polito.mobile.polijobplacement.Profile.StudentProfile;
+        import it.polito.mobile.polijobplacement.Profile.StudentProfileFragment;
 
 public class StudentMainPageActivity extends ActionBarActivity {
 
@@ -148,7 +149,10 @@ public class StudentMainPageActivity extends ActionBarActivity {
                                 TabbedFragment.TAG).commit();
                 break;
             case 1:
-                startActivity(new Intent(StudentMainPageActivity.this,StudentProfile.class));
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, StudentProfileFragment.newInstance(),
+                                StudentProfileFragment.TAG).commit();
 
                 break;
             case 5:

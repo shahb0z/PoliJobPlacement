@@ -19,8 +19,8 @@
     <string name="title_activity_main_page">MainPageActivity</string>
     <string name="title_activity_login">LoginActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hello_blank_fragment">Welcome to profile</string>
     <string name="create_user">Create Account</string>
     <string name="title_activity_company_main_page">CompanyMainPageActivity</string>
     <string name="student_type">Student</string>
@@ -146,4 +146,32 @@
     <string name="new_offer_fragment_button">new_offer_fragment_button</string>
     <string name="new_offer_fragment_hint_tags">new_offer_fragment_hint_tags</string>
     <string name="new_offer_fragment_hint_object">new_offer_fragment_hint_object</string>
+    <string name="anaggrafic_data_title">Your Basic Information</string>
+    <string name="anagrafic_data_hint">Your email is used as username, name and surname is mandatory</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="data_country">country</string>
+    <string name="data_region">region</string>
+    <string name="data_nationality">nationality</string>
+    <string name="address_data_title">Address Info</string>
+    <string name="address_data_hint">This informayion can be used when you apply for a job</string>
+    <string name="add_degree">Add  a new degree</string>
+    <string name="degree_data_title">Background Info</string>
+    <string name="degree_data_hint">Your background info is used for suggesting jobs available for you</string>
+    <string name="data_university">university</string>
+    <string name="data_type">type</string>
+    <string name="data_major">major</string>
+    <string name="data_start_year">start year</string>
+    <string name="data_end_year">end year</string>
+    <string name="data_skill">Skill</string>
+    <string name="data_language">language</string>
+    <string name="data_language_level">level</string>
+    <string name="add_button">add</string>
+    <string name="error_blank_university">university</string>
+    <string name="error_blank_degree_type">degree</string>
+    <string name="error_blank_degree_major">major</string>
+    <string name="error_blank_degree_start_date">Start Date</string>
+    <string name="error_blank_degree_end_date">end date</string>
+    <string name="error_blank_skill">enter skill</string>
+    <string name="error_blank_language">enter language</string>
+    <string name="error_language_level">choose level</string>
 </resources>

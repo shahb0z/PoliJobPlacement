@@ -4,4 +4,9 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string-array name="degree_type_array">
+        <item>Bachelor</item>
+        <item>Master</item>
+        <item>Phd</item>
+    </string-array>
 </resources>

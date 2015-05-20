@@ -1,27 +1,34 @@
 package it.polito.mobile.polijobplacement.Profile;
 
 import android.app.DatePickerDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v13.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+
+import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import it.polito.mobile.polijobplacement.Data.JobApplication;
+import it.polito.mobile.polijobplacement.Data.Student;
 import it.polito.mobile.polijobplacement.R;
 
 
-public class StudentProfile extends FragmentActivity implements DatePickerDialog.OnDateSetListener{
+public class StudentProfile extends FragmentActivity{
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -64,15 +71,15 @@ public class StudentProfile extends FragmentActivity implements DatePickerDialog
 
     private PageList mFragmentList = new PageList();
 
-    private static SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("dd-M-yyyy");
 
+    //public static Student student = JobApplication.getStudent(ParseUser.getCurrentUser().getUsername());
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_slide);
+        setContentView(R.layout.activity_student_profile);
 
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getFragmentManager());
+        mPager = (ViewPager) findViewById(R.id.pager_student);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
@@ -131,19 +138,11 @@ public class StudentProfile extends FragmentActivity implements DatePickerDialog
         mPrevButton.setVisibility(position <= 0 ? View.INVISIBLE : View.VISIBLE);
     }
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        Calendar cal = new GregorianCalendar(year, monthOfYear, dayOfMonth);
-        AnagraficDataFragment a = (AnagraficDataFragment)getFragmentManager().findFragmentById(R.id.pager);
-        a.getMBirthDateTextView().setText(DATE_FORMATTER.format(cal.getTime()));
-    }
 
-    public void showDatePickerDialog(){
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        DialogFragment newFragment = new DatePickerDialogFragment(StudentProfile.this);
-        newFragment.show(ft,"date_picker");
-    }
+
+
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -156,6 +155,22 @@ public class StudentProfile extends FragmentActivity implements DatePickerDialog
         @Override
         public int getCount() {
             return NUM_PAGES+1;
+        }
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            registeredFragments.remove(position);
+            super.destroyItem(container, position, object);
+        }
+
+        public Fragment getRegisteredFragment(int position) {
+            return registeredFragments.get(position);
         }
     }
 

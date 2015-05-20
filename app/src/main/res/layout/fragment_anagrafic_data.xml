@@ -7,7 +7,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
+            <View android:id="@+id/anagrafic_data_divider"
+                android:layout_height="8dp"
+                android:layout_width="match_parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anaggrafic_data_title"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textAppearance="?android:textAppearanceMedium"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.DropDownHint"
+                android:text="@string/anagrafic_data_hint"
+                android:gravity="center"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -19,6 +43,7 @@
                     android:layout_weight="1"
                     >
                     <EditText
+                        android:inputType="textCapWords|textPersonName"
                         android:paddingTop="6dp"
                         android:id="@+id/data_name"
                         android:layout_width="match_parent"
@@ -26,15 +51,16 @@
                         android:hint="@string/name_hint"
                         android:layout_marginBottom="3dp"
                         android:layout_marginTop="6dp"
+
                         />
                     <EditText
-
+                        android:inputType="textCapWords|textPersonName"
                         android:id="@+id/data_surname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/surname_hint"
                         android:layout_marginTop="3dp"
-                        android:layout_marginBottom="6dp"
+                        android:layout_marginBottom="3dp"
 
                         />
                     <EditText
@@ -43,7 +69,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
                         android:layout_marginTop="3dp"
-                        android:layout_marginBottom="6dp"/>
+                        android:layout_marginBottom="6dp"
+                        />
                 </LinearLayout>
                 <ImageView
                     android:id="@+id/profile_photo"
@@ -51,52 +78,60 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/no_photo"
-                    />
+                    android:src="@drawable/users" />
             </LinearLayout>
+            <View android:layout_height="8dp"
+                android:layout_width="match_parent" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:baselineAligned="false">
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                >
+                <TextView
+                    android:text="@string/data_gender_text"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    style="@style/WizardFormLabel"
+                    android:layout_weight="0.8"
+                    android:gravity="center_vertical" />
+                <Spinner
+                    android:id="@+id/data_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    >
                     <TextView
                         android:text="@string/data_birthdate_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:textAppearanceMedium"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        style="@style/WizardFormLabel"
+                        android:layout_weight="0.8"
+                        android:gravity="center_vertical" />
                     <TextView
                         android:id="@+id/data_birthdate"
                         style="?android:attr/spinnerStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:textAppearanceMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
                         android:gravity="center"
+                        android:layout_weight="1"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="6dp"
                         />
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
-                    <TextView
-                        android:text="@string/data_gender_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"/>
-                    <Spinner
-                        android:id="@+id/data_spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        ></Spinner>
-                </LinearLayout>
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
