@@ -93,7 +93,7 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
                 return  f;
             }
             case 2:
-                Fragment f=Compay_List_ViewFragment.newInstance("Company_2" ,"" ,"", searchResults);
+                inboxFragment f= inboxFragment.newInstance("", "", "", searchResults);
                 return f;
 
             default:
