@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/WizardFormLabel"
+            android:text="@string/data_university"
+            android:layout_weight="0.8"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/university_edit_text"
+            android:layout_weight="1"
+            android:inputType="textCapWords" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/WizardFormLabel"
+            android:text="@string/data_type"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:id="@+id/data_degree_type_spinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/WizardFormLabel"
+            android:text="@string/data_major"
+            android:layout_weight="0.8"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/major_edit_text"
+            android:layout_weight="1"
+            android:inputType="textCapWords" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/WizardFormLabel"
+            android:text="@string/data_start_year"
+            android:layout_weight="0.8"/>
+
+        <TextView
+            android:id="@+id/data_start_year"
+            style="?android:attr/spinnerStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/WizardFormLabel"
+            android:text="@string/data_end_year"
+            android:layout_weight="0.8"/>
+
+        <TextView
+            android:id="@+id/data_end_year"
+            style="?android:attr/spinnerStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            />
+    </LinearLayout>
+
+    <Button
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_button"
+        android:id="@+id/degree_add_button"
+        android:layout_gravity="right" />
+
+</LinearLayout>

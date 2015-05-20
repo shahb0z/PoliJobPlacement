@@ -4,6 +4,11 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string-array name="degree_type_array">
+        <item>Bachelor</item>
+        <item>Master</item>
+        <item>Phd</item>
+    </string-array>
     <string-array name="new_offer_fragment_termContracts">
         <item>Select term of contract...</item>
         <item>Up to 6 months</item>
