@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.SignUpCallback;
 
 import it.polito.mobile.polijobplacement.Data.App_User;
@@ -150,21 +151,11 @@ public class SignupActivity1 extends ActionBarActivity {
         final ProgressDialog dialog = new ProgressDialog(SignupActivity1.this);
         dialog.setMessage(getString(R.string.progress_signup));
         dialog.show();
-        App_User user;
-        if(userType.equals(JobApplication.STUDENT_TYPE)){
-            user = new Student();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setEmail(username);
-            user.setType(userType);
-        }
-        else{
-            user = new Company();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setEmail(username);
-            user.setType(userType);
-        }
+        App_User user = new App_User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(username);
+        user.setType(userType);
 
         // Set up a new Parse user
 
@@ -184,7 +175,15 @@ public class SignupActivity1 extends ActionBarActivity {
                 }
             }
         });
+        if(userType.equals(JobApplication.STUDENT_TYPE)){
+            Student s = new Student(username);
+            s.saveInBackground();
+        }else{
+            Company c = new Company(username);
+             c.saveInBackground();
+        }
     }
+
     /**
      * method for getting user input for user type
      */

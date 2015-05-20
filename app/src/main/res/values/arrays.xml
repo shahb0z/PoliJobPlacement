@@ -9,4 +9,22 @@
         <item>Master</item>
         <item>Phd</item>
     </string-array>
+    <string-array name="new_offer_fragment_termContracts">
+        <item>Select term of contract...</item>
+        <item>Up to 6 months</item>
+        <item>One year</item>
+        <item>Two year</item>
+        <item>Five year</item>
+        <item>Indefinitely</item>
+
+    </string-array>
+    <string-array name="new_offer_fragment_typeOfContracts">
+        <item>Select a type of contract...</item>
+        <item>Stage</item>
+        <item>Part-Time</item>
+        <item>Full-Time</item>
+        <item>Tesi</item>
+        <item>Master</item>
+
+    </string-array>
 </resources>

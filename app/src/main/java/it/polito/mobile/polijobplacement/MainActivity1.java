@@ -3,18 +3,23 @@ package it.polito.mobile.polijobplacement;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.parse.ParseAnonymousUtils;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
 
 import it.polito.mobile.polijobplacement.Data.App_User;
+import it.polito.mobile.polijobplacement.Data.Company;
 import it.polito.mobile.polijobplacement.Data.JobApplication;
 import it.polito.mobile.polijobplacement.Data.Student;
 
 
 public class MainActivity1 extends Activity {
-
+    public static final String TAG = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +47,11 @@ public class MainActivity1 extends Activity {
                if(((App_User)currentUser).getType().equals(JobApplication.STUDENT_TYPE)){
 
                    startActivity(new Intent(this,StudentMainPageActivity.class));
-
                }
 
                //send the user to company page
                else if(((App_User)currentUser).getType().equals(JobApplication.COMPANY_TYPE))
+
                    startActivity(new Intent(this,CompanyMainPageActivity.class));
             }
 

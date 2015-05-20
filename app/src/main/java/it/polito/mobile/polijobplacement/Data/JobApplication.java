@@ -9,10 +9,10 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.List;
-
 import it.polito.mobile.polijobplacement.Data.App_User;
-import it.polito.mobile.polijobplacement.Data.Company;
 import it.polito.mobile.polijobplacement.Data.Student;
+import it.polito.mobile.polijobplacement.Data.Company;
+
 
 /**
  * Created by shahboz on 26/04/2015.
@@ -100,6 +100,7 @@ public class JobApplication extends android.app.Application{
     public static final String MESSAGE_READ = "isRead";
     public static final String JOB_OFFERS_SKILLS_LIST = "skillsList";
     public static final String JOB_OFFERS_LANGUAGE = "language";
+    public static final String LOCATION = "location";
 
 
     private App_User currentUser = null;
@@ -122,12 +123,44 @@ public class JobApplication extends android.app.Application{
         ParseUser.getCurrentUser().saveInBackground();
 
     }
-   public App_User getUser(){ return currentUser;}
-    public List<App_User> Company_List() {
+    public App_User getUser(){
+        ParseUser cUser = ParseUser.getCurrentUser();
+        String username = cUser.getUsername();
+        ParseQuery<App_User> query = ParseQuery.getQuery(App_User.class);
+        query.whereEqualTo("username", username);
+        List<App_User> result = null;
+        try {
+            result = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return result.get(0);
+
+    }
+    public List<Company> Company_List() {
         return null;
     }
 
-    public List<App_User> Student_List() {
+    public List<Student> Student_List() {
+        ParseQuery<Student> list_student = ParseQuery.getQuery(Student.class);
+
+
+
+        List<Student> result = null;
+        try {
+            result = list_student.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+   /* public List<Jobs_by_Type> getJobsbyType() {
+        return null;
+    }
+*/
+    public List<JobOffers> getJobList(String title, String location, String type) {
         return null;
     }
 
@@ -137,6 +170,22 @@ public class JobApplication extends android.app.Application{
         query.whereEqualTo("username", username);
         List<Student> result = null;
         Student s = null;
+        try {
+            result = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if(result.size() == 0){
+            return s;
+        }
+        return result.get(0);
+    }
+    public static Company getCompany(String username) {
+
+        ParseQuery<Company> query = ParseQuery.getQuery(Company.class);
+        query.whereEqualTo("username", username);
+        List<Company> result = null;
+        Company s = null;
         try {
             result = query.find();
         } catch (ParseException e) {

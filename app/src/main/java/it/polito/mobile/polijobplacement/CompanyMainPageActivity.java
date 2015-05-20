@@ -186,15 +186,21 @@ public class CompanyMainPageActivity extends ActionBarActivity {
                 startActivity(new Intent(CompanyMainPageActivity.this,CompanyProfile.class));
 
                 break;
-            case 3:
-               getSupportFragmentManager()
+            case 3: {
+                getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.content_frame, JobOfferFragment.newInstance("arg1", "arg2")).commit();
+
+            }
               //  startActivity(new Intent(CompanyMainPageActivity.this, MainActivity1.class));
                 break;
             case 4:
                 ParseUser.logOut();
                 startActivity(new Intent(CompanyMainPageActivity.this,MainActivity1.class));
+                break;
+            case 5:
+                startActivity(new Intent(CompanyMainPageActivity.this,sendNewMessage.class));
+
                 break;
         }
         mDrawerLayout.closeDrawer(mDrawerList);
