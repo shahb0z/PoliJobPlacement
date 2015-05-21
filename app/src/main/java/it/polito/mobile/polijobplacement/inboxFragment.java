@@ -14,14 +14,18 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,6 +40,9 @@ public class inboxFragment extends Fragment {
     ParseQuery<Messages> pq;
     ArrayList<Messages> messages=new ArrayList<Messages>();
     ListView list;
+    Button btn;
+    Messages current;
+    EditText feedback;
     public static inboxFragment newInstance(String From,String subject, String date, Bundle b) {
         return new inboxFragment();
     }
@@ -53,7 +60,7 @@ public class inboxFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.inbox_list, container, false);
+        final View root = inflater.inflate(R.layout.inbox_list, container, false);
         list = (ListView) root.findViewById(R.id.list);
 
         messages.clear();
@@ -269,6 +276,8 @@ public class inboxFragment extends Fragment {
                             viewHolder.details = (TextView) convertView
                                     .findViewById(R.id.EditTextRecivedMessage);
                             viewHolder.date = (TextView) convertView.findViewById(R.id.EditTextReciveddate);
+
+
                             convertView.setTag(viewHolder);
                         } else {
                             // recycle the already inflated view
@@ -283,6 +292,35 @@ public class inboxFragment extends Fragment {
                             viewHolder.subject.setText(messages.get(position).getTitle());
                             viewHolder.details.setText(messages.get(position).getContent());
                             viewHolder.date.setText(messages.get(position).getUpdatedAt().toGMTString());
+                            current=messages.get(position);
+                            btn =(Button)convertView.findViewById(R.id.ButtonSaveasDraft);
+
+
+                            btn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Messages temp =new Messages();
+                                    temp.setTitle("Re:"+current.getTitle());
+                                    feedback =(EditText)root.findViewById(R.id.EditTextFeedbackBody);
+                                    temp.setContent(feedback.getText().toString());
+                                    temp.setFromUser(current.getToUser());
+                                    temp.setToUser(current.getFromUser());
+                                    temp.saveInBackground(new SaveCallback() {
+                                        @Override
+                                        public void done(ParseException e) {
+                                            if(e!=null)
+                                            {
+                                                Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_LONG).show();
+                                            }
+                                            else
+                                            {
+                                                Toast.makeText(getActivity(),"sucess",Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+
                             return convertView;
 
                         }
@@ -309,6 +347,7 @@ public class inboxFragment extends Fragment {
         public TextView message;
         public TextView date ;
         public TextView details;
+
     }
 
 
