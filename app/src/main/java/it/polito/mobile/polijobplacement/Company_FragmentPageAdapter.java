@@ -88,7 +88,7 @@ public class Company_FragmentPageAdapter extends  FragmentPagerAdapter  {
                 Fragment f= it.polito.mobile.polijobplacement.Compay_List_ViewFragment.newInstance("Company_2", "", "", searchResults);
                 return f;}
             case 3:
-                Fragment f= InboxActivity.newInstance("", "", "", searchResults);
+                inboxFragment f= inboxFragment.newInstance("", "", "", searchResults);
                 return  f;
 
 

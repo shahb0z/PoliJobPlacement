@@ -34,8 +34,7 @@ public class Inbox_ListViewAdapte_detail  extends ArrayAdapter<Inbox> {
             viewHolder = new ViewHolder();
             viewHolder.EditTextEmail = (TextView) convertView
                     .findViewById(R.id.EditTextEmail);
-            viewHolder.EditTextName = (TextView) convertView
-                    .findViewById(R.id.EditTextName);
+
             viewHolder.EditTextRecivedMessage = (TextView) convertView
                     .findViewById(R.id.EditTextRecivedMessage);
             viewHolder.TextViewTitle = (TextView) convertView.findViewById(R.id.TextViewTitle);

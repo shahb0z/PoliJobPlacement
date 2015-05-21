@@ -89,11 +89,11 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
                 return  f;
             }
             case 1:{
-                Fragment f=InboxActivity.newInstance("" ,"" ,"", searchResults);
+                inboxFragment f= inboxFragment.newInstance("", "", "", searchResults);
                 return  f;
             }
             case 2:
-                Fragment f=Compay_List_ViewFragment.newInstance("Company_2" ,"" ,"", searchResults);
+                Fragment f=InboxActivity.newInstance("" ,"" ,"", searchResults);
                 return f;
 
             default:

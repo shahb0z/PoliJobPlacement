@@ -27,7 +27,8 @@
         </activity>
         <activity
             android:name=".StudentMainPageActivity"
-            android:label="@string/title_activity_main_page" >
+            android:label="@string/title_activity_main_page"
+            android:windowSoftInputMode="adjustPan">
         </activity>
         <activity
             android:name=".LoginActivity1"
@@ -36,6 +37,7 @@
         </activity>
         <activity
             android:name=".CompanyMainPageActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="@string/title_activity_company_main_page" >
         </activity>
         <activity

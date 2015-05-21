@@ -51,7 +51,6 @@
         <item>Search</item>
         <item>Job Offer</item>
         <item>Logout</item>
-        <item>Send message</item>
     </string-array>
 
 
@@ -203,5 +202,6 @@
     <string name="review_data_title">Review Your Info</string>
     <string name="degree_data">Degree(s)</string>
     <string name="progress_student_save">Saving your data....</string>
+
 
 </resources>
