@@ -435,25 +435,7 @@ public class JobOfferFragment extends Fragment {
     public JobOffers  ReadParseOffer()
     {  final JobOffers offerRead = new JobOffers();
         App_User user = new App_User();
-       /* App_User user = new App_User();
-        user=(App_User)ParseUser.getCurrentUser();
 
-
-        ParseQuery Query1= new ParseQuery("JobOffer");
-        Query1.whereEqualTo("objectId", "eWT4KRkNK2");
-
-      try {
-        ParseObject JOBOFFER = Query1.getFirst();
-          Log.d(TAG, "Company   saved!");
-          String  objId =   JOBOFFER.getObjectId();
-
-
-          }
-         catch (ParseException e)
-              {
-                  Log.d(TAG, e.getMessage());
-               }*/
-/////////////////////////////////
         ParseQuery<JobOffers> query = ParseQuery.getQuery("JobOffers");
         query.getInBackground("eWT4KRkNK2", new GetCallback<JobOffers>() {
             public void done(JobOffers JOBOFFER, ParseException e) {

@@ -19,6 +19,12 @@ public class App_User extends ParseUser {
     public App_User(){
 
     }
+    public void setUserName(String username){
+        put("username",username);
+    }
+    public String getUserName(){
+        return getString("username");
+    }
 
     public boolean isProfileCompleted(){
         return getBoolean(JobApplication.IS_PROFILE_COMPLETED);
