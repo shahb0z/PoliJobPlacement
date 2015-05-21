@@ -15,7 +15,7 @@
         android:paddingRight="?android:attr/listPreferredItemPaddingRight"
         android:gravity="center" />
 
-    <android.support.v4.view.ViewPager
+    <it.polito.mobile.polijobplacement.Profile.CustomViewPager
         android:id="@+id/pager_student"
         android:layout_width="match_parent"
         android:layout_height="0dp"

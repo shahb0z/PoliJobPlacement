@@ -73,7 +73,7 @@
     <string name="list_languages">list_languages</string>
     <string name="list_skills">Technical skills:</string>
     <!-- for Message-->
-    <string name="email">email</string>
+    <string name="email">Email</string>
     <string name="name">name</string>
     <string name="title">title</string>
     <string name="Applyjob">Applyjob</string>
@@ -98,7 +98,7 @@
     <!-- End for Message-->
     <!-- for JOB Detail-->
     <string name="Requirments">Requirments</string>
-    <string name="Skill">Skil</string>
+    <string name="Skill">Skill</string>
     <string name="Language">Language</string>
 
 
@@ -181,7 +181,7 @@
     <string name="address_data_hint">This informayion can be used when you apply for a job</string>
     <string name="add_degree">Add  a new degree</string>
     <string name="degree_data_title">Background Info</string>
-    <string name="degree_data_hint">Your background info is used for suggesting jobs available for you</string>
+    <string name="degree_data_hint">You have to add a degree, a skill, a language at least!</string>
     <string name="data_university">university</string>
     <string name="data_type">type</string>
     <string name="data_major">major</string>
@@ -200,5 +200,8 @@
     <string name="error_blank_language">enter language</string>
     <string name="error_language_level">choose level</string>
     <string name="title_activity_send_new_message">sendNewMessage</string>
+    <string name="review_data_title">Review Your Info</string>
+    <string name="degree_data">Degree(s)</string>
+    <string name="progress_student_save">Saving your data....</string>
 
 </resources>

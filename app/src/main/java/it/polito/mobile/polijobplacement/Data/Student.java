@@ -136,7 +136,7 @@ public class Student extends ParseObject {
         return getList(JobApplication.JOB_SAVED);
     }
     public void setJobSaved(List<JobOffers> list_jobs){
-        this.put(JobApplication.JOB_SAVED,list_jobs);
+        this.put(JobApplication.JOB_SAVED, list_jobs);
     }
 
     //add item to the saved list of jobs
@@ -205,5 +205,12 @@ public class Student extends ParseObject {
     }
     public void setCity(String s){
         put(JobApplication.CITY,s);
+    }
+
+    public void setNationality(String nationality) {
+        put("nationality",nationality);
+    }
+    public String getNationality(){
+        return getString("nationality");
     }
 }

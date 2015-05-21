@@ -1,0 +1,298 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.polito.mobile.polijobplacement.Profile.ReviewFragment">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/review_data_title"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"/>
+        <View android:id="@+id/anagrafic_data_divider2"
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/name_hint"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_name"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/surname_hint"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_surname"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/email"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_email"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/data_gender_text"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_gender"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/data_birthdate_text"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_birthdate"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/data_country"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_country"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/data_region"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_region"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/data_nationality"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_nationality"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/degree_data"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_degree"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                style="@style/WizardFormLabel"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/Skill"
+                android:layout_weight="0.6" />
+
+            <TextView
+                android:id="@+id/review_skill"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <View
+            android:layout_height="8dp"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                style="@style/WizardFormLabel"
+                android:text="@string/data_language"
+                android:layout_weight="0.6"/>
+
+            <TextView
+                android:id="@+id/review_language"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textAllCaps="true"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
