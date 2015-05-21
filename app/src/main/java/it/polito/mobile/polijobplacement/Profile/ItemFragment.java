@@ -37,6 +37,19 @@ public class ItemFragment extends Fragment {
     private ExpandableListView list;
     private OnFragmentInteractionListener mListener;
     private ExpandableEntryAdapter listAdapter;
+
+    public List<Degree> getDegreeList() {
+        return degreeList;
+    }
+
+    public List<Languages> getLanguagesList() {
+        return languagesList;
+    }
+
+    public List<String> getSkillList() {
+        return skillList;
+    }
+
     private List<Degree> degreeList;
     private List<Languages> languagesList;
     private List<String> skillList;
@@ -56,6 +69,14 @@ public class ItemFragment extends Fragment {
     public ItemFragment() {
     }
 
+    public boolean isCompleted() {
+        if(degreeList.size() == 0||
+                skillList.size() == 0||
+                languagesList.size() == 0)
+            return false;
+        return true;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +91,9 @@ public class ItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item,container,false);
+        degreeList = new ArrayList<>();
+        skillList = new ArrayList<>();
+        languagesList = new ArrayList<>();
         header = inflater.inflate(R.layout.header,null);
         header.setOnClickListener(null);
         header.setOnLongClickListener(null);
@@ -101,19 +125,13 @@ public class ItemFragment extends Fragment {
     public void addDegree(String univer, String type, String major,String startDate, String endDate, int pos) {
         boolean validationError = false;
         StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
-        if(degreeList == null)
-            degreeList = new ArrayList<>();
+
+
         if (univer.length() == 0) {
             validationError = true;
             validationErrorMessage.append(getString(R.string.error_blank_university));
         }
-        if (type.length() == 0) {
-            if (validationError) {
-                validationErrorMessage.append(getString(R.string.error_join));
-            }
-            validationError = true;
-            validationErrorMessage.append(getString(R.string.error_blank_degree_type));
-        }
+
         if (major.length() == 0) {
             if (validationError) {
                 validationErrorMessage.append(getString(R.string.error_join));
@@ -121,20 +139,7 @@ public class ItemFragment extends Fragment {
             validationError = true;
             validationErrorMessage.append(getString(R.string.error_blank_degree_major));
         }
-        if (startDate == null) {
-            if (validationError) {
-                validationErrorMessage.append(getString(R.string.error_join));
-            }
-            validationError = true;
-            validationErrorMessage.append(getString(R.string.error_blank_degree_start_date));
-        }
-        if (endDate == null) {
-            if (validationError) {
-                validationErrorMessage.append(getString(R.string.error_join));
-            }
-            validationError = true;
-            validationErrorMessage.append(getString(R.string.error_blank_degree_end_date));
-        }
+
         validationErrorMessage.append(getString(R.string.error_end));
 
         // If there is a validation error, display the error
@@ -164,8 +169,8 @@ public class ItemFragment extends Fragment {
     }
 
     public void addSkill(String s, int pos) {
-        if(skillList == null)
-            skillList = new ArrayList<>();
+
+
         boolean validationError = false;
         StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
         if (s.length() == 0) {
@@ -189,8 +194,7 @@ public class ItemFragment extends Fragment {
     public void addLang(String s, String s1, int pos) {
         boolean validationError = false;
         StringBuilder validationErrorMessage = new StringBuilder(getString(R.string.error_intro));
-        if(languagesList == null)
-            languagesList = new ArrayList<>();
+
         if (s.length() == 0) {
             validationError = true;
             validationErrorMessage.append(getString(R.string.error_blank_language));

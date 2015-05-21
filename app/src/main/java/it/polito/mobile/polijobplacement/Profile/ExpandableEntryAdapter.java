@@ -1,6 +1,7 @@
 package it.polito.mobile.polijobplacement.Profile;
 
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.res.Resources;
@@ -17,6 +18,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -84,7 +86,10 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         View v = convertView;
-
+        View currentFocus = ((Activity)context).getCurrentFocus();
+        if (currentFocus != null) {
+            currentFocus.clearFocus();
+        }
         final Item i = items.get(groupPosition);
         if (i != null) {
             switch (i.getType()) {
@@ -147,12 +152,12 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                         final EditText university = (EditText)v.findViewById(R.id.university_edit_text);
 
                         final Spinner degreeType = (Spinner)v.findViewById(R.id.data_degree_type_spinner);
-                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(parentF.getActivity(),
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                                 R.array.degree_type_array, android.R.layout.simple_spinner_item);
                         // Specify the layout to use when the list of choices appears
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         // Apply the adapter to the spinner
-                        degreeType.setAdapter(new NothingSelectedSpinnerAdapter(adapter,R.layout.contact_spinner_row_nothing_selected,parentF.getActivity()));
+                        degreeType.setAdapter(new NothingSelectedSpinnerAdapter(adapter,R.layout.contact_spinner_row_nothing_selected,context));
 
                         degreeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
@@ -176,7 +181,7 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                                 int m = 8;
                                 int d = 1;
 
-                                DatePickerDialog dp = new DatePickerDialog(parentF.getActivity(),
+                                DatePickerDialog dp = new DatePickerDialog(context,
                                         new DatePickerDialog.OnDateSetListener() {
 
                                             @Override
@@ -210,7 +215,7 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
 
 
 
-                                DatePickerDialog dp = new DatePickerDialog(parentF.getActivity(),
+                                DatePickerDialog dp = new DatePickerDialog(context,
                                         new DatePickerDialog.OnDateSetListener() {
 
                                             @Override
@@ -235,8 +240,16 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                         b.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                if(university.getText() ==null||degreeType.getSelectedItem() == null||
+                                        major.getText() == null||
+                                        startDateTextView.getText() == null || endDateTextView.getText()== null){
+                                    Toast.makeText(context,"Some fields are free!!!",Toast.LENGTH_LONG)
+                                    .show();
+                                    //return;
 
-                                parentF.addDegree(university.getText().toString(),degreeType.getSelectedItem().toString(), major.getText().toString(),startDateTextView.getText().toString(),endDateTextView.getText().toString(), pos);
+
+                                }else
+                                    parentF.addDegree(university.getText().toString(),degreeType.getSelectedItem().toString(), major.getText().toString(),startDateTextView.getText().toString(),endDateTextView.getText().toString(), pos);
                             }
                         });
 
@@ -251,6 +264,7 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                             @Override
                             public void onClick(View v) {
 
+
                                 parentF.addSkill(skill.getText().toString(), pos);
                             }
                         });
@@ -261,11 +275,30 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                         final int pos = groupPosition;
                         Button b = (Button)v.findViewById(R.id.language_add_button);
                         final EditText lang = (EditText)v.findViewById(R.id.language_edit_text);
-                        final EditText lev = (EditText)v.findViewById(R.id.language_level_edit_text);
+                        final Spinner lev = (Spinner)v.findViewById(R.id.language_level_spinner);
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
+                                R.array.language_level_array, android.R.layout.simple_spinner_item);
+                        // Specify the layout to use when the list of choices appears
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        // Apply the adapter to the gender
+                        lev.setAdapter(new NothingSelectedSpinnerAdapter(adapter, R.layout.contact_spinner_row_nothing_selected, context));
+
+                        lev.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         b.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                parentF.addLang(lang.getText().toString(),lev.getText().toString(),pos);
+
+                                parentF.addLang(lang.getText().toString(),lev.getSelectedItem().toString(),pos);
                             }
                         });
                     }
@@ -279,12 +312,12 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                         final EditText university = (EditText)v.findViewById(R.id.university_edit_text);
 
                         final Spinner degreeType = (Spinner)v.findViewById(R.id.data_degree_type_spinner);
-                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(parentF.getActivity(),
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                                 R.array.degree_type_array, android.R.layout.simple_spinner_item);
                         // Specify the layout to use when the list of choices appears
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         // Apply the adapter to the spinner
-                        degreeType.setAdapter(new NothingSelectedSpinnerAdapter(adapter,R.layout.contact_spinner_row_nothing_selected,parentF.getActivity()));
+                        degreeType.setAdapter(new NothingSelectedSpinnerAdapter(adapter,R.layout.contact_spinner_row_nothing_selected,context));
 
                         degreeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
@@ -308,7 +341,7 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                                 int m = 8;
                                 int d = 1;
 
-                                DatePickerDialog dp = new DatePickerDialog(parentF.getActivity(),
+                                DatePickerDialog dp = new DatePickerDialog(context,
                                         new DatePickerDialog.OnDateSetListener() {
 
                                             @Override
@@ -342,7 +375,7 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
 
 
 
-                                DatePickerDialog dp = new DatePickerDialog(parentF.getActivity(),
+                                DatePickerDialog dp = new DatePickerDialog(context,
                                         new DatePickerDialog.OnDateSetListener() {
 
                                             @Override
@@ -392,11 +425,30 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
                         final int pos = groupPosition;
                         Button b = (Button)v.findViewById(R.id.language_add_button);
                         final EditText lang = (EditText)v.findViewById(R.id.language_edit_text);
-                        final EditText lev = (EditText)v.findViewById(R.id.language_level_edit_text);
+                        final Spinner lev = (Spinner)v.findViewById(R.id.language_level_spinner);
+                        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
+                                R.array.language_level_array, android.R.layout.simple_spinner_item);
+                        // Specify the layout to use when the list of choices appears
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        // Apply the adapter to the gender
+                        lev.setAdapter(new NothingSelectedSpinnerAdapter(adapter, R.layout.contact_spinner_row_nothing_selected, context));
+
+                        lev.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+
+                            }
+                        });
                         b.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                parentF.addLang(lang.getText().toString(),lev.getText().toString(),pos);
+
+                                parentF.addLang(lang.getText().toString(),lev.getSelectedItem().toString(),pos);
                             }
                         });
                     }
@@ -408,7 +460,7 @@ public class ExpandableEntryAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
+        return false;
     }
 
     @Override

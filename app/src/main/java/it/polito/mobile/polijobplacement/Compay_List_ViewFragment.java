@@ -6,7 +6,11 @@ package it.polito.mobile.polijobplacement;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import it.polito.mobile.polijobplacement.Data.App_User;
+import it.polito.mobile.polijobplacement.Data.Company;
 import it.polito.mobile.polijobplacement.Data.Company_2;
+import it.polito.mobile.polijobplacement.Data.JobApplication;
 import it.polito.mobile.polijobplacement.Data.JobOffers;
 
 import org.json.JSONArray;
@@ -20,6 +24,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
@@ -29,6 +35,7 @@ import com.parse.ParseException;
 public class Compay_List_ViewFragment extends ListFragment {
 
     private List<Company_2> mItems;
+    private  List<Company>ItemCompany;
     private List<Company_2> mItems1;
     // ListView items list
     private String filename = "schedule.json";
@@ -65,12 +72,13 @@ public class Compay_List_ViewFragment extends ListFragment {
             Tittle = getArguments().getString("Tittle");
         }
         compname = getArguments().getString("compname");
-
+        ItemCompany  = new ArrayList<Company>();
         mItems = new ArrayList<Company_2>();
         mItems1 = new ArrayList<Company_2>();
-       JobOffers xx = new JobOffers();
+      // JobOffers xx = new JobOffers();
    //TODO  test reading data
-       // xx= ReadData();
+      // ReadParseOffer();
+      /// ReadData();
        //String Cat= xx.getCategory().toString();
         //String Z = xx.getEmploymentType().toString();
         // Instantiate a QueryFactory to define the ParseQuery to be used for fetching items in this
@@ -142,30 +150,90 @@ public class Compay_List_ViewFragment extends ListFragment {
 
     public JobOffers ReadData()
 
-    {  final JobOffers joboffer = new JobOffers();
-
-        ParseQuery<JobOffers> query = ParseQuery.getQuery(JobOffers.class);
-   // Define our query conditions
-        // Read the user and Company name
-       // query.whereEqualTo("zz@gmail.com", ParseUser.getCurrentUser().getEmail());
-       // query.whereEqualTo("category", "a");
+    {   final Company  newcom = new Company();
+        final JobOffers joboffer = new JobOffers();
 // ParseQuery<Task> query = ParseQuery.getQuery(Task.class);
-        query.findInBackground(new FindCallback<JobOffers>() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Company");
+        query.getInBackground("B2XopHkO1O", new GetCallback<ParseObject>() {
+            public void done(ParseObject object, ParseException e) {
+                if (e == null) {
+                        newcom.setUserName(object.getString("Username"));
+                         ItemCompany.add(newcom);
+
+                    Log.d("item", "perfect:" + e.getMessage());
+                } else {
+                    Log.d("item", "Error:" + e.getMessage());
+                }
+            }
+        });
+        /*query.findInBackground(new FindCallback<Company>() {
             @Override
-            public void done(List<JobOffers> list, ParseException e) {
-                if(e==null)
-                        {
-                            joboffer.setCategory(list.get(0).getCategory());
-                            Toast.makeText(getActivity(),joboffer.getCategory(),Toast.LENGTH_SHORT).show();
-                        }
-                else   {
-                    Log.d("item","Error:"+e.getMessage());
+            public void done(List<Company> list, ParseException e) {
+                if (e == null) {
+                    for (int i = 0; i <= list.size(); i++) {
+                        newcom.setUserName(list.get(i).getUserName());
+
+                       // Toast.makeText(getActivity(), newcom.getCategory(), Toast.LENGTH_SHORT).show();
+
+                    }
+                } else {
+                    Log.d("item", "Error:" + e.getMessage());
                 }
 
             }
-        });
+        });*/
 
         return joboffer;
+    }
+    public JobOffers  ReadParseOffer()
+    {
+         final   String  TAG = "";
+         final JobOffers offerRead = new JobOffers();
+        App_User user = new App_User();
+       //TODO Just to check OBID
+        Company company = new Company();
+        company= JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
+        String OBID=company.getObjectId();
+        ///////////
+        ParseQuery<Company> Companyquery = ParseQuery.getQuery("Company");
+        Companyquery.whereEqualTo("objectId", JobApplication.getCompany(ParseUser.getCurrentUser().getUsername()).getObjectId());
+       // String OBID= JobApplication.getCompany(ParseUser.getCurrentUser().getUsername()).getObjectId();
+        ArrayList<JobOffers> jobList = null;
+        ParseQuery<JobOffers> jobQuery =  ParseQuery.getQuery("JobOffers");
+        jobQuery.whereMatchesQuery("offerdBy", Companyquery);
+
+        jobQuery.findInBackground(new FindCallback<JobOffers>() {
+             @Override
+             public void done(List<JobOffers> Jobs, ParseException e) {
+
+                if(e==null)
+                {   Log.d(TAG ,e.getMessage().toString());
+
+                 String test =  Jobs.get(0).getCategory();
+                }
+                 else
+                {
+                    Log.d(TAG, e.getMessage());
+                }
+             }
+         });
+
+
+
+
+
+
+
+
+
+
+
+
+        return  offerRead;
+
+
+
+
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

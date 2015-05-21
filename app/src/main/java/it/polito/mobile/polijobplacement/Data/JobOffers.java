@@ -88,6 +88,10 @@ public class JobOffers extends ParseObject {
         put(JobApplication.NAME, s);
     }
 
+    public void   setfor_Computer(Company s) {
+        put(JobApplication.NAME, s);
+    }
+
     public App_User getFor_test() {
        return (App_User)get(JobApplication.NAME);}
     /////Delete after  End

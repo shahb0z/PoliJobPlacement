@@ -132,9 +132,7 @@ public class JobOfferFragment extends Fragment {
             GolabalData = new JobApplication();
             userData = new App_User();
             offer = new JobOffers();
-           // comp  = JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
-           //userData = GolabalData.getUser();
-         // TestData();
+            comp  = new Company();
            //ReadParseOffer();
 
             if (userData == null) {
@@ -183,46 +181,46 @@ public class JobOfferFragment extends Fragment {
         btnPostjob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           if(!comp.equals(null))
-                      {
+                if (!comp.equals(null)) {
 
-                         //final App_User temp = new App_User();
+                    //final App_User temp = new App_User();
 
-                        //comp = AddJobToCompany();
-                            offer  = retrieveJobOfferInfo();
-                            GolabalData.add_jobs_by_type(offer);
+                    //comp = AddJobToCompany();
+                    offer = retrieveJobOfferInfo();
+                    //offer.saveInBackground();
+                    offer.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
 
-                           //offer.saveInBackground();
-                          offer.saveInBackground(new SaveCallback() {
-                               @Override
-                               public void done(ParseException e) {
+                            if (e == null) {
+                                // Saved successfully.
+                                btnPostjob.setBackgroundColor(Color.RED);
+                                Toast.makeText(getActivity(), "Data Saved Suceesfully", Toast.LENGTH_LONG).show();
 
-                                   if (e == null) {
-                                       // Saved successfully.
-                                       btnPostjob.setBackgroundColor(Color.RED);
-                                       Toast.makeText(getActivity(), "Data Saved Suceesfully", Toast.LENGTH_LONG).show();
-
-                                       Log.d(TAG, "JobOffer update saved!");
+                                Log.d(TAG, "JobOffer update saved!");
 
 
+                                Log.d(TAG, "The object id (from User) is: ");
+                            } else {
+                                // The save failed.
+                                Log.d(TAG, "User update error: " + e);
+                            }
 
-                                       Log.d(TAG, "The object id (from User) is: " );
-                                   } else {
-                                       // The save failed.
-                                       Log.d(TAG, "User update error: " + e);
-                                   }
+                        }
+                    });
+                } else {
+                    Toast.makeText(getActivity(), "Object is Null", Toast.LENGTH_LONG).show();
 
-                               }
-                           });
-                      }
-           else {
-               Toast.makeText(getActivity(), "Object is Null", Toast.LENGTH_LONG).show();
-
-           }
+                }
 
             }
 
-           });
+        });
+        comp.addItemToList_offers(offer);
+
+
+
+
 
 
           return root;
@@ -250,50 +248,7 @@ public class JobOfferFragment extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
-    public  void TestData()
-    {  App_User user = new App_User();
-       // user=(App_User)ParseUser.getCurrentUser();
-        // App_User.getCurrentUser()
-        //user =getCurentuser();
-       // user.getObjectId();
-        //String usertype = user.getType();
 
-      //  String Username =  user.getUsername();
-       // Company testComp = new Company();
-      // testComp.setUser_test(user);
-      // testComp.setName(comp.getUsername());
-        comp  = JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
-        // comp.setName(comp.getUsername());
-        comp.setDetail("Detail");
-        comp.setCity("ROMA");
-        comp.setField("Computer");
-        comp.setCountry("Italy ");
-        if(!comp.equals(null))
-        {
-            comp.saveInBackground(new SaveCallback() {
-                 @Override
-                 public void done(ParseException e) {
-
-                     if (e == null) {
-                         // Saved successfully.
-                         Log.d(TAG, "Company   saved!");
-
-
-                         Log.d(TAG, "The object id (from User) is: " );
-                     }
-                     else
-                     {
-                         // The save failed.
-                         Log.d(TAG, "Company  update error: " + e);
-                     }
-                 }
-             });
-
-
-        }
-
-
-    }
 
 
     public  static  App_User getCurentuser()
@@ -416,22 +371,19 @@ public class JobOfferFragment extends Fragment {
 
     //TODO
     public JobOffers retrieveJobOfferInfo() {
-      List<String> skilllist = null;
+
 
        newJobOffers = new JobOffers();
-        comp = new Company();
+        comp = JobApplication.getCompany(ParseUser.getCurrentUser().getUsername());
+
         App_User user = new App_User();
         user=(App_User)ParseUser.getCurrentUser();
-
+       // JobApplication.getCompany(comp.getUserName());
 
         //EditText offerObject =(EditText)root.findViewById(R.id.offerObject);
         EditText Job_Tittle =(EditText)root.findViewById(R.id.Job_Tittle);
         EditText Available_space =(EditText)root.findViewById(R.id.Available_space);
         EditText Description =(EditText)root.findViewById(R.id.DescriptionText);
-        //EditText JobCatagory =(EditText)root.findViewById(R.id.Job_Sector);
-
-
-
 
         Date ExpDate = null;
         Calendar c = GregorianCalendar.getInstance();
@@ -439,11 +391,6 @@ public class JobOfferFragment extends Fragment {
         c.set(expdatePicker.getYear(), expdatePicker.getMonth(), expdatePicker.getDayOfMonth());
         ExpDate = c.getTime();
 
-
-
-
-        //Spinner jobCatagoryList = (Spinner)root.findViewById(R.id.Catagory);
-       // String jobCatagory = (String)jobCatagoryList.getSelectedItem();
         String JobCatagory  = (String)SpinnerJob_Sector.getSelectedItem();
         Spinner typeContractList = (Spinner) root.findViewById(R.id.typeContract);
         Spinner SalaryList = (Spinner)root.findViewById(R.id.spinnerSalary);
@@ -458,16 +405,16 @@ public class JobOfferFragment extends Fragment {
         EditText Salaryoffer=(EditText)root.findViewById(R.id.offerSalary);
         int val = Integer.parseInt(Salaryoffer.getText().toString());
         /// ToDo ??? Validation
-
-          newJobOffers.setSalary(val);
-         newJobOffers.setfor_test(user);
+        newJobOffers.setSalary(val);
+      //  newJobOffers.setfor_test(user);
+        newJobOffers.setOfferedBy(JobApplication.getCompany(ParseUser.getCurrentUser().getUsername()));
         newJobOffers.setSkill(Skil);
         // TODO Update later??????????????  Type of emp
 
          newJobOffers.setEmploymentType(ContractType);
          newJobOffers.setCategory(JobCatagory);
         // TODO  one or more skill list
-        newJobOffers.setSkillsList(skilllist);
+        // newJobOffers.setSkillsList(skilllist);
       //  newJobOffers.setOfferedBy(comp);
         //  TODO  change to System.Today Date
         newJobOffers.setPublishDate(ExpDate);
@@ -488,25 +435,7 @@ public class JobOfferFragment extends Fragment {
     public JobOffers  ReadParseOffer()
     {  final JobOffers offerRead = new JobOffers();
         App_User user = new App_User();
-       /* App_User user = new App_User();
-        user=(App_User)ParseUser.getCurrentUser();
 
-
-        ParseQuery Query1= new ParseQuery("JobOffer");
-        Query1.whereEqualTo("objectId", "eWT4KRkNK2");
-
-      try {
-        ParseObject JOBOFFER = Query1.getFirst();
-          Log.d(TAG, "Company   saved!");
-          String  objId =   JOBOFFER.getObjectId();
-
-
-          }
-         catch (ParseException e)
-              {
-                  Log.d(TAG, e.getMessage());
-               }*/
-/////////////////////////////////
         ParseQuery<JobOffers> query = ParseQuery.getQuery("JobOffers");
         query.getInBackground("eWT4KRkNK2", new GetCallback<JobOffers>() {
             public void done(JobOffers JOBOFFER, ParseException e) {

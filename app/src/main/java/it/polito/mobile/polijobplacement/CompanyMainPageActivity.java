@@ -204,10 +204,9 @@ public class CompanyMainPageActivity extends ActionBarActivity {
                 ParseUser.logOut();
                 startActivity(new Intent(CompanyMainPageActivity.this,MainActivity1.class));
                 break;
-            case 5:
-                startActivity(new Intent(CompanyMainPageActivity.this,sendNewMessage.class));
 
-                break;
+
+
         }
         mDrawerLayout.closeDrawer(mDrawerList);
     }

@@ -484,7 +484,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-<!--////////////////////////////////////////////////////-->
+            <!--////////////////////////////////////////////////////-->
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -531,7 +531,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-           <!-- ///////////////////////////////////////////////////////-->
+            <!-- ///////////////////////////////////////////////////////-->
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

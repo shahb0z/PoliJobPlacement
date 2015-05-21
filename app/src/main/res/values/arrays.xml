@@ -9,6 +9,14 @@
         <item>Master</item>
         <item>Phd</item>
     </string-array>
+    <string-array name="language_level_array">
+        <item>Elementary</item>
+        <item>Pre-Intermediate</item>
+        <item>Intermediate</item>
+        <item>Upper-Intermediate</item>
+        <item>Advanced</item>
+    </string-array>
+
     <string-array name="new_offer_fragment_termContracts">
         <item>Select term of contract...</item>
         <item>Up to 6 months</item>

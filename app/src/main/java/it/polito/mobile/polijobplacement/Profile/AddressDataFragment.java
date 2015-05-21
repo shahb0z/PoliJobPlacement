@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import it.polito.mobile.polijobplacement.R;
 
@@ -17,7 +18,21 @@ import it.polito.mobile.polijobplacement.R;
 public class AddressDataFragment extends Fragment {
 
 
+    public EditText getCountry() {
+        return country;
+    }
 
+    public EditText getRegion() {
+        return region;
+    }
+
+    public EditText getNation() {
+        return nation;
+    }
+
+    private EditText country;
+    private EditText region;
+    private EditText nation;
 
 
 
@@ -31,6 +46,14 @@ public class AddressDataFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public boolean isCompleted() {
+        if(country.getText().toString() == null||
+                region.getText().toString() == null
+                )
+            return false;
+        return true;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +63,11 @@ public class AddressDataFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_address_data, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_address_data, container, false);
+        country = (EditText)rootView.findViewById(R.id.country_edit_text);
+        region = (EditText)rootView.findViewById(R.id.region_edit_text);
+        nation = (EditText)rootView.findViewById(R.id.nationality_edit_text);
+        return rootView;
     }
 
 

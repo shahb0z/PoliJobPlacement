@@ -5,6 +5,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -18,6 +19,12 @@ public class App_User extends ParseUser {
 
     public App_User(){
 
+    }
+    public void setUserName(String username){
+        put("username",username);
+    }
+    public String getUserName(){
+        return getString("username");
     }
 
     public boolean isProfileCompleted(){
@@ -36,5 +43,16 @@ public class App_User extends ParseUser {
         this.put(JobApplication.TYPE, type);
     }
 
+    public static App_User getCurrentUser()
+    {
+        ParseQuery<App_User> pq=  ParseQuery.getQuery(App_User.class);
+        try {
+            return pq.get(ParseUser.getCurrentUser().getObjectId());
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 
 }

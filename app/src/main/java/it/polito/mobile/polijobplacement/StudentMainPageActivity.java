@@ -1,6 +1,7 @@
 package it.polito.mobile.polijobplacement;
 
-        import android.os.Bundle;
+
+import android.os.Bundle;
         import android.app.SearchManager;
         import android.content.Context;
         import android.content.Intent;

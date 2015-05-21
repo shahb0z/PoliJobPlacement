@@ -230,7 +230,7 @@ public class JobApplication extends android.app.Application{
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if(result.size() == 0){
+        if(result == null || result.size() == 0){
             return s;
         }
         return result.get(0);

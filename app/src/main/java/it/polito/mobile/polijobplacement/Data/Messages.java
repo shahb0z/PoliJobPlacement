@@ -20,7 +20,7 @@ public class Messages extends ParseObject {
     }
 
     public App_User getToUser() {
-        return (App_User)get(JobApplication.MESSAGE_FROM);
+        return (App_User)get(JobApplication.MESSAGE_TO);
     }
 
     public void setToUser(App_User user) {
