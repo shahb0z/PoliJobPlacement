@@ -45,8 +45,7 @@
         <activity
             android:name=".Profile.StudentProfile"
             android:label="@string/title_activity_student_profile"
-            android:windowSoftInputMode = "adjustPan"
-            >
+            android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
             android:name=".Profile.CompanyProfile"
@@ -55,7 +54,11 @@
         <activity
             android:name=".sendNewMessage"
             android:label="@string/title_activity_send_new_message"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".Search.Detail_Student"
+            android:label="@string/title_activity_detail__student" >
         </activity>
     </application>
 

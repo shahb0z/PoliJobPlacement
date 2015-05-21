@@ -14,7 +14,7 @@ import java.util.List;
  * Created by user on 5/12/2015.
  */
 @ParseClassName("Company")
-public class Company extends ParseObject {
+public class Company extends ParseObject{
     public Company(){
 
     }

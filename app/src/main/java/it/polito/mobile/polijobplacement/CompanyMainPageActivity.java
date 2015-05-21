@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import com.parse.ParseUser;
 
 import it.polito.mobile.polijobplacement.Profile.CompanyProfile;
+import it.polito.mobile.polijobplacement.Search.Search_student;
 
 
 public class CompanyMainPageActivity extends ActionBarActivity {
@@ -185,6 +186,11 @@ public class CompanyMainPageActivity extends ActionBarActivity {
             case 1:
                 startActivity(new Intent(CompanyMainPageActivity.this,CompanyProfile.class));
 
+                break;
+            case 2:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, Search_student.newInstance()).commit();
                 break;
             case 3: {
                 getSupportFragmentManager()

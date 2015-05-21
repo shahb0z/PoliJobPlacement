@@ -190,6 +190,8 @@ public class JobOfferFragment extends Fragment {
 
                         //comp = AddJobToCompany();
                             offer  = retrieveJobOfferInfo();
+                            GolabalData.add_jobs_by_type(offer);
+
                            //offer.saveInBackground();
                           offer.saveInBackground(new SaveCallback() {
                                @Override

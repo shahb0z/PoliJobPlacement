@@ -18,7 +18,7 @@ public class FragmentPageAdapter_Search_Student extends FragmentPagerAdapter {
     private FragmentTransaction mCurTransaction = null;
 
     final int PAGE_COUNT = 2;
-    private String  ku[]= {"STUDENT LIST","STUDENT IN SPECIFIC FILED"};
+    private String  ku[]= {"DEPARTMENT LIST","FIND STUDENT BY FILTERS"};
     private List<Fragment> fragments;
 
     private Bundle searchResults=null;

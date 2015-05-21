@@ -25,6 +25,7 @@ package it.polito.mobile.polijobplacement;
 
         import it.polito.mobile.polijobplacement.Profile.StudentProfile;
         import it.polito.mobile.polijobplacement.Profile.StudentProfileFragment;
+        import it.polito.mobile.polijobplacement.Search.Search;
 
 public class StudentMainPageActivity extends ActionBarActivity {
 
@@ -154,6 +155,11 @@ public class StudentMainPageActivity extends ActionBarActivity {
                         .replace(R.id.content_frame, StudentProfileFragment.newInstance(),
                                 StudentProfileFragment.TAG).commit();
 
+                break;
+            case 4:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.content_frame, Search.newInstance()).commit();
                 break;
             case 5:
                 ParseUser.logOut();

@@ -8,7 +8,9 @@ import com.parse.ParseObject;
  */
 @ParseClassName("Messages")
 public class Messages extends ParseObject {
-   public Messages(){}
+    private static  String TOCOMPANY = "ToCompany";
+
+    public Messages(){}
        public App_User getFromUser() {
         return (App_User)get(JobApplication.MESSAGE_FROM);
     }
@@ -47,6 +49,10 @@ public class Messages extends ParseObject {
 
     public void setRead(){
         put(JobApplication.MESSAGE_READ,"true");
+    }
+
+    public void setToCompany(Company company) {
+        put(TOCOMPANY, company);
     }
 }
 

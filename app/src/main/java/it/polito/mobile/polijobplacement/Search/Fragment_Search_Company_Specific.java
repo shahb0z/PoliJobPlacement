@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.List;
@@ -21,7 +24,14 @@ import it.polito.mobile.polijobplacement.R;
  * A simple {@link android.app.Fragment} subclass.
  */
 public class Fragment_Search_Company_Specific extends android.support.v4.app.Fragment {
-
+    Spinner sp1;
+    Spinner sp2;
+    EditText location;
+    EditText skills;
+    EditText language;
+    Spinner sp3;
+    String field, degree, level;
+    Button btn;
 
     public Fragment_Search_Company_Specific() {
         // Required empty public constructor
@@ -33,34 +43,23 @@ public class Fragment_Search_Company_Specific extends android.support.v4.app.Fra
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.fragment_fragment__home, container, false);
-        /*ListView lt = (ListView) v.findViewById(R.id.list_company);
-        lt.setAdapter( new BaseAdapter() {
-            Database db = (Database) getActivity().getApplicationContext();
-            List<App_User> list_company = db.Student_List();
+        View v = inflater.inflate(R.layout.fragment_fragment_search, container, false);
+        sp1 = (Spinner)v.findViewById(R.id.field);
+        sp2 = (Spinner)v.findViewById(R.id.degree);
+        sp3 = (Spinner)v.findViewById(R.id.languge_level);
+        location = (EditText)v.findViewById(R.id.location);
+        language = (EditText)v.findViewById(R.id.language);
+        skills = (EditText)v.findViewById(R.id.skills);
+        btn = (Button)v.findViewById(R.id.search_btn);
+        field = (String)sp1.getSelectedItem();
+        degree = (String)sp2.getSelectedItem();
+        level = (String)sp3.getSelectedItem();
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public int getCount() {
-                return list_company.size();
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, Search_Student_Result.newInstance(field,degree, level,location.getText().toString(), skills.getText().toString(), language.getText().toString())).commit();
             }
-
-            @Override
-            public Object getItem(int position) {
-                return list_company.get(position).getName();
-            }
-
-            @Override
-            public long getItemId(int position) {
-                return 0;
-            }
-
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.list_company, parent, false);
-                TextView tv = (TextView)convertView.findViewById(R.id.company_name);
-              //  tv.setText(getItem(position).toString());
-                return convertView;
-            }
-        });*/
+        });
         return v;
     }
 

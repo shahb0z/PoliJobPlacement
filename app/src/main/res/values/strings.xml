@@ -200,5 +200,45 @@
     <string name="error_blank_language">enter language</string>
     <string name="error_language_level">choose level</string>
     <string name="title_activity_send_new_message">sendNewMessage</string>
+    <string name="title_activity_detail__student">Detail_Student</string>
 
+
+    <string-array name="Date">
+        <item>Any date</item>
+        <item>Last 30 days</item>
+        <item>Last 10 days</item>
+        <item>Last 7 days</item>
+    </string-array>
+    <string-array name="Job_type">
+
+        <item>Full Time</item>
+        <item>Part Time</item>
+        <item>Seasonal</item>
+        <item>Contractor</item>
+        <item>Intern</item>
+    </string-array>
+    <string name="joblist"> Jobs </string>
+    <string-array name="fields">
+        <item>Mechanical Engineering</item>
+        <item>Software Engineering</item>
+        <item>Automotive Engineering</item>
+        <item>Architecture and Design</item>
+        <item>Electronic Engineering</item>
+        <item>Telecommunications</item>
+        <item>Control Engineering</item>
+        <item>Management Engineering</item>
+        <item>Energy Engineering</item>
+    </string-array>
+    <string-array name="degrees">
+        <item>Bachelor</item>
+        <item>Master</item>
+        <item>PHD</item>
+        <item>School Diploma</item>
+    </string-array>
+    <string-array name="language_levels">
+        <item>Fluent</item>
+        <item>Advanced</item>
+        <item>Intermediate</item>
+        <item>Elementary</item>
+    </string-array>
 </resources>

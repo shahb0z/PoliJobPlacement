@@ -17,8 +17,8 @@ public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
 
-    final int PAGE_COUNT = 2;
-    private String  ku[]= {"Companies","Job Offers"};
+    final static int PAGE_COUNT = 2;
+    private String  page[]= {"Jobs By Categories","Search By Filters"};
     private List<Fragment> fragments;
 
     private Bundle searchResults=null;
@@ -27,28 +27,12 @@ public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
         this.mFragmentManager = fm;
     }
 
-    /* @Override
-     public Fragment getItem(int position) {
-         Fragment fragment = new TabbedContentFragment();
-         Bundle args = new Bundle();
-         args.putInt(TabbedContentFragment.ARG_SECTION_NUMBER, position + 1);
-         fragment.setArguments(args);
-         return fragment;
-     }*/
 
 
 
 
 
-    private Context context;
 
-    /*public FragmentPageAdapter(FragmentManager fm, Context context) {
-        super(fm);
-       this.mFragmentManager = fm;
-        this.context = context;
-
-    }
-*/
     public void setSearchResults(Bundle results) {
         this.searchResults=results;
     }
@@ -61,7 +45,7 @@ public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return PAGE_COUNT;
 
     }
 
@@ -76,11 +60,11 @@ public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:{
-                f =  new Fragment_Companies();
+                f =  Search_List.newInstance();
                 return  f;
             }
             case 1:{
-                f = new Fragment_Job_Offers();
+                f = Search_by_filters.newInstance();
                 return  f;
             }
 
@@ -101,14 +85,14 @@ public class FragmentPageAdapter_Search extends FragmentPagerAdapter {
     }*/
     @Override
     public CharSequence getPageTitle(int position) {
-        Locale l = Locale.getDefault();
+
 
         switch (position) {
             case 0:
 
-                return ku[0];
+                return page[0];
             case 1:
-                return ku[1];
+                return page[1];
         }
         return null;
     }

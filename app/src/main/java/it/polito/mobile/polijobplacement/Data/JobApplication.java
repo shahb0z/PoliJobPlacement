@@ -8,6 +8,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 import it.polito.mobile.polijobplacement.Data.App_User;
 import it.polito.mobile.polijobplacement.Data.Student;
@@ -160,8 +161,62 @@ public class JobApplication extends android.app.Application{
         return null;
     }
 */
-    public List<JobOffers> getJobList(String title, String location, String type) {
-        return null;
+    public List<JobOffers> getJobList(String title, String company_name, String location, String type) throws ParseException {
+        boolean f1 = false;
+        boolean f2 = false;
+        boolean f3 = false;
+        boolean f4 = false;
+        ParseQuery<JobOffers> query1 = ParseQuery.getQuery(JobOffers.class);
+        if(!title.isEmpty()) {
+            query1.whereEqualTo(JobApplication.JOB_TITLE, title);
+            f1 = true;
+        }
+        ParseQuery<JobOffers> query2 = ParseQuery.getQuery(JobOffers.class);
+        if( !company_name.isEmpty()){
+            Company company = getCompany_byName(company_name);
+            query2.whereEqualTo(JobApplication.JOB_OFFERS_OFFERED_BY, company);
+            f2 = true;
+        }
+        ParseQuery<JobOffers> query3 = ParseQuery.getQuery(JobOffers.class);
+        if( !location.isEmpty()){
+            query3.whereEqualTo(JobApplication.LOCATION, location);
+            f3 = true;
+        }
+        ParseQuery<JobOffers> query4 = ParseQuery.getQuery(JobOffers.class);
+        if( !type.equalsIgnoreCase("Any Category")){
+            query4.whereEqualTo(JobApplication.TYPE, type);
+            f4 = true;
+        }
+        List<ParseQuery<JobOffers>> queries = new ArrayList<ParseQuery<JobOffers>>();
+        if( f1 ) {
+            queries.add(query1);
+        }
+        if( f2 ) {
+            queries.add(query2);
+        }
+        if(f3 )
+        {
+            queries.add(query3);
+        }
+        if(f4 ) {
+            queries.add(query4);
+        }
+        ParseQuery<JobOffers> mainQuery = ParseQuery.or(queries);
+        List<JobOffers> list = null;
+        try {
+            list = mainQuery.find();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
+        return list;
+    }
+
+    private Company getCompany_byName(String company_name) throws ParseException {
+        ParseQuery<Company> query = ParseQuery.getQuery(Company.class);
+        query.whereEqualTo(JobApplication.NAME, company_name);
+        return query.getFirst();
     }
 
     public static Student getStudent(String username) {
@@ -186,6 +241,58 @@ public class JobApplication extends android.app.Application{
         query.whereEqualTo("username", username);
         List<Company> result = null;
         Company s = null;
+        try {
+            result = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if(result.size() == 0){
+            return s;
+        }
+        return result.get(0);
+    }
+    public List<Jobs_by_Type> getJobsbyType() {
+
+
+        ParseQuery<Jobs_by_Type> query = ParseQuery.getQuery(Jobs_by_Type.class);
+        List<Jobs_by_Type> list = null;
+        try {
+            list = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public void add_jobs_by_type(JobOffers offer) {
+
+        ParseQuery<Jobs_by_Type> query = ParseQuery.getQuery(Jobs_by_Type.class);
+        query.whereEqualTo("type", offer.getCategory());
+        List<Jobs_by_Type> jbt = null;
+        try {
+            jbt = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if( jbt != null){
+            jbt.get(0).add(offer);
+            jbt.get(0).saveEventually();
+        }
+        if( jbt == null){
+            Jobs_by_Type job = new Jobs_by_Type();
+            job.setTYPE(offer.getCategory());
+            job.add(offer);
+            job.saveInBackground();
+        }
+    }
+
+    public App_User getAppUser(String userName) {
+
+        ParseQuery<App_User> query = ParseQuery.getQuery(App_User.class);
+        query.whereEqualTo("username", userName);
+        List<App_User> result = null;
+        App_User s = null;
         try {
             result = query.find();
         } catch (ParseException e) {

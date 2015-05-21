@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+    <TextView
+        android:id="@+id/title_job"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="hdjjjjjjj"
+        android:layout_weight="5"
+        android:layout_margin="20dp"
+        android:textSize="22dp"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Detail"
+        android:textColor="@color/blue"
+
+        android:layout_weight="3"
+        android:layout_margin="20dp"
+        />
+</LinearLayout>
