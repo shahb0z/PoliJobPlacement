@@ -51,7 +51,6 @@
         <item>Search</item>
         <item>Job Offer</item>
         <item>Logout</item>
-        <item>Send message</item>
     </string-array>
 
 
@@ -200,5 +199,6 @@
     <string name="error_blank_language">enter language</string>
     <string name="error_language_level">choose level</string>
     <string name="title_activity_send_new_message">sendNewMessage</string>
+
 
 </resources>

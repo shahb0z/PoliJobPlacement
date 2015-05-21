@@ -7,643 +7,587 @@
     android:id="@+id/fragment_new_offer"
     tools:context="it.polito.mobile.polijobplacement.job_newoffer">
 
-    <ScrollView
+<ScrollView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:id="@+id/OfferScrollView"
         android:layout_weight="1">
 
 
+<LinearLayout
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical">
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Object Offer *"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+        '<EditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:id="@+id/offerObject"
+        android:layout_weight="1"
+        android:background="@null"
+        android:backgroundTint="@android:color/white"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:hint="@string/new_offer_fragment_hint_object"
+        android:paddingLeft="30dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon1"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Job_Tittle*"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/Catagory"
+            android:layout_weight="1.2"
+            android:paddingLeft="13dp" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon2"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Available places*"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:paddingBottom="5dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/Available_space"
+            android:layout_weight="1"
+            android:backgroundTint="#ffffffff"
+            android:hint="@string/new_offer_fragment_hint_number_of_place"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:background="@null"
+            android:layout_margin="1dp"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="30dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon3"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Expiring Date*"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/validity_tv"
+                android:layout_weight="1"
+                android:hint="@string/new_offer_fragment_hint_validity"
+                android:phoneNumber="false"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="30dp"
+                android:gravity="center_vertical" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:text="@string/new_offer_fragment_date"
+                android:id="@+id/dateButton"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="30dp"></RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon4"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/new_offer_fragment_hint_spinnercontract"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/typeContract"
+            android:layout_weight="1.2"
+            android:layout_margin="1dp"
+            android:paddingLeft="13dp"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon5"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Choose a term for this contract"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/spinnerDuration"
+            android:layout_weight="1.2"
+            android:paddingLeft="13dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="1dp"
+    android:background="@android:color/darker_gray"
+    android:layout_marginLeft="30dp"></RelativeLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon6"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Location"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/offerLocation"
+            android:layout_weight="1"
+            android:hint="@string/new_offer_fragment_hint_location"
+            android:backgroundTint="@android:color/white"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:background="@null"
+            android:layout_margin="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="30dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowIcon7"
+        android:paddingLeft="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_ab_drawer"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:paddingLeft="5dp">
+
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Salary"
+            android:layout_weight="1"
+            android:paddingLeft="30dp"
+            android:gravity="bottom"
+            android:textSize="10sp" />
+
+
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Job Sector"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:id="@+id/Job_Sector"
-                        android:layout_weight="1.2"
-                        android:layout_margin="1dp"
-                        android:paddingLeft="13dp"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon1"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Tittle Of The Job"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:id="@+id/Job_Tittle"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:hint="@string/new_offer_fragment_job_type"
-                        android:paddingLeft="30dp"
-                        />
-
-
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon2"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Available places*"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:paddingBottom="5dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:inputType="numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/Available_space"
-                        android:layout_weight="1"
-                        android:backgroundTint="#ffffffff"
-                        android:hint="@string/new_offer_fragment_hint_number_of_place"
-                        android:singleLine="true"
-                        android:maxLines="1"
-                        android:background="@null"
-                        android:layout_margin="1dp"
-                        android:layout_marginTop="5dp"
-                        android:paddingLeft="30dp" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon3"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Expiring Date*"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-                    <DatePicker
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:calendarViewShown="false"
-                        android:theme="@style/Base.Animation.AppCompat.DropDownUp"
-                        android:id="@+id/Expied_datePicker" />
-
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:id="@+id/validity_tv"
-                            android:layout_weight="1"
-                            android:hint="@string/new_offer_fragment_hint_validity"
-                            android:phoneNumber="false"
-                            android:layout_marginTop="5dp"
-                            android:paddingLeft="30dp"
-                            android:gravity="center_vertical" />
-
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:text="@string/new_offer_fragment_date"
-                            android:id="@+id/dateButton"
-                            android:layout_weight="0.5" />
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"
-                        android:layout_marginLeft="30dp"></RelativeLayout>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon4"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/new_offer_fragment_hint_spinnercontract"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:id="@+id/typeContract"
-                        android:layout_weight="1.2"
-                        android:layout_margin="1dp"
-                        android:paddingLeft="13dp"/>
-
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon5"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Choose a term for this contract"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-
-                    <Spinner
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:id="@+id/spinnerDuration"
-                        android:layout_weight="1.2"
-                        android:paddingLeft="13dp"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/spinnerSalary"
+                android:layout_weight="1" />
 
             <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"
-                android:layout_marginLeft="30dp"></RelativeLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon6"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Location"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:id="@+id/offerLocation"
-                        android:layout_weight="1"
-                        android:hint="@string/new_offer_fragment_hint_location"
-                        android:backgroundTint="@android:color/white"
-                        android:singleLine="true"
-                        android:maxLines="1"
-                        android:background="@null"
-                        android:layout_margin="1dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:paddingLeft="30dp" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon7"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Salary"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1.2"
-                        android:orientation="horizontal">
-
-                        <Spinner
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:id="@+id/spinnerSalary"
-                            android:layout_weight="1" />
-
-                        <RelativeLayout
-                            android:layout_width="1dp"
-                            android:layout_height="fill_parent"
-                            android:background="@android:color/darker_gray"></RelativeLayout>
-
-                        <EditText
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:inputType="number"
-                            android:id="@+id/offerSalary"
-                            android:layout_weight="1"
-                            android:ems="10"
-                            android:hint="@string/new_offer_fragment_hint_salary"
-                            android:backgroundTint="@android:color/white"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:background="@null"
-                            android:layout_margin="1dp"
-                            android:layout_marginLeft="5dp"
-                            android:paddingLeft="5dp" />
-
-
-                    </LinearLayout>
-
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-<!--////////////////////////////////////////////////////-->
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="100dp">
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rowIcon9"
-                    android:paddingLeft="16dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_ab_drawer"/>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="5dp">
-
-
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="0dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Skill"
-                        android:layout_weight="1"
-                        android:paddingLeft="30dp"
-                        android:gravity="bottom"
-                        android:textSize="10sp" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:id="@+id/Skill"
-                        android:layout_weight="1.2"
-                        android:layout_margin="1dp"
-                        android:paddingLeft="13dp"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-           <!-- ///////////////////////////////////////////////////////-->
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/new_offer_fragment_Description"
-                android:id="@+id/newOffer_tv3"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp" />
-
-
-
-            <android.support.v4.widget.DrawerLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/Description"
-                android:layout_gravity="center"
-                android:layout_width="fill_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                >
-
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/DescriptionText"
-                        android:hint="Description up to 500 words"
-                        android:gravity="top"
-                        android:maxLength="500"
-                        android:background="@null"
-                        android:backgroundTint="@android:color/white"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/countCharacter"
-                        android:layout_gravity="bottom|right"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginRight="5dp" />
-
-                </FrameLayout>
-
-            </android.support.v4.widget.DrawerLayout>
-
-
-            <android.support.v4.widget.DrawerLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/card_AddTag"
-                android:layout_gravity="center"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:elevation="2dp"
-                android:layout_marginTop="5dp">
-
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
-
-
-                    <MultiAutoCompleteTextView
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:hint="@string/new_offer_fragment_hint_tags"
-                        android:id="@+id/tagAutoComplete_tv"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:backgroundTint="@android:color/white"
-                        android:lines="1"
-                        android:singleLine="true"/>
-
-                    <ImageButton
-                        android:layout_width="0dp"
-                        android:layout_height="fill_parent"
-                        android:id="@+id/addTagButton"
-                        android:layout_weight="0.25"
-                        android:background="@android:color/darker_gray"
-                        android:src="@drawable/ic_ab_drawer" />
-
-
-                </LinearLayout>
-
-
-
-            </android.support.v4.widget.DrawerLayout>
-
-            <GridLayout
-                android:layout_width="fill_parent"
+                android:layout_width="1dp"
                 android:layout_height="fill_parent"
-                android:columnCount="2"
-                android:id="@+id/tagContainder"
+                android:background="@android:color/darker_gray"></RelativeLayout>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:inputType="number"
+                android:id="@+id/offerSalary"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/new_offer_fragment_hint_salary"
+                android:backgroundTint="@android:color/white"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@null"
+                android:layout_margin="1dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"></GridLayout>>
+                android:paddingLeft="5dp" />
+
 
         </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="@string/new_offer_fragment_Description"
+    android:id="@+id/newOffer_tv3"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="20dp" />
+
+
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Description"
+    android:layout_gravity="center"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+  >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/DescriptionText"
+            android:hint="Description up to 500 words"
+            android:gravity="top"
+            android:maxLength="500"
+            android:background="@null"
+            android:backgroundTint="@android:color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:id="@+id/countCharacter"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp" />
+
+    </FrameLayout>
+
+</android.support.v4.widget.DrawerLayout>
+
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_AddTag"
+    android:layout_gravity="center"
+    android:layout_width="350dp"
+    android:layout_height="70dp"
+    android:elevation="2dp"
+    android:layout_marginTop="5dp">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <MultiAutoCompleteTextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:hint="@string/new_offer_fragment_hint_tags"
+            android:id="@+id/tagAutoComplete_tv"
+            android:layout_weight="1"
+            android:background="@null"
+            android:backgroundTint="@android:color/white"
+            android:lines="1"
+            android:singleLine="true"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/addTagButton"
+            android:layout_weight="0.25"
+            android:background="@android:color/darker_gray"
+            android:src="@drawable/ic_ab_drawer" />
+
+
+    </LinearLayout>
+
+
+
+</android.support.v4.widget.DrawerLayout>
+
+<GridLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:columnCount="2"
+    android:id="@+id/tagContainder"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"></GridLayout>>
+
+</LinearLayout>
     </ScrollView>
 
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/publishOfferbutton"
-        android:text="@string/new_offer_fragment_button"
-        android:background="@color/tabsScrollColor"
-        android:textColor="@android:color/white"/>
-</LinearLayout>
+<Button
+android:layout_width="fill_parent"
+android:layout_height="50dp"
+android:layout_marginRight="10dp"
+android:layout_marginLeft="10dp"
+android:layout_marginBottom="5dp"
+android:id="@+id/publishOfferbutton"
+android:text="@string/new_offer_fragment_button"
+android:background="@color/tabsScrollColor"
+android:textColor="@android:color/white"/>
+    </LinearLayout>
