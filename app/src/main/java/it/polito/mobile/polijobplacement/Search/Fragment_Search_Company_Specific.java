@@ -8,6 +8,7 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,15 +46,49 @@ public class Fragment_Search_Company_Specific extends android.support.v4.app.Fra
 
         View v = inflater.inflate(R.layout.fragment_fragment_search, container, false);
         sp1 = (Spinner)v.findViewById(R.id.field);
+        sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                field = sp1.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         sp2 = (Spinner)v.findViewById(R.id.degree);
+        sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                degree = sp2.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         sp3 = (Spinner)v.findViewById(R.id.languge_level);
+        sp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                level = sp3.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         location = (EditText)v.findViewById(R.id.location);
         language = (EditText)v.findViewById(R.id.language);
         skills = (EditText)v.findViewById(R.id.skills);
         btn = (Button)v.findViewById(R.id.search_btn);
-        field = (String)sp1.getSelectedItem();
-        degree = (String)sp2.getSelectedItem();
-        level = (String)sp3.getSelectedItem();
+
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

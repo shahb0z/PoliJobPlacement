@@ -303,4 +303,95 @@ public class JobApplication extends android.app.Application{
         }
         return result.get(0);
     }
+
+    public List<Student> filter(String field, String degree, String level, String language, String location, String skills) {
+
+        List<Student> list = null;
+        boolean f1 = false;
+        boolean f2 = false;
+        boolean f3 = false;
+        boolean f4 = false;
+        boolean f5 = false;
+        boolean f6 = false;
+        ParseQuery<Degree> query1 = ParseQuery.getQuery(Degree.class);
+        if(!field.isEmpty()) {
+            query1.whereEqualTo(JobApplication.DEGREE_MAJOR, field);
+            f1 = true;
+        }
+        ParseQuery<Student> queryin1 = ParseQuery.getQuery(Student.class);
+        queryin1.whereMatchesQuery(JobApplication.EDUCATION, query1);
+
+        ParseQuery<Degree> query2 = ParseQuery.getQuery(Degree.class);
+        if( !degree.isEmpty()){
+
+            query2.whereEqualTo(JobApplication.DEGREE_TYPE, degree);
+            f2 = true;
+        }
+        ParseQuery<Student> queryin2 = ParseQuery.getQuery(Student.class);
+        queryin2.whereMatchesQuery(JobApplication.EDUCATION, query2);
+
+        ParseQuery<Languages> query3 = ParseQuery.getQuery(Languages.class);
+        if( !level.isEmpty()){
+
+            query2.whereEqualTo(JobApplication.LANGUAGE_LEVEL, level);
+            f3 = true;
+        }
+        ParseQuery<Student> queryin3 = ParseQuery.getQuery(Student.class);
+        queryin3.whereMatchesQuery(JobApplication.LANGUAGE_SKILLS, query3);
+
+        ParseQuery<Languages> query4 = ParseQuery.getQuery(Languages.class);
+        if( !language.isEmpty()){
+
+            query2.whereEqualTo(JobApplication.LANGUAGE_NAME, language);
+            f4 = true;
+        }
+        ParseQuery<Student> queryin4 = ParseQuery.getQuery(Student.class);
+        queryin4.whereMatchesQuery(JobApplication.LANGUAGE_SKILLS, query4);
+
+        ParseQuery<Student> query5 = ParseQuery.getQuery(Student.class);
+        if( !location.isEmpty()){
+
+            query5.whereEqualTo(JobApplication.CITY, location);
+            f5 = true;
+        }
+
+        ParseQuery<Student> query6 = ParseQuery.getQuery(Student.class);
+        if( !skills.isEmpty()){
+
+            query6.whereEqualTo(JobApplication.SKILLS, skills);
+            f6 = true;
+        }
+
+
+        List<ParseQuery<Student>> queries = new ArrayList<ParseQuery<Student>>();
+        if( f1 ) {
+            queries.add(queryin1);
+        }
+        if( f2 ) {
+            queries.add(queryin2);
+        }
+        if(f3 )
+        {
+            queries.add(queryin3);
+        }
+        if(f4 ) {
+            queries.add(queryin4);
+        }
+        if(f5 ) {
+            queries.add(query5);
+        }
+        if(f6 ) {
+            queries.add(query6);
+        }
+        ParseQuery<Student> mainQuery = ParseQuery.or(queries);
+
+        try {
+            list = mainQuery.find();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
+        return list;
+    }
 }

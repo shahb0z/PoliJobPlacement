@@ -27,7 +27,7 @@ public class Search_by_filters extends Fragment {
     EditText location;
     Spinner job_type;
     Button search;
-    String type;
+    String type, date;
     EditText company_name;
 
     @Override
@@ -51,8 +51,19 @@ public class Search_by_filters extends Fragment {
             }
         });
 
-        Spinner sp2 = (Spinner)v.findViewById(R.id.spinner);
-        final String date = sp2.getSelectedItem().toString();
+        final Spinner sp2 = (Spinner)v.findViewById(R.id.spinner);
+        sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                date = sp2.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         search = (Button) v.findViewById(R.id.search_job_by_filter);
 

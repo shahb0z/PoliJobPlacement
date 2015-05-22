@@ -65,9 +65,9 @@ public class Search_List extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 List<JobOffers> joboffers = null;
-
+                int i =0;
                 for( String s: jbt.keySet()){
-                    int i =0;
+
                     if(i==position){
                         joboffers = jbt.get(s);
                     }

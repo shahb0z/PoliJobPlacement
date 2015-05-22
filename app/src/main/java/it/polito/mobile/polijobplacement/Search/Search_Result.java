@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -53,8 +54,20 @@ public class Search_Result extends Fragment {
         }
         if( l != null) {
 
-            Toast.makeText(getActivity().getApplicationContext(), "Not NUll" + l.size(), Toast.LENGTH_LONG).show();
-           /* ListView v = (ListView) view.findViewById(R.id.job_list);
+
+            String title = l.get(0).getTitle();
+            String job_type = l.get(0).getEmploymentType();
+            String name = l.get(0).getCategory();
+            Toast.makeText(getActivity().getApplicationContext(), "Not NUll" + l.size() + title + job_type + name, Toast.LENGTH_LONG).show();
+            ListView v = (ListView) view.findViewById(R.id.job_list);
+            v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Details", Toast.LENGTH_LONG).show();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, Search_Result_detail.newInstance(l.get(position))).commit();
+
+                }
+            });
             v.setAdapter(new BaseAdapter(){
                 @Override
                 public int getCount() {
@@ -72,44 +85,13 @@ public class Search_Result extends Fragment {
                 }
 
                 @Override
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    convertView = getActivity().getLayoutInflater().inflate(R.layout.fragment_search__list__item, parent, false);
-                    TextView title =(TextView)convertView.findViewById(R.id.title);
-                    TextView company =(TextView) convertView.findViewById(R.id.offeredby);
-                    TextView category =(TextView) convertView.findViewById(R.id.category);
-                    TextView type =(TextView) convertView.findViewById(R.id.type);
-                    TextView salary =(TextView) convertView.findViewById(R.id.salary);
-                    TextView post_day =(TextView) convertView.findViewById(R.id.post_day);
-                    TextView description =(TextView) convertView.findViewById(R.id.description);
-                    TextView deadline =(TextView) convertView.findViewById(R.id.deadline);
-                    title.setText(getItem(position).getTitle());
-//        company.setText(job.getOfferedBy().getName());
-                    category.setText(getItem(position).getCategory());
-                    type.setText(getItem(position).getEmploymentType());
-                    salary.setText(getItem(position).getSalary());
-                    post_day.setText(getItem(position).getPublishDate().toString());
-                    description.setText(getItem(position).getDescription());
-                    deadline.setText(getItem(position).getDueDate().toString());
-                    Button btn = (Button)convertView.findViewById(R.id.apply);
-                    final int pos = position;
-                    btn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity().getApplicationContext(), "Your request is sent", Toast.LENGTH_LONG).show();
-                            Messages message = new Messages();
-                            message.setFromUser(((JobApplication)getActivity().getApplicationContext()).getUser());
-                            message.setToUser(((JobApplication)getActivity().getApplicationContext()).getAppUser(getItem(pos).getOfferedBy().getUserName()));
-                            message.setTitle("Request for job");
-                            message.saveInBackground();
-
-
-                        }
-                    });
+                public View getView(final int position, View convertView, ViewGroup parent) {
+                    convertView = getActivity().getLayoutInflater().inflate(R.layout.item, parent, false);
+                    TextView t = (TextView) convertView.findViewById(R.id.title_job);
+                    t.setText(getItem(position).getTitle().toString());
                     return convertView;
-
-
                 }
-            });*/
+            });
         }
         return view;
     }

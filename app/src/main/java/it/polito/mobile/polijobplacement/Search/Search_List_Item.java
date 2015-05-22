@@ -30,7 +30,7 @@ public class Search_List_Item extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_search__list__item, container, false);
         TextView t = (TextView) v.findViewById(R.id.CategoryName);
-        t.setText(job_by_type.get(0).getCategory());
+        //t.setText(job_by_type.get(0).getCategory());
         ListView l = (ListView) v.findViewById(R.id.items);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
