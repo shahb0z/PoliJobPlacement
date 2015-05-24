@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.DeleteCallback;
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -43,9 +44,9 @@ public class inboxFragment extends Fragment {
     Button btn;
     Messages current;
     EditText feedback;
-    public static inboxFragment newInstance(String From,String subject, String date, Bundle b) {
-        return new inboxFragment();
-    }
+    Button btnMailDel;
+    BaseAdapter myBaseAdapter;
+
 
     public inboxFragment() {
         // Required empty public constructor
@@ -64,82 +65,7 @@ public class inboxFragment extends Fragment {
         list = (ListView) root.findViewById(R.id.list);
 
         messages.clear();
-        App_User app_user= App_User.getCurrentUser();
-        pq=  ParseQuery.getQuery(Messages.class);
-        pq.whereEqualTo("to",app_user);
-        pq.findInBackground(new FindCallback<Messages>() {
-            @Override
-            public void done(List<Messages> messageses, ParseException e) {
-                if (e==null) {
-                    messages.addAll(messageses);
-                    list.setAdapter(new BaseAdapter() {
-                        @Override
-                        public int getCount() {
-                            return messages.size();
-                        }
-
-                        @Override
-                        public Object getItem(int position) {
-                            return messages.get(position);
-                        }
-
-                        @Override
-                        public long getItemId(int position) {
-                            return 0;
-                        }
-
-                        @Override
-                        public View getView(int position, View convertView, ViewGroup parent) {
-                            ViewHolder viewHolder;
-
-                            if (convertView == null) {
-                                // inflate the GridView item layout
-                                LayoutInflater inflater = LayoutInflater.from(getActivity());
-                                convertView =inflater.inflate(R.layout.inbox_list_item, parent, false);
-                                //convertView = inflater.inflate(R.layout.job_detail, parent, false);
-
-                                // initialize the view holder
-                                viewHolder = new ViewHolder();
-                                viewHolder.From = (TextView) convertView
-                                        .findViewById(R.id.from);
-                                viewHolder.subject = (TextView) convertView
-                                        .findViewById(R.id.subject);
-                                viewHolder.date = (TextView) convertView.findViewById(R.id.date);
-                                convertView.setTag(viewHolder);
-                            } else {
-                                // recycle the already inflated view
-                                viewHolder = (ViewHolder) convertView.getTag();
-                            }
-
-                            // update the item view
-                            ParseQuery<App_User> user=  ParseQuery.getQuery(App_User.class);
-                            try {
-                                App_User temp= user.get( messages.get(position).getFromUser().getObjectId());
-                                viewHolder.From.setText( temp.getEmail());
-                                viewHolder.subject.setText(messages.get(position).getTitle());
-
-                                Date date =messages.get(position).getUpdatedAt();
-                                viewHolder.date.setText(date.toGMTString());
-                                return convertView;
-
-                            }
-                            catch (Exception ex)
-                            {
-                                return null;
-                            }
-
-
-
-
-
-                        }
-                    });
-                }
-            }
-        });
-
-
-        list.setAdapter(new BaseAdapter() {
+        myBaseAdapter=new BaseAdapter() {
             @Override
             public int getCount() {
                 return messages.size();
@@ -156,7 +82,7 @@ public class inboxFragment extends Fragment {
             }
 
             @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
+            public View getView(final int position, View convertView, ViewGroup parent) {
                 ViewHolder viewHolder;
 
                 if (convertView == null) {
@@ -187,7 +113,31 @@ public class inboxFragment extends Fragment {
                     viewHolder.subject.setText(messages.get(position).getTitle());
                     Date date =messages.get(position).getUpdatedAt();
                     viewHolder.date.setText(date.toGMTString());
+                    btnMailDel=(Button)convertView.findViewById(R.id.mailDel);
+                    btnMailDel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
+                            messages.get(position).deleteInBackground(new DeleteCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e==null)
+                                    {
+                                        messages.remove(position);
+                                        list.setAdapter(myBaseAdapter);
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_LONG).show();
+                                    }
+                                }
+
+                            });
+
+
+
+                        }
+                    });
                     return convertView;
 
                 }
@@ -197,7 +147,23 @@ public class inboxFragment extends Fragment {
                 }
 
             }
+        };
+        App_User app_user= App_User.getCurrentUser();
+        pq=  ParseQuery.getQuery(Messages.class);
+        pq.whereEqualTo("to",app_user);
+        pq.findInBackground(new FindCallback<Messages>() {
+            @Override
+            public void done(List<Messages> messageses, ParseException e) {
+                if (e==null) {
+                    messages.addAll(messageses);
+                    list.setAdapter(myBaseAdapter);
+                }
+            }
         });
+
+
+
+        list.setAdapter(myBaseAdapter);
 
 
 

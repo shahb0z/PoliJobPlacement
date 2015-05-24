@@ -38,16 +38,23 @@
         android:clickable="false"
         android:focusable="false"
         android:padding="8dip"/>
+    <Button
+        android:id="@+id/mailDel"
 
-   <!-- <Button
-        android:id="@+id/View"
-        android:layout_below="@id/subject"
-        android:text="@string/View"
-        android:textColor="@color/ripple_red"
+        android:layout_toRightOf="@+id/subject"
+        android:text="Delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/from"/>
+    <!-- <Button
+         android:id="@+id/View"
+         android:layout_below="@id/subject"
+         android:text="@string/View"
+         android:textColor="@color/ripple_red"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
 
-        android:layout_alignParentRight="true" />-->
+         android:layout_alignParentRight="true" />-->
 
     <!--<Button
     android:id="@+id/Delete"

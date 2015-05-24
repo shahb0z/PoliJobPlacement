@@ -89,7 +89,7 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
                 return  f;
             }
             case 1:{
-                inboxFragment f= inboxFragment.newInstance("", "", "", searchResults);
+                inboxFragment f= new inboxFragment();
                 return  f;
             }
             case 2:
